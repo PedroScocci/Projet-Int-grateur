@@ -21,30 +21,34 @@
 
         <Button android:id="@+id/Gravite"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
+            android:layout_gravity="center"
             android:layout_weight="1"
             android:text="@string/gravite"/>
 
         <Button android:id="@+id/ForceCentripete"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:text="@string/forceCentripete"/>
 
         <Button android:id="@+id/Paradoxe"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:text="@string/paradoxeJumeaux"/>
 
         <Button android:id="@+id/Onde"
             android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_margin="5dp"
             android:layout_weight="1"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:text="@string/ondesStationnaires"/>
 
 
