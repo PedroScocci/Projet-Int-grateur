@@ -6,52 +6,65 @@
     android:layout_height="match_parent"
     tools:context="com.example.scoccipe.projetphysique.MenuPrincipal">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
+        tools:layout_editor_absoluteX="48dp"
+        tools:layout_editor_absoluteY="0dp">
+
+        <Button
+            android:id="@+id/Onde"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/ForceCentripete"
+            android:layout_gravity="center"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="@string/ondesStationnaires" />
+
+        <Button
+            android:id="@+id/Paradoxe"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:layout_alignTop="@+id/Onde"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_toEndOf="@+id/Onde"
+            android:layout_weight="1"
+            android:text="@string/paradoxeJumeaux" />
+
+        <Button
+            android:id="@+id/ForceCentripete"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:layout_alignStart="@+id/Paradoxe"
+            android:layout_gravity="center"
+            android:layout_marginTop="180dp"
+            android:layout_weight="1"
+            android:text="@string/forceCentripete" />
+
+        <Button
+            android:id="@+id/Gravite"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/Onde"
+            android:layout_gravity="center"
+            android:layout_marginTop="180dp"
+            android:layout_weight="1"
+            android:text="@string/gravite" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nameProject"
-            android:textColor="@color/noir"
-            android:textSize="32sp"
-            android:gravity="center"/>
-
-        <Button android:id="@+id/Gravite"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_margin="5dp"
-            android:layout_gravity="center"
-            android:layout_weight="1"
-            android:text="@string/gravite"/>
-
-        <Button android:id="@+id/ForceCentripete"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:text="@string/forceCentripete"/>
-
-        <Button android:id="@+id/Paradoxe"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:text="@string/paradoxeJumeaux"/>
-
-        <Button android:id="@+id/Onde"
-            android:layout_height="wrap_content"
-            android:layout_width="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:layout_gravity="center"
-            android:text="@string/ondesStationnaires"/>
-
-
-    </LinearLayout>
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:textSize="35dp"
+            android:text="@string/app_name" />
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
