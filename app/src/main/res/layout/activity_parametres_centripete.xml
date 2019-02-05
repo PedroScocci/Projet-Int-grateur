@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.scoccipe.projetphysique.ParametresCentripete">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/param_tres_de_la_force_centrip_te"
+            android:layout_centerHorizontal="true"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/masse_de_la_voiture"
+            android:layout_below="@id/textView"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="197dp" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/vitesse_de_la_voiture"
+            android:layout_below="@id/textView2"
+            tools:layout_editor_absoluteX="80dp"
+            tools:layout_editor_absoluteY="283dp" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/rayon_de_la_route"
+            android:layout_below="@id/textView3"
+            tools:layout_editor_absoluteX="210dp"
+            tools:layout_editor_absoluteY="246dp" />
+
+        <TextView
+            android:id="@+id/textView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/type_de_route"
+            android:layout_below="@id/textView4"
+            tools:layout_editor_absoluteX="163dp"
+            tools:layout_editor_absoluteY="103dp" />
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

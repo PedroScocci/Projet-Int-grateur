@@ -17,7 +17,7 @@ public class Force_Centripete extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(Force_Centripete.this,"fuck you cunt", Toast.LENGTH_LONG).show();
+                Toast.makeText(Force_Centripete.this," you ", Toast.LENGTH_LONG).show();
             }
         });
     }
