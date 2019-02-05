@@ -18,6 +18,7 @@
             android:textSize="32sp"
             android:gravity="center"/>
         <Button
+            android:id="@+id/boutonStart"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/boutonTexteParadoxe"

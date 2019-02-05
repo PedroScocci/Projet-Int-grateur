@@ -5,5 +5,12 @@
     <string name="forceCentripete">Force Centripète</string>
     <string name="paradoxeJumeaux">Paradoxe des jumeaux</string>
     <string name="ondesStationnaires">Ondes Stationnaires</string>
-    <string name="boutonTexteParadoxe">Demarrer la machine a voyager</string>
+    <string name="boutonTexteParadoxe">Demarrer le voyage</string>
+    <string name="detailsDuVoyage">Details du voyage</string>
+    <string name="agePremierPassD">Age du passager au depart</string>
+    <string name="ageDeuxiemePassD">Age du non passager au depart</string>
+    <string name="agePremierPassR">Age du passager au retour</string>
+    <string name="ageDeuxiemePassR">Age du non passager au retour</string>
+    <string name="vitesse">Vitesse du voyage</string>
+    <string name="uniteVitesse">(en pourcentage de la vitesse de la lumiere)</string>
 </resources>
