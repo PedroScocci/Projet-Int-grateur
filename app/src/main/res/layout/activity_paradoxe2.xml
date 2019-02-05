@@ -81,6 +81,17 @@
             android:textColor="@color/noir"
             android:text="@string/uniteVitesse"
             android:gravity="center"/>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        </Spinner>
+        <Button
+            android:id="@+id/paradoxe2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/boutonTexteParadoxe"
+            android:textColor="@color/noir"
+            android:textSize="20sp"/>
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
