@@ -5,4 +5,5 @@
     <string name="paradoxeJumeaux">Paradoxe des jumeaux</string>
     <string name="ondesStationnaires">Ondes Stationnaires</string>
     <string name="a_propos">À propos</string>
+    <string name="param_gravite">Paramètres</string>
 </resources>
