@@ -5,4 +5,5 @@
     <string name="forceCentripete">Force Centripète</string>
     <string name="paradoxeJumeaux">Paradoxe des jumeaux</string>
     <string name="ondesStationnaires">Ondes Stationnaires</string>
+    <string name="boutonTexteParadoxe">Demarrer la machine a voyager</string>
 </resources>
