@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MenuPrincipal extends AppCompatActivity {
+    final static int RETOUR_MENU_PRINCIPAL = 42;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

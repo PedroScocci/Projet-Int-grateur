@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class OndesParam extends AppCompatActivity {
+    final static int ALLER_ONDES_SIMULATIONS = -100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,8 +20,17 @@ public class OndesParam extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(OndesParam.this, OndesSimu.class);
-                startActivity(intent);
+                startActivityForResult(intent, ALLER_ONDES_SIMULATIONS);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(resultCode == MenuPrincipal.RETOUR_MENU_PRINCIPAL && requestCode == ALLER_ONDES_SIMULATIONS) {
+            finish();
+        }
     }
 }
