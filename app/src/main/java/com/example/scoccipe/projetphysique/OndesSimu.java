@@ -11,7 +11,6 @@ import android.widget.Toast;
 
 public class OndesSimu extends AppCompatActivity {
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,10 +32,12 @@ public class OndesSimu extends AppCompatActivity {
                 setResult(MenuPrincipal.RETOUR_MENU_PRINCIPAL);
                 finish();
                 return true;
+
             case R.id.iOndesParam:
                 setResult(RESULT_OK);
                 finish();
                 return true;
+
                 default:
                     return super.onOptionsItemSelected(item);
         }
