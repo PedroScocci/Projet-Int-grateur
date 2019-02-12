@@ -10,4 +10,5 @@
     <string name="vitesse_de_la_voiture">Vitesse de la voiture</string>
     <string name="rayon_de_la_route">Rayon de la route</string>
     <string name="type_de_route">Type de route</string>
+    <string name="commencer_la_simulation">Commencer la simulation</string>
 </resources>
