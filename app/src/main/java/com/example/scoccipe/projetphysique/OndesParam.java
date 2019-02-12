@@ -5,9 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class OndesParam extends AppCompatActivity {
-    final static int ALLER_ONDES_SIMULATIONS = -100;
+    final static int ALLER_ONDES_SIMULATIONS = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +30,16 @@ public class OndesParam extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if(resultCode == MenuPrincipal.RETOUR_MENU_PRINCIPAL && requestCode == ALLER_ONDES_SIMULATIONS) {
-            finish();
+        if (requestCode == ALLER_ONDES_SIMULATIONS ) {
+            if(resultCode == MenuPrincipal.RETOUR_MENU_PRINCIPAL) {
+                finish();
+            }
+            if(requestCode == RESULT_OK) {
+                Toast.makeText(OndesParam.this, "lol", Toast.LENGTH_LONG).show();
+            }
+        }
+        else {
+            Toast.makeText(OndesParam.this, "Erreur dans la saisie", Toast.LENGTH_LONG).show();
         }
     }
 }
