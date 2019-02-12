@@ -9,13 +9,18 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class MenuPrincipal extends AppCompatActivity {
+    private Button boutonGrav, boutonCentri, boutonParadoxe, boutonOndes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
 
-        Button boutonGrav = (Button) findViewById(R.id.Gravite);
+        ajoutListenerBoutons();
+    }
+
+    public void ajoutListenerBoutons(){
+        boutonGrav = (Button) findViewById(R.id.Gravite);
         boutonGrav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -23,7 +28,7 @@ public class MenuPrincipal extends AppCompatActivity {
             }
         });
 
-        Button boutonCentri = (Button) findViewById(R.id.ForceCentripete);
+        boutonCentri = (Button) findViewById(R.id.ForceCentripete);
         boutonCentri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -31,7 +36,7 @@ public class MenuPrincipal extends AppCompatActivity {
             }
         });
 
-        Button boutonParadoxe = (Button) findViewById(R.id.Paradoxe);
+        boutonParadoxe = (Button) findViewById(R.id.Paradoxe);
         boutonParadoxe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,7 +44,7 @@ public class MenuPrincipal extends AppCompatActivity {
             }
         });
 
-        Button boutonOndes = (Button) findViewById(R.id.Onde);
+        boutonOndes = (Button) findViewById(R.id.Onde);
         boutonOndes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
