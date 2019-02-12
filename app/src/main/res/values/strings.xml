@@ -10,4 +10,21 @@
     <string name="masse_1">Masse objet 1 (kg)</string>
     <string name="objet_2">Objet 2</string>
     <string name="ok">OK</string>
+    <string-array name="liste_planetes">
+        <item>Mercure</item>
+        <item>Venus</item>
+        <item>Terre</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturne</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+    <string-array name="liste_objets">
+        <item>Melon d\'eau</item>
+        <item>Voiture</item>
+        <item>Bloc de ciment</item>
+        <item>Bloc de glace</item>
+        <item>Oeuf</item>
+    </string-array>
 </resources>

@@ -36,11 +36,12 @@
                 android:textColor="@color/noir" />
 
             <Spinner
-                android:id="@+id/spinner2"
+                android:id="@+id/spinner_planete"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:entries="@array/liste_planetes"/>
         </LinearLayout>
 
         <LinearLayout
@@ -56,12 +57,13 @@
                 android:text="@string/masse_1"
                 android:textColor="@color/noir" />
 
-            <Spinner
-                android:id="@+id/spinner3"
-                android:layout_width="match_parent"
+            <EditText
+                android:id="@+id/masse_obj1"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1" />
+                android:layout_weight="0"
+                android:ems="10"
+                android:inputType="numberDecimal" />
         </LinearLayout>
 
         <LinearLayout
@@ -78,11 +80,12 @@
                 android:textColor="@color/noir" />
 
             <Spinner
-                android:id="@+id/spinner4"
+                android:id="@+id/spinner_objets"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginRight="10dp"
-                android:layout_weight="1" />
+                android:layout_weight="1"
+                android:entries="@array/liste_objets"/>
         </LinearLayout>
 
         <LinearLayout
@@ -99,7 +102,7 @@
                 android:textColor="@color/noir" />
 
             <EditText
-                android:id="@+id/editText"
+                android:id="@+id/hauteur"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
@@ -109,6 +112,7 @@
         </LinearLayout>
 
         <Button
+            android:id="@+id/bouton_ok"
             android:layout_width="100dp"
             android:layout_height="75dp"
             android:layout_gravity="right"
