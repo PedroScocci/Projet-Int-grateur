@@ -20,5 +20,7 @@ public class Force_Centripete extends AppCompatActivity {
                 Toast.makeText(Force_Centripete.this," you ", Toast.LENGTH_LONG).show();
             }
         });
+
+
     }
 }
