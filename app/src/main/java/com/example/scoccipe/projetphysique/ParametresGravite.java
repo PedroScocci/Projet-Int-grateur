@@ -38,7 +38,7 @@ public class ParametresGravite extends AppCompatActivity {
         spinner_planete.setOnItemSelectedListener(new OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                Toast.makeText(parent.getContext(), parent.getItemAtPosition(pos).toString(), Toast.LENGTH_SHORT).show();
+                //Toast.makeText(parent.getContext(), parent.getItemAtPosition(pos).toString(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -50,7 +50,7 @@ public class ParametresGravite extends AppCompatActivity {
 
     public void ajoutListenerObjets(){
         spinner_objets = (Spinner) findViewById(R.id.spinner_objets);
-        spinner_planete.setOnItemSelectedListener(new OnItemSelectedListener(){
+        spinner_objets.setOnItemSelectedListener(new OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 Toast.makeText(parent.getContext(), parent.getItemAtPosition(pos).toString(), Toast.LENGTH_SHORT).show();
