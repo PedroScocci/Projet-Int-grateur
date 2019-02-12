@@ -6,19 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class MenuPrincipal extends AppCompatActivity {
+public class OndesParam extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_principal);
+        setContentView(R.layout.activity_ondes_param);
 
-        Button onde = (Button) findViewById(R.id.Onde);
+        Button param = (Button) findViewById(R.id.bOndesParam);
 
-        onde.setOnClickListener(new View.OnClickListener() {
+        param.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MenuPrincipal.this, OndesParam.class);
+                Intent intent = new Intent(OndesParam.this, OndesSimu.class);
                 startActivity(intent);
             }
         });

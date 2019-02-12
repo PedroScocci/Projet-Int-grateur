@@ -5,4 +5,15 @@
     <string name="forceCentripete">Force Centripète</string>
     <string name="paradoxeJumeaux">Paradoxe des jumeaux</string>
     <string name="ondesStationnaires">Ondes Stationnaires</string>
+    <string name="ondesParamTitre">Paramètres pour les ondes stationnaires</string>
+    <string name="ondesParamExtrem">Type d\'extrimités</string>
+    <string name="ondesParamTension">Tension dans la corde</string>
+    <string name="ondesParamFrequence">Fréquence</string>
+    <string name="ondesParamLongueur">Longueur de la corde</string>
+    <string name="ondesParamMassLin">Masse linéique de la corde</string>
+    <string name="ondesParamButton">Démarrer la simulation</string>
+    <string name="ondesSimuTitre">Simulation des ondes stationnaires</string>
+    <string name="ondesSimuButton">Commencer</string>
+    <string name="ondesMenuMenPrinci">Menu principal</string>
+    <string name="ondesMenuParam">Paramètres</string>
 </resources>
