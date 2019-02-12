@@ -6,4 +6,29 @@
     android:layout_height="match_parent"
     tools:context="com.example.scoccipe.projetphysique.GraviteActivity">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/bouton_retour"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Retour" />
+
+        <Button
+            android:id="@+id/bouton_planete"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Planete" />
+
+        <Button
+            android:id="@+id/bouton_masse"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Masse" />
+    </LinearLayout>
+
 </android.support.constraint.ConstraintLayout>
