@@ -9,9 +9,12 @@
     <string name="detailsDuVoyage">Details du voyage</string>
     <string name="agePremierPassD">Age du passager au depart</string>
     <string name="ageDeuxiemePassD">Age du non passager au depart</string>
-    <string name="agePremierPassR">Age du passager au retour</string>
-    <string name="ageDeuxiemePassR">Age du non passager au retour</string>
+    <string name="agePremierPassR">Age du passager 1 au retour : </string>
+    <string name="ageDeuxiemePassR">Age du passager 2 au retour : </string>
     <string name="vitesse">Vitesse du voyage</string>
     <string name="uniteVitesse">(en pourcentage de la vitesse de la lumiere)</string>
     <string name="retour">Retour du voyage</string>
+    <string name="jumeaux">Age des jumeaux au depart</string>
+    <string name="ans">ans.</string>
+
 </resources>

@@ -16,7 +16,8 @@
             android:text="@string/detailsDuVoyage"
             android:textSize="40dp"
             android:gravity="center"
-            android:textColor="@color/noir"/>
+            android:textColor="@color/noir"
+            android:paddingBottom="40dp"/>
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -26,31 +27,13 @@
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:orientation="vertical"
                 android:gravity="center"
-                android:orientation="vertical"
-                android:textAlignment="center">
-
+                android:paddingBottom="30dp">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/agePremierPassD"
-                    android:textColor="@color/noir"/>
-                <EditText
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number"
-                    android:textAlignment="center"/>
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                android:gravity="center">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/ageDeuxiemePassD"
+                    android:text="@string/jumeaux"
                     android:textColor="@color/noir"/>
                 <EditText
                     android:layout_width="match_parent"
@@ -80,7 +63,8 @@
             android:layout_height="wrap_content"
             android:textColor="@color/noir"
             android:text="@string/uniteVitesse"
-            android:gravity="center"/>
+            android:gravity="center"
+            android:paddingBottom="50dp"/>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -92,7 +76,7 @@
             android:layout_height="wrap_content"
             android:text="@string/boutonTexteParadoxe"
             android:textColor="@color/noir"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
