@@ -6,14 +6,18 @@
     <string name="paradoxeJumeaux">Paradoxe des jumeaux</string>
     <string name="ondesStationnaires">Ondes Stationnaires</string>
     <string name="ondesParamTitre">Paramètres pour les ondes stationnaires</string>
-    <string name="ondesParamExtrem">Type d\'extrimités</string>
+    <string name="ondesParamExtrem">Type d\'extrémités</string>
     <string name="ondesParamTension">Tension dans la corde</string>
     <string name="ondesParamFrequence">Fréquence</string>
     <string name="ondesParamLongueur">Longueur de la corde</string>
-    <string name="ondesParamMassLin">Masse linéique de la corde</string>
+    <string name="ondesParamMasse">Masse de la corde</string>
     <string name="ondesParamButton">Démarrer la simulation</string>
     <string name="ondesSimuTitre">Simulation des ondes stationnaires</string>
     <string name="ondesSimuButton">Commencer</string>
     <string name="ondesMenuMenPrinci">Menu principal</string>
     <string name="ondesMenuParam">Paramètres</string>
+    <string-array name="extremite_array">
+        <item>Semi-ouvert</item>
+        <item>Fermer</item>
+    </string-array>
 </resources>
