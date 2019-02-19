@@ -2,6 +2,7 @@ package com.example.scoccipe.projetphysique;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.animation.AnimationSet;
 import android.widget.ImageView;
 import android.animation.ObjectAnimator;
 import android.animation.AnimatorListenerAdapter;
@@ -9,6 +10,8 @@ import android.animation.Animator;
 import android.widget.Toast;
 import android.animation.AnimatorSet;
 import android.view.animation.LinearInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
 
 
 public class Paradoxe3 extends AppCompatActivity {
@@ -26,7 +29,10 @@ public class Paradoxe3 extends AppCompatActivity {
 
         ObjectAnimator x = ObjectAnimator.ofFloat(fusee,"translationX", fusee.getX(), 1000);
 
-        animSetXY.playTogether(x, y);
+        ObjectAnimator fadeOut = ObjectAnimator.ofFloat(fusee, "alpha",  1f, 0f);
+        fadeOut.setDuration(2000);
+
+        animSetXY.playTogether(x, y, fadeOut);
         animSetXY.setInterpolator(new LinearInterpolator());
         animSetXY.setDuration(7000);
         animSetXY.start();
