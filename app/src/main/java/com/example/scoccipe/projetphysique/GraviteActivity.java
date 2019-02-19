@@ -17,8 +17,15 @@ public class GraviteActivity extends AppCompatActivity {
         setContentView(R.layout.activity_gravite);
 
         recevoirParametres();
-        crerButtonsTest();
+        //crerButtonsTest();
 
+        Button bouton_retour = (Button) findViewById(R.id.bouton_retour);
+        bouton_retour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     public void recevoirParametres(){
@@ -30,7 +37,7 @@ public class GraviteActivity extends AppCompatActivity {
         hauteur = intent.getStringExtra("hauteur");
     }
 
-    public void crerButtonsTest(){
+    /*public void crerButtonsTest(){
 
         Button bouton_planete = (Button) findViewById(R.id.bouton_planete);
         bouton_planete.setOnClickListener(new View.OnClickListener() {
@@ -47,13 +54,5 @@ public class GraviteActivity extends AppCompatActivity {
                 Toast.makeText(GraviteActivity.this, masse, Toast.LENGTH_SHORT).show();
             }
         });
-
-        Button bouton_retour = (Button) findViewById(R.id.bouton_retour);
-        bouton_retour.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                finish();
-            }
-        });
-    }
+    }*/
 }

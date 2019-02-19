@@ -28,21 +28,30 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="127dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:paddingLeft="10dp"
                 android:text="@string/planete"
                 android:textColor="@color/noir" />
 
-            <Spinner
-                android:id="@+id/spinner_planete"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:alwaysDrawnWithCache="false"
-                android:entries="@array/liste_planetes"/>
+                android:layout_weight="0"
+                android:background="@drawable/border_b"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinner_planete"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:alwaysDrawnWithCache="false"
+
+                    android:entries="@array/liste_planetes" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -51,7 +60,7 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="127dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:paddingLeft="10dp"
@@ -73,20 +82,28 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="127dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:paddingLeft="10dp"
                 android:text="@string/objet_2"
                 android:textColor="@color/noir" />
 
-            <Spinner
-                android:id="@+id/spinner_objets"
-                android:layout_width="match_parent"
+            <LinearLayout
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
-                android:layout_marginRight="10dp"
-                android:layout_weight="1"
-                android:entries="@array/liste_objets"/>
+                android:background="@drawable/border_b"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinner_objets"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0"
+
+                    android:entries="@array/liste_objets" />
+            </LinearLayout>
+
         </LinearLayout>
 
         <LinearLayout
@@ -95,11 +112,11 @@
             android:orientation="horizontal">
 
             <TextView
-                android:layout_width="127dp"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:paddingLeft="10dp"
-                android:text="Hauteur (m)"
+                android:text="@string/hauteur_m"
                 android:textColor="@color/noir" />
 
             <EditText
@@ -112,13 +129,30 @@
 
         </LinearLayout>
 
-        <Button
-            android:id="@+id/bouton_ok"
-            android:layout_width="100dp"
-            android:layout_height="75dp"
-            android:layout_gravity="right"
-            android:layout_marginRight="25dp"
-            android:textSize="20dp"
-            android:text="@string/ok" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:background="@drawable/border">
+
+            <Button
+                android:id="@+id/bouton_retourPG-M"
+                android:layout_width="100dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:text="@string/retour"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/bouton_ok"
+                android:layout_width="100dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="130dp"
+                android:layout_marginRight="25dp"
+                android:text="@string/ok"
+                android:textSize="20dp" />
+        </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

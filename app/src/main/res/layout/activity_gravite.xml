@@ -11,24 +11,29 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/bouton_retour"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:text="Retour" />
-
-        <Button
-            android:id="@+id/bouton_planete"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Planete" />
+            android:layout_height="450dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
 
-        <Button
-            android:id="@+id/bouton_masse"
+        </RelativeLayout>
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Masse" />
+            android:layout_height="60dp"
+            android:background="@drawable/border_t"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bouton_retour"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginRight="5dp"
+                android:text="Retour" />
+        </LinearLayout>
+
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

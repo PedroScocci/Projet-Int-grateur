@@ -6,10 +6,12 @@
     <string name="ondesStationnaires">Ondes Stationnaires</string>
     <string name="a_propos">À propos</string>
     <string name="param_gravite">Paramètres</string>
-    <string name="planete">Planète</string>
-    <string name="masse_1">Masse objet 1 (kg)</string>
-    <string name="objet_2">Objet 2</string>
+    <string name="planete">Planète:</string>
+    <string name="masse_1">Masse objet 1 (kg):</string>
+    <string name="objet_2">Objet 2:</string>
+    <string name="hauteur_m">Hauteur (m):</string>
     <string name="ok">OK</string>
+    <string name="retour">Retour</string>
     <string-array name="liste_planetes">
         <item>Mercure</item>
         <item>Venus</item>

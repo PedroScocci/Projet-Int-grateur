@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class ParametresGravite extends AppCompatActivity {
 
-    private Button bouton_ok;
+    private Button bouton_ok, bouton_retour;
     private Spinner spinner_planete, spinner_objets;
     private String planete, objet, masse, hauteur;
     private Intent intent;
@@ -40,7 +40,7 @@ public class ParametresGravite extends AppCompatActivity {
                 EditText masse_text = (EditText)  findViewById(R.id.masse_obj1);
                 EditText hauteur_text = (EditText) findViewById(R.id.hauteur);
 
-                if(masse_text.getText().toString().isEmpty() == true || hauteur_text.getText().toString().isEmpty() == true){
+                /*if(masse_text.getText().toString().isEmpty() == true || hauteur_text.getText().toString().isEmpty() == true){
                     AlertDialog.Builder builder = new AlertDialog.Builder(ParametresGravite.this);
 
                     builder.setMessage("Veuillez remplir toutes les cases.")
@@ -49,7 +49,7 @@ public class ParametresGravite extends AppCompatActivity {
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 }
-                else{
+                else{*/
                     masse = masse_text.getText().toString();
                     hauteur = hauteur_text.getText().toString();
 
@@ -57,7 +57,15 @@ public class ParametresGravite extends AppCompatActivity {
                     intent.putExtra("hauteur", hauteur);
 
                     startActivity(intent);
-                }
+                //}
+            }
+        });
+
+        bouton_retour = (Button) findViewById(R.id.bouton_retourPG_M);
+        bouton_retour.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
             }
         });
     }
