@@ -1,5 +1,6 @@
 package com.example.scoccipe.projetphysique;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.AnimationSet;
@@ -37,17 +38,12 @@ public class Paradoxe3 extends AppCompatActivity {
         animSetXY.setDuration(7000);
         animSetXY.start();
 
-        /*ObjectAnimator animation = ObjectAnimator.ofFloat(fusee, "translationY", 2000f);
-        animation.setDuration(5000);
-        animation.start();
-
-        animation.addListener(new AnimatorListenerAdapter() {
+        animSetXY.addListener(new AnimatorListenerAdapter() {
             public void onAnimationEnd(Animator animation) {
                 Toast.makeText(Paradoxe3.this, "DONE", Toast.LENGTH_LONG).show();
-                ObjectAnimator animation2 = ObjectAnimator.ofFloat(fusee, "translationX", 1200f);
-                animation2.setDuration(5000);
-                animation2.start();
+                Intent myIntent = new Intent(Paradoxe3.this, Paradoxe4.class);
+                startActivity(myIntent);
                 }
-            });*/
+            });
 
         }}

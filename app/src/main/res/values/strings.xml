@@ -13,4 +13,5 @@
     <string name="ageDeuxiemePassR">Age du non passager au retour</string>
     <string name="vitesse">Vitesse du voyage</string>
     <string name="uniteVitesse">(en pourcentage de la vitesse de la lumiere)</string>
+    <string name="retour">Retour du voyage</string>
 </resources>

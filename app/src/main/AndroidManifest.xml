@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".Paradoxe" />
         <activity android:name=".Paradoxe2" />
-        <activity android:name=".Paradoxe3"></activity>
+        <activity android:name=".Paradoxe3" />
+        <activity android:name=".Paradoxe4"></activity>
     </application>
 
 </manifest>
