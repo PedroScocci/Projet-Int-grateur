@@ -4,7 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Spinner;
+
+
+import java.util.List;
+import java.util.ArrayList;
 
 public class Paradoxe2 extends AppCompatActivity {
 
@@ -19,5 +25,18 @@ public class Paradoxe2 extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+        List<String> spinnerArray =  new ArrayList<String>();
+        spinnerArray.add("Jupiter");
+        spinnerArray.add("Saturne");
+        spinnerArray.add("Mars");
+        spinnerArray.add("Galaxie d'Andremede");
+        spinnerArray.add("Pluton");
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerArray);
+
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        Spinner sItems = (Spinner) findViewById(R.id.spinner);
+        sItems.setAdapter(adapter);
     }
 }
