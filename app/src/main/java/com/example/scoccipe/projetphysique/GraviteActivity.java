@@ -8,13 +8,12 @@ import android.widget.Button;
 import android.widget.Toast;
 
 public class GraviteActivity extends AppCompatActivity {
-    private Intent intenteru = getIntent();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gravite);
-
+        final Intent intenteru = getIntent();
 
 
 
@@ -24,7 +23,7 @@ public class GraviteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(GraviteActivity.this,
-                        intenteru.getStringExtra("planete"),
+                        intenteru.getStringExtra("test"),
                         Toast.LENGTH_SHORT).show();
             }
         });
@@ -33,9 +32,9 @@ public class GraviteActivity extends AppCompatActivity {
         bouton_masse.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(GraviteActivity.this,
+                /*Toast.makeText(GraviteActivity.this,
                         intenteru.getStringExtra("masse"),
-                        Toast.LENGTH_SHORT).show();
+                        Toast.LENGTH_SHORT).show();*/
             }
         });
 
