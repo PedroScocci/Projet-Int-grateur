@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 
 
@@ -18,9 +19,12 @@ public class Paradoxe2 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paradoxe2);
+        EditText age = (EditText) findViewById(R.id.age);
+        EditText vitesse = (EditText) findViewById(R.id.vitesse);
         Button but = (Button) findViewById(R.id.paradoxe2);
         but.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                double age_nombre ;
                 Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
                 startActivity(myIntent);
             }
