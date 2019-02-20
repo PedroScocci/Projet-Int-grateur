@@ -34,8 +34,10 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/jumeaux"
+                    android:textSize="20dp"
                     android:textColor="@color/noir"/>
                 <EditText
+                    android:id="@+id/age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
@@ -52,6 +54,7 @@
             android:textSize="20dp"
             android:textColor="@color/noir"/>
         <EditText
+            android:id="@+id/vitesse"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:textAlignment="center"
@@ -72,10 +75,11 @@
         </Spinner>
         <Button
             android:id="@+id/paradoxe2"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/boutonTexteParadoxe"
             android:textColor="@color/noir"
+            android:layout_gravity="center"
             android:textSize="20sp" />
     </LinearLayout>
 
