@@ -16,7 +16,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Paradoxe" />
+        <activity android:name=".Paradoxe"
+            android:theme="@style/Ciel" />
         <activity android:name=".Paradoxe2" />
         <activity android:name=".Paradoxe3" />
         <activity android:name=".Paradoxe4"></activity>

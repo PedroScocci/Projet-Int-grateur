@@ -20,5 +20,7 @@ public class Paradoxe extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
+
+
     }
 }
