@@ -47,6 +47,7 @@
         </LinearLayout>
 
         <TextView
+            android:id="@+id/vv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
