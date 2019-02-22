@@ -7,11 +7,19 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 public class ParametresCentripete extends AppCompatActivity {
     public static final String PARAMETRES = "param";
+    public static double masse;
+    public static double vitesse;
+    public static double rayon;
+    public double coef;
+    public double friction;
+    public double centripete;
+    public boolean derap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,27 +32,23 @@ public class ParametresCentripete extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        TextView tv1 = (TextView) findViewById(R.id.edittext1);
-        int masse  = Integer.valueOf(tv1.toString());
-        TextView tv2 = (TextView) findViewById(R.id.edittext2);
-        int vitesse = Integer.valueOf(tv2.toString());
-        TextView tv3 = (TextView) findViewById(R.id.edittext3);
-        int rayon = Integer.valueOf(tv3.toString());
+       final EditText tv1 = (EditText) findViewById(R.id.edittext1);
+       final EditText tv2 = (EditText) findViewById(R.id.edittext2);
+       final EditText tv3 = (EditText) findViewById(R.id.edittext3);
 
-        final double[] def = new double[1];
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id)
             {
                 switch(pos)
                 {
-                    case 0: def[0] = 0.2;
+                    case 0: coef = 0.2;
                     break;
-                    case 1: def[0] = 0.899;
+                    case 1: coef = 0.899;
                     break;
-                    case 2: def[0] = 0.876;
+                    case 2: coef = 0.876;
                     break;
-                    case 3: def[0] = 0.745;
+                    case 3: coef = 0.745;
                 }
             }
 
@@ -54,14 +58,23 @@ public class ParametresCentripete extends AppCompatActivity {
             }
         });
 
-        double test = def[0]*3;
-
         Button button = (Button) findViewById(R.id.button5);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                masse = Double.parseDouble(tv1.getText().toString());
+                vitesse = Double.parseDouble(tv2.getText().toString());
+                rayon = Double.parseDouble(tv3.getText().toString());
+                friction = masse*9.81*coef;
+                centripete = (masse*Math.pow(vitesse,2))/rayon;
+                if(friction < centripete) {
+                    derap = true;
+                }
+                else {
+                    derap = false;
+                }
                 Intent intent = new Intent(ParametresCentripete.this, Force_Centripete.class);
-                intent.putExtra(PARAMETRES, masse);
+                intent.putExtra(PARAMETRES, derap);
                 startActivity(intent);
             }
         });
