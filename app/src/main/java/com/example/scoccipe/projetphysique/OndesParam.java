@@ -38,41 +38,47 @@ public class OndesParam extends AppCompatActivity {
 
                 Spinner extrem = (Spinner) findViewById(R.id.ondesExtrem);
                 extremite = extrem.getSelectedItem().toString();
-                System.err.printf("LOOOOOOOOOOOOOOOOOOOOLLLLLLLLLLLLLLLLLLL");
-                try {
-                    EditText tens = (EditText) findViewById(R.id.ondesTension);
-                    tension = Double.parseDouble(tens.getText().toString());
-                    EditText freq = (EditText) findViewById(R.id.ondesFrequence);
-                    frequence = Double.parseDouble(freq.getText().toString());
-                    EditText longu = (EditText) findViewById(R.id.ondesLongueur);
-                    longueur = Double.parseDouble(longu.getText().toString());
-                    EditText mass = (EditText) findViewById(R.id.ondesMasse);
-                    masse = Double.parseDouble(mass.getText().toString());
 
-                } catch (NumberFormatException e) {
 
-                }
-
-                Toast.makeText(OndesParam.this, String.valueOf(frequence), Toast.LENGTH_LONG).show();
-
-                double mode = 0;
-
-                if(Objects.equals(extremite, "Semi-ouvert")){
-
-                }
-                else if (Objects.equals(extremite, "Fermé")) {
-
-                    mode =  2 * frequence;
-                    Toast.makeText(OndesParam.this, String.valueOf(mode), Toast.LENGTH_LONG).show();
-                    mode = mode * ( Math.sqrt( masse * longueur / tension) );
-
-                    modeStationnaire = Math.round(mode);
-                }
-
-                if(mode != modeStationnaire) {
+                if(Objects.equals(extremite, "Type d'extrémité")) {
+                    //extrem.setBackgroundColor(getResources().getColor(R.color.rouge));
+                    Toast.makeText(OndesParam.this, "Chosir un type d'extrémité à la corde!", Toast.LENGTH_LONG).show();
 
                 } else {
-                    startActivityForResult(intent, ALLER_ONDES_SIMULATIONS);
+                    //extrem.setBackgroundColor(getResources().getColor(R.color.blanc));
+                    EditText tens = (EditText) findViewById(R.id.ondesTension);
+                    EditText freq = (EditText) findViewById(R.id.ondesFrequence);
+                    EditText longu = (EditText) findViewById(R.id.ondesLongueur);
+                    EditText mass = (EditText) findViewById(R.id.ondesMasse);
+
+                    double mode = 0.5;
+
+                    try {
+
+                        tension = Double.parseDouble(tens.getText().toString());
+                        frequence = Double.parseDouble(freq.getText().toString());
+                        longueur = Double.parseDouble(longu.getText().toString());
+                        masse = Double.parseDouble(mass.getText().toString());
+
+                        if(Objects.equals(extremite, "Semi-ouvert")){
+                            mode =  ( 4 * frequence * ( Math.sqrt( masse * longueur / tension) )  - 1 ) / 2 ;
+                            modeStationnaire = Math.round(mode);
+                        }
+                        else if (Objects.equals(extremite, "Fermé")) {
+                            mode =  2 * frequence * ( Math.sqrt( masse * longueur / tension) );
+                            modeStationnaire = Math.round(mode);
+                        }
+
+                    } catch (NumberFormatException e) {
+                        Toast.makeText(OndesParam.this, "Vous avez oubliez de saisir des paramètres", Toast.LENGTH_LONG).show();
+                    }
+
+                    if(mode != modeStationnaire) {
+
+                    } else {
+                        //intent.putExtra()
+                        startActivityForResult(intent, ALLER_ONDES_SIMULATIONS);
+                    }
                 }
             }
         });

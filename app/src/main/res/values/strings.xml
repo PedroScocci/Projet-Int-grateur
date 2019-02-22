@@ -17,7 +17,7 @@
     <string name="ondesMenuMenPrinci">Menu principal</string>
     <string name="ondesMenuParam">Paramètres</string>
     <string-array name="extremite_array">
-        <item>Type d\'extremité</item>
+        <item>Type d\'extrémité</item>
         <item>Semi-ouvert</item>
         <item>Fermé</item>
     </string-array>
