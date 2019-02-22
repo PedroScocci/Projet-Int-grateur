@@ -21,17 +21,16 @@ public class MenuPrincipal extends AppCompatActivity {
     }
 
     public void ajoutListenerBoutons(){
-        boutonGrav = (Button) findViewById(R.id.Gravite);
+        boutonGrav = (Button) findViewById(R.id.bouton_Gravite);
         boutonGrav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Toast.makeText(MenuPrincipal.this, "GRAVITÉ", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MenuPrincipal.this, ParametresGravite.class);
                 startActivity(intent);
             }
         });
 
-        boutonCentri = (Button) findViewById(R.id.ForceCentripete);
+        boutonCentri = (Button) findViewById(R.id.bouton_ForceCentripete);
         boutonCentri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -39,7 +38,7 @@ public class MenuPrincipal extends AppCompatActivity {
             }
         });
 
-        boutonParadoxe = (Button) findViewById(R.id.Paradoxe);
+        boutonParadoxe = (Button) findViewById(R.id.bouton_Paradoxe);
         boutonParadoxe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -47,7 +46,7 @@ public class MenuPrincipal extends AppCompatActivity {
             }
         });
 
-        boutonOndes = (Button) findViewById(R.id.Onde);
+        boutonOndes = (Button) findViewById(R.id.bouton_Onde);
         boutonOndes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

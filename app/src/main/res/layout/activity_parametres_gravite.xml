@@ -145,7 +145,7 @@
                 android:textSize="20dp" />
 
             <Button
-                android:id="@+id/bouton_ok"
+                android:id="@+id/bouton_okPG-SG"
                 android:layout_width="100dp"
                 android:layout_height="75dp"
                 android:layout_gravity="center"

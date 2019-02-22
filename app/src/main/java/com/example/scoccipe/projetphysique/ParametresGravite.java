@@ -24,6 +24,9 @@ public class ParametresGravite extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parametres_gravite);
 
+        Toast.makeText(ParametresGravite.this, "À FAIRE: ajouter une fenêtre sur la théorie qui s'ouvre" +
+                                                            " automatiquemet.",Toast.LENGTH_LONG).show();
+
         intent = new Intent(ParametresGravite.this, GraviteActivity.class);
 
         ajoutListenerButton();
@@ -32,32 +35,40 @@ public class ParametresGravite extends AppCompatActivity {
     }
 
     public void ajoutListenerButton(){
-        bouton_ok = (Button) findViewById(R.id.bouton_ok);
+        bouton_ok = (Button) findViewById(R.id.bouton_okPG_SG);
         bouton_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 EditText masse_text = (EditText)  findViewById(R.id.masse_obj1);
                 EditText hauteur_text = (EditText) findViewById(R.id.hauteur);
+                AlertDialog.Builder builder = new AlertDialog.Builder(ParametresGravite.this);
 
-                /*if(masse_text.getText().toString().isEmpty() == true || hauteur_text.getText().toString().isEmpty() == true){
-                    AlertDialog.Builder builder = new AlertDialog.Builder(ParametresGravite.this);
-
+                if(masse_text.getText().toString().isEmpty() == true || hauteur_text.getText().toString().isEmpty() == true){
                     builder.setMessage("Veuillez remplir toutes les cases.")
-                            .setTitle("ERREUR");
+                            .setTitle("ERREUR :");
 
                     AlertDialog dialog = builder.create();
                     dialog.show();
                 }
-                else{*/
-                    masse = masse_text.getText().toString();
-                    hauteur = hauteur_text.getText().toString();
+                else{
+                    if(Integer.parseInt(hauteur_text.getText().toString()) > 1000)
+                    {
+                        builder.setMessage("Hauteur maximale: 1000m")
+                                .setTitle("ERREUR :");
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    }
+                    else{
+                        masse = masse_text.getText().toString();
+                        hauteur = hauteur_text.getText().toString();
 
-                    intent.putExtra("masse", masse);
-                    intent.putExtra("hauteur", hauteur);
+                        intent.putExtra("masse", masse);
+                        intent.putExtra("hauteur", hauteur);
 
-                    startActivity(intent);
-                //}
+                        startActivity(intent);
+                    }
+                }
             }
         });
 

@@ -27,7 +27,7 @@
             android:orientation="horizontal">
 
             <Button
-                android:id="@+id/bouton_retour"
+                android:id="@+id/bouton_retourSG_PG"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:layout_marginRight="5dp"
