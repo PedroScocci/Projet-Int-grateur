@@ -1,24 +1,28 @@
 package com.example.scoccipe.projetphysique;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import java.io.IOException;
+import java.util.Objects;
+
 public class OndesParam extends AppCompatActivity {
     final static int ALLER_ONDES_SIMULATIONS = 2;
+    private long modeStationnaire = 0;
     private double tension = 0;
     private double frequence = 0;
     private double longueur = 0;
     private double masse = 0;
     private String extremite = "";
-    private String [] list = getResources().getStringArray(R.array.extremite_array);
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +38,42 @@ public class OndesParam extends AppCompatActivity {
 
                 Spinner extrem = (Spinner) findViewById(R.id.ondesExtrem);
                 extremite = extrem.getSelectedItem().toString();
+                System.err.printf("LOOOOOOOOOOOOOOOOOOOOLLLLLLLLLLLLLLLLLLL");
+                try {
+                    EditText tens = (EditText) findViewById(R.id.ondesTension);
+                    tension = Double.parseDouble(tens.getText().toString());
+                    EditText freq = (EditText) findViewById(R.id.ondesFrequence);
+                    frequence = Double.parseDouble(freq.getText().toString());
+                    EditText longu = (EditText) findViewById(R.id.ondesLongueur);
+                    longueur = Double.parseDouble(longu.getText().toString());
+                    EditText mass = (EditText) findViewById(R.id.ondesMasse);
+                    masse = Double.parseDouble(mass.getText().toString());
 
-                if(extremite == list[0]){
+                } catch (NumberFormatException e) {
 
                 }
-                else if (extremite == list[1]) {
+
+                Toast.makeText(OndesParam.this, String.valueOf(frequence), Toast.LENGTH_LONG).show();
+
+                double mode = 0;
+
+                if(Objects.equals(extremite, "Semi-ouvert")){
 
                 }
+                else if (Objects.equals(extremite, "Fermé")) {
 
-                Toast.makeText(OndesParam.this, extremite, Toast.LENGTH_LONG).show();
+                    mode =  2 * frequence;
+                    Toast.makeText(OndesParam.this, String.valueOf(mode), Toast.LENGTH_LONG).show();
+                    mode = mode * ( Math.sqrt( masse * longueur / tension) );
 
-                startActivityForResult(intent, ALLER_ONDES_SIMULATIONS);
+                    modeStationnaire = Math.round(mode);
+                }
+
+                if(mode != modeStationnaire) {
+
+                } else {
+                    startActivityForResult(intent, ALLER_ONDES_SIMULATIONS);
+                }
             }
         });
     }
@@ -66,5 +95,4 @@ public class OndesParam extends AppCompatActivity {
         }
     }
 
-    //class AdapterView
 }
