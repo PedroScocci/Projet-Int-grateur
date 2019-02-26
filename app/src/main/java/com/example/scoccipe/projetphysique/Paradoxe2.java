@@ -61,14 +61,14 @@ public class Paradoxe2 extends AppCompatActivity {
                 catch (NumberFormatException e){
                     e.printStackTrace();
                 }
-                Toast.makeText(Paradoxe2.this, String.valueOf(vitesse_nombre), Toast.LENGTH_SHORT).show();
                 addSpinerListener();
-
-                temps_dilatea = temps*(sqrt((1-((vitesse_nombre*(3*pow(10,8)))/100))/(1+((vitesse_nombre*(3*pow(10,8)))/100))));
-                temps_dilater = temps*(sqrt((1+((vitesse_nombre*(3*pow(10,8)))/100))/(1-((vitesse_nombre*(3*pow(10,8)))/100))));
-                temps_dilate = temps_dilatea+temps_dilater;
+                Toast.makeText(Paradoxe2.this, String.valueOf(temps), Toast.LENGTH_SHORT).show();
+                temps_dilatea = temps*(sqrt((1-((vitesse_nombre/100))/(1+((vitesse_nombre/100))))));
+                temps_dilater = temps*(sqrt((1+((vitesse_nombre/100))/(1-((vitesse_nombre/100))))));
+                //Toast.makeText(Paradoxe2.this, String.valueOf(temps_dilatea), Toast.LENGTH_SHORT).show();
+                //temps_dilate = temps_dilatea+temps_dilater;
                 TextView txt = (TextView) findViewById(R.id.vv) ;
-                txt.setText(String.valueOf(temps_dilate));
+                txt.setText(String.valueOf(temps_dilatea));
                 //Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
                 //startActivity(myIntent);
             }
@@ -81,17 +81,21 @@ public class Paradoxe2 extends AppCompatActivity {
                 dest = parent.getItemAtPosition(position).toString();
                 switch (dest){
                     case "Jupiter":
-                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*624000000)/8760;
+                        temps = ((41.32*pow(10,15))/((vitesse_nombre*(3*pow(10,8)))/100))/31536000;
+                        break;
                     case "Saturne":
-                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*1350000000)/8760;
+                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*1350000000);
+                        break;
                     case "Mars":
-                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*56000000)/8760;
+                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*56000000);
+                        break;
                     case "Galaxie d'Andremede":
-                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*(2.401*pow(10,19)))/8760;
+                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*(2.401*pow(10,19)));
+                        break;
                     case "Pluton":
-                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*(5.766*pow(10,9)))/8760;
+                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*(5.766*pow(10,9)));
+                        break;
                 }
-                //Toast.makeText(Paradoxe2.this, String.valueOf(temps), Toast.LENGTH_LONG).show();
             }
 
             @Override
