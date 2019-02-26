@@ -1,10 +1,12 @@
 package com.example.scoccipe.projetphysique;
 
 import android.content.Intent;
+import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 public class GraviteActivity extends AppCompatActivity {
@@ -21,7 +23,7 @@ public class GraviteActivity extends AppCompatActivity {
 
         recevoirParametres();
 
-
+        animationTest();
 
 
 
@@ -94,6 +96,13 @@ public class GraviteActivity extends AppCompatActivity {
         energie_impact = 0.5 * Double.parseDouble(masse) * Math.pow(vitesse_finale, 2);
         energie_impact = Math.round(energie_impact * 100d) / 100d;
         Toast.makeText(GraviteActivity.this,energie_impact.toString() + " J", Toast.LENGTH_SHORT).show();
+    }
+
+    public void animationTest(){
+        ImageView imageCercle = (ImageView) findViewById(R.id.image_test);
+
+        imageCercle.animate().translationYBy(1000).setDuration(2000);
+
     }
 
     public void ajoutBoutonRetour(){

@@ -17,6 +17,13 @@
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp">
 
+            <ImageView
+                android:id="@+id/image_test"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/cercle_test" />
         </RelativeLayout>
 
         <LinearLayout
