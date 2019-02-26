@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">grgt</string>
+    <string name="app_name">ProjetPhysique</string>
     <string name="nameProject">Simulateur physique</string>
     <string name="gravite">Gravité</string>
     <string name="forceCentripete">Force Centripète</string>
