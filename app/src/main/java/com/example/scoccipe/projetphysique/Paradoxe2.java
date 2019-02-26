@@ -10,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 import java.util.List;
@@ -46,27 +47,23 @@ public class Paradoxe2 extends AppCompatActivity {
 
         /*=======================Fin Spinner=======================*/
 
-        final EditText age = (EditText) findViewById(R.id.age);
-        final EditText vitesse = (EditText) findViewById(R.id.vitesse);
+
         Button but = (Button) findViewById(R.id.paradoxe2);
 
         but.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
+                EditText age = (EditText) findViewById(R.id.age);
+                EditText vitesse = (EditText) findViewById(R.id.vitesse);
                 //age_nombre = Double.parseDouble(age.toString());
-                vitesse_nombre = Double.parseDouble(vitesse.toString());
-                addSpinerListener();
-                switch (dest){
-                    case "Jupiter":
-                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*624000000)/8760;
-                    case "Saturne":
-                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*1350000000)/8760;
-                    case "Mars":
-                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*56000000)/8760;
-                    case "Galaxie d'Andremede":
-                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*(2.401*pow(10,19)))/8760;
-                    case "Pluton":
-                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*(5.766*pow(10,9)))/8760;
+                try{
+                    vitesse_nombre = Double.valueOf(vitesse.getText().toString());
                 }
+                catch (NumberFormatException e){
+                    e.printStackTrace();
+                }
+                Toast.makeText(Paradoxe2.this, String.valueOf(vitesse_nombre), Toast.LENGTH_SHORT).show();
+                addSpinerListener();
+
                 temps_dilatea = temps*(sqrt((1-((vitesse_nombre*(3*pow(10,8)))/100))/(1+((vitesse_nombre*(3*pow(10,8)))/100))));
                 temps_dilater = temps*(sqrt((1+((vitesse_nombre*(3*pow(10,8)))/100))/(1-((vitesse_nombre*(3*pow(10,8)))/100))));
                 temps_dilate = temps_dilatea+temps_dilater;
@@ -82,6 +79,19 @@ public class Paradoxe2 extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 dest = parent.getItemAtPosition(position).toString();
+                switch (dest){
+                    case "Jupiter":
+                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*624000000)/8760;
+                    case "Saturne":
+                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*1350000000)/8760;
+                    case "Mars":
+                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*56000000)/8760;
+                    case "Galaxie d'Andremede":
+                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*(2.401*pow(10,19)))/8760;
+                    case "Pluton":
+                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*(5.766*pow(10,9)))/8760;
+                }
+                //Toast.makeText(Paradoxe2.this, String.valueOf(temps), Toast.LENGTH_LONG).show();
             }
 
             @Override
