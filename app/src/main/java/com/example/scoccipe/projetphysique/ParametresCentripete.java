@@ -10,8 +10,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ParametresCentripete extends AppCompatActivity {
+    public static final int PARAM = 1;
     public static final String PARAMETRES = "param";
     public static double masse;
     public static double vitesse;
@@ -19,7 +21,7 @@ public class ParametresCentripete extends AppCompatActivity {
     public double coef;
     public double friction;
     public double centripete;
-    public boolean derap;
+    public static boolean derap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +34,13 @@ public class ParametresCentripete extends AppCompatActivity {
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-       final EditText tv1 = (EditText) findViewById(R.id.edittext1);
-       final EditText tv2 = (EditText) findViewById(R.id.edittext2);
-       final EditText tv3 = (EditText) findViewById(R.id.edittext3);
+        final TextView tv1 = (TextView) findViewById(R.id.textView2);
+        final TextView tv2 = (TextView) findViewById(R.id.textView3);
+        final TextView tv3 = (TextView) findViewById(R.id.textView4);
+        final TextView tv4 = (TextView) findViewById(R.id.textView5);
+        final EditText et1 = (EditText) findViewById(R.id.edittext1);
+        final EditText et2 = (EditText) findViewById(R.id.edittext2);
+        final EditText et3 = (EditText) findViewById(R.id.edittext3);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
@@ -62,20 +68,50 @@ public class ParametresCentripete extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                masse = Double.parseDouble(tv1.getText().toString());
-                vitesse = Double.parseDouble(tv2.getText().toString());
-                rayon = Double.parseDouble(tv3.getText().toString());
-                friction = masse*9.81*coef;
-                centripete = (masse*Math.pow(vitesse,2))/rayon;
-                if(friction < centripete) {
-                    derap = true;
+                try {
+
+                    masse = Double.parseDouble(et1.getText().toString());
+                    vitesse = (Double.parseDouble(et2.getText().toString()))*3.6;
+                    rayon = Double.parseDouble(et3.getText().toString());
+                    friction = masse*9.81*coef;
+                    centripete = (masse*Math.pow(vitesse,2))/rayon;
+                    if(friction < centripete) {
+                        derap = true;
+                    }
+                    else {
+                        derap = false;
+                    }
+                    tv1.setTextColor(getResources().getColor(R.color.noir));
+                    tv2.setTextColor(getResources().getColor(R.color.noir));
+                    tv3.setTextColor(getResources().getColor(R.color.noir));
+                    Intent intent = new Intent(ParametresCentripete.this, Force_Centripete.class);
+                    intent.putExtra(PARAMETRES, derap);
+                    startActivityForResult(intent, PARAM);
                 }
-                else {
-                    derap = false;
+                catch (NumberFormatException e){
+                    Toast.makeText(ParametresCentripete.this, "Des paramètres sont manquants", Toast.LENGTH_LONG).show();
+                    if(et1.getText().toString().equals(""))
+                    {
+                        tv1.setTextColor(getResources().getColor(R.color.rouge));
+                    }
+                    else {
+                        tv1.setTextColor(getResources().getColor(R.color.noir));
+                    }
+                    if(et2.getText().toString().equals(""))
+                    {
+                        tv2.setTextColor(getResources().getColor(R.color.rouge));
+                    }
+                    else {
+                        tv2.setTextColor(getResources().getColor(R.color.noir));
+                    }
+                    if(et3.getText().toString().equals(""))
+                    {
+                        tv3.setTextColor(getResources().getColor(R.color.rouge));
+                    }
+                    else {
+                        tv3.setTextColor(getResources().getColor(R.color.noir));
+                    }
                 }
-                Intent intent = new Intent(ParametresCentripete.this, Force_Centripete.class);
-                intent.putExtra(PARAMETRES, derap);
-                startActivity(intent);
             }
         });
     }
