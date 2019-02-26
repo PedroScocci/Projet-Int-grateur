@@ -17,7 +17,8 @@ import java.util.Objects;
 
 public class OndesParam extends AppCompatActivity {
     final static int ALLER_ONDES_SIMULATIONS = 2;
-    private long modeStationnaire = 0;
+    final static String MODE_STATIONNAIRE = "mode";
+    private double modeStationnaire = 0;
     private double tension = 0;
     private double frequence = 0;
     private double longueur = 0;
@@ -46,42 +47,46 @@ public class OndesParam extends AppCompatActivity {
 
                 } else {
                     //extrem.setBackgroundColor(getResources().getColor(R.color.blanc));
-                    EditText tens = (EditText) findViewById(R.id.ondesTension);
-                    EditText freq = (EditText) findViewById(R.id.ondesFrequence);
-                    EditText longu = (EditText) findViewById(R.id.ondesLongueur);
-                    EditText mass = (EditText) findViewById(R.id.ondesMasse);
+                    if(modeStationnaire == -1) {
 
-                    double mode = 0.5;
-
-                    try {
-
-                        tension = Double.parseDouble(tens.getText().toString());
-                        frequence = Double.parseDouble(freq.getText().toString());
-                        longueur = Double.parseDouble(longu.getText().toString());
-                        masse = Double.parseDouble(mass.getText().toString());
-
-                        if(Objects.equals(extremite, "Semi-ouvert")){
-                            mode =  ( 4 * frequence * ( Math.sqrt( masse * longueur / tension) )  - 1 ) / 2 ;
-                            modeStationnaire = Math.round(mode);
-                        }
-                        else if (Objects.equals(extremite, "Fermé")) {
-                            mode =  2 * frequence * ( Math.sqrt( masse * longueur / tension) );
-                            modeStationnaire = Math.round(mode);
-                        }
-
-                    } catch (NumberFormatException e) {
-                        Toast.makeText(OndesParam.this, "Vous avez oubliez de saisir des paramètres", Toast.LENGTH_LONG).show();
                     }
-
-                    if(mode != modeStationnaire) {
-
-                    } else {
-                        //intent.putExtra()
+                    else{
+                        modeStationnaire = calculModeStationnaire();
+                        //Toast.makeText(OndesParam.this,   String.valueOf(modeStationnaire), Toast.LENGTH_LONG).show();
+                        intent.putExtra(MODE_STATIONNAIRE, String.valueOf(modeStationnaire));
                         startActivityForResult(intent, ALLER_ONDES_SIMULATIONS);
                     }
+
                 }
             }
         });
+    }
+
+    double calculModeStationnaire() {
+        EditText tens = (EditText) findViewById(R.id.ondesTension);
+        EditText freq = (EditText) findViewById(R.id.ondesFrequence);
+        EditText longu = (EditText) findViewById(R.id.ondesLongueur);
+        EditText mass = (EditText) findViewById(R.id.ondesMasse);
+        double mode = -1;
+
+        try {
+
+            tension = Double.parseDouble(tens.getText().toString());
+            frequence = Double.parseDouble(freq.getText().toString());
+            longueur = Double.parseDouble(longu.getText().toString());
+            masse = Double.parseDouble(mass.getText().toString());
+
+            if(Objects.equals(extremite, "Semi-ouvert")){
+                mode =  ( 4 * frequence * ( Math.sqrt( masse * longueur / tension) )  - 1 ) / 2 ;
+            }
+            else if (Objects.equals(extremite, "Fermé")) {
+                mode =  2 * frequence * ( Math.sqrt( masse * longueur / tension) );
+            }
+        } catch (NumberFormatException e) {
+            Toast.makeText(OndesParam.this,   "Vous avez oubliez de saisir des paramètres", Toast.LENGTH_LONG).show();
+        }
+
+        return mode;
     }
 
     @Override
@@ -100,5 +105,4 @@ public class OndesParam extends AppCompatActivity {
             Toast.makeText(OndesParam.this, "Erreur dans la saisie", Toast.LENGTH_LONG).show();
         }
     }
-
 }

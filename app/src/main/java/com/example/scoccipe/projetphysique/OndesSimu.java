@@ -11,12 +11,26 @@ import android.widget.Toast;
 
 public class OndesSimu extends AppCompatActivity {
 
+    private Intent intent;
+    private double mode;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ondes_simu);
 
+        intent = getIntent();
+        mode = Double.parseDouble(intent.getStringExtra(OndesParam.MODE_STATIONNAIRE));
+
+        Toast.makeText(OndesSimu.this, String.valueOf(mode), Toast.LENGTH_LONG).show();
+
         Button start = (Button) findViewById(R.id.bOndesSimu);
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                
+            }
+        });
     }
 
     @Override
