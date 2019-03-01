@@ -33,11 +33,10 @@ public class Paradoxe2 extends AppCompatActivity {
 
         /*=====================Spinner=======================*/
         List<String> spinnerArray =  new ArrayList<String>();
-        spinnerArray.add("Jupiter");
-        spinnerArray.add("Saturne");
-        spinnerArray.add("Mars");
-        spinnerArray.add("Galaxie d'Andremede");
-        spinnerArray.add("Pluton");
+        spinnerArray.add("Alpha Centauri C");
+        spinnerArray.add("Étoile Polaire");
+        spinnerArray.add("Sirius");
+        spinnerArray.add("Galaxie d'Andromède");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, spinnerArray);
 
@@ -80,20 +79,17 @@ public class Paradoxe2 extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 dest = parent.getItemAtPosition(position).toString();
                 switch (dest){
-                    case "Jupiter":
+                    case "Alpha Centauri C":
                         temps = ((41.32*pow(10,15))/((vitesse_nombre*(3*pow(10,8)))/100))/31536000;
                         break;
-                    case "Saturne":
-                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*1350000000);
+                    case "Étoile Polaire":
+                        temps = ((4.08*pow(10,18))/((vitesse_nombre*(3*pow(10,8)))/100))/31536000;
                         break;
-                    case "Mars":
-                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*56000000);
+                    case "Sirius":
+                        temps = ((81.46*pow(10,15))/((vitesse_nombre*(3*pow(10,8)))/100))/31536000;
                         break;
-                    case "Galaxie d'Andremede":
-                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*(2.401*pow(10,19)));
-                        break;
-                    case "Pluton":
-                        temps = (((vitesse_nombre*(3*pow(10,8)))/100)*3.6*(5.766*pow(10,9)));
+                    case "Galaxie d'Andromède":
+                        temps = ((2.401*pow(10,22))/((vitesse_nombre*(3*pow(10,8)))/100))/31536000;
                         break;
                 }
             }
