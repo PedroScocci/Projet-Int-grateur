@@ -49,6 +49,8 @@ public class Paradoxe2 extends AppCompatActivity {
 
         Button but = (Button) findViewById(R.id.paradoxe2);
 
+        addSpinerListener();
+
         but.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 EditText age = (EditText) findViewById(R.id.age);
@@ -56,24 +58,31 @@ public class Paradoxe2 extends AppCompatActivity {
 
                 try{
                     vitesse_nombre = Double.valueOf(vitesse.getText().toString());
-                    age_nombre = Double.parseDouble(age.toString());
+                    age_nombre = Double.parseDouble(age.getText().toString());
                 }
                 catch (NumberFormatException e){
                     e.printStackTrace();
                 }
-                addSpinerListener();
 
-                temps_dilatea = temps*(sqrt((1-((vitesse_nombre/100))/(1+((vitesse_nombre/100))))));
-                temps_dilater = temps*(sqrt((1+((vitesse_nombre/100))/(1-((vitesse_nombre/100))))));
+                if(vitesse_nombre > 0) {
+                    calculerTemps();
 
-                temps_dilate = temps_dilatea + temps_dilater + age_nombre;
-                temps_normal = (2*temps)+age_nombre;
+                    temps_dilatea = temps*(sqrt((1-((vitesse_nombre/100))/(1+((vitesse_nombre/100))))));
+                    temps_dilater = temps*(sqrt((1+((vitesse_nombre/100))/(1-((vitesse_nombre/100))))));
 
-                Toast.makeText(Paradoxe2.this, String.valueOf(temps_normal), Toast.LENGTH_SHORT).show();
-                /*Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
-                myIntent.putExtra("ageN", String.valueOf(temps_normal));
-                myIntent.putExtra("ageD", String.valueOf(temps_dilate));
-                startActivity(myIntent);*/
+                    temps_dilate = temps_dilatea + temps_dilater + age_nombre;
+                    temps_normal = (2*temps) + age_nombre;
+
+                    Toast.makeText(Paradoxe2.this, String.valueOf(temps), Toast.LENGTH_SHORT).show();
+
+                    Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
+                    myIntent.putExtra("ageN", String.valueOf(temps_normal));
+                    myIntent.putExtra("ageD", String.valueOf(temps_dilate));
+                    startActivity(myIntent);
+                }
+                else {
+                    Toast.makeText(Paradoxe2.this, "La vitesse choisie est plus petite ou égale à 0. Alors, il est impossible pour le voyageur de se rendre à destination!", Toast.LENGTH_SHORT).show();
+                }
             }
         });
     }
@@ -82,20 +91,6 @@ public class Paradoxe2 extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 dest = parent.getItemAtPosition(position).toString();
-                switch (dest){
-                    case "Alpha Centauri C":
-                        temps = ((41.32*pow(10,15))/((vitesse_nombre*(3*pow(10,8)))/100))/31536000;
-                        break;
-                    case "Étoile Polaire":
-                        temps = ((4.08*pow(10,18))/((vitesse_nombre*(3*pow(10,8)))/100))/31536000;
-                        break;
-                    case "Sirius":
-                        temps = ((81.46*pow(10,15))/((vitesse_nombre*(3*pow(10,8)))/100))/31536000;
-                        break;
-                    case "Galaxie d'Andromède":
-                        temps = ((2.401*pow(10,22))/((vitesse_nombre*(3*pow(10,8)))/100))/31536000;
-                        break;
-                }
             }
 
             @Override
@@ -103,5 +98,26 @@ public class Paradoxe2 extends AppCompatActivity {
 
             }
         });
+    }
+
+    private void calculerTemps() {
+        switch (dest){
+            case "Alpha Centauri C":
+                temps = (4.367* 9.461 * pow(10,15)) / (((vitesse_nombre*(3*pow(10,8)))/100) * 31536000);
+                //temps = ((41.32*pow(10,15))/((vitesse_nombre*(3*pow(10,8)))/100))/31536000;
+                break;
+            case "Étoile Polaire":
+                temps = (433 * 9.461 * pow(10,15)) / (((vitesse_nombre*(3*pow(10,8)))/100) * 31536000);
+                //temps = ((4.08*pow(10,18))/((vitesse_nombre*(3*pow(10,8)))/100))/31536000;
+                break;
+            case "Sirius":
+                temps = (8.611 * 9.461 * pow(10,15)) / (((vitesse_nombre*(3*pow(10,8)))/100) * 31536000);
+                //temps = ((81.46*pow(10,15))/((vitesse_nombre*(3*pow(10,8)))/100))/31536000;
+                break;
+            case "Galaxie d'Andromède":
+                temps = (2.537 * pow(10,6) * 9.461 * pow(10,15)) / (((vitesse_nombre*(3*pow(10,8)))/100) * 31536000);
+                //temps = ((2.401*pow(10,22))/((vitesse_nombre*(3*pow(10,8)))/100))/31536000;
+                break;
+        }
     }
 }
