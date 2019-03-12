@@ -17,13 +17,16 @@ import android.view.animation.Animation;
 
 public class Paradoxe3 extends AppCompatActivity {
 
+    private Intent intent;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paradoxe3);
+        intent = getIntent();
+
         final ImageView fusee = (ImageView) findViewById(R.id.fus);
         //fusee.setImageResource(R.drawable.fusee);
-
+        Toast.makeText(this, intent.getStringExtra("ageD"), Toast.LENGTH_SHORT).show();
         AnimatorSet animSetXY = new AnimatorSet();
 
         ObjectAnimator y = ObjectAnimator.ofFloat(fusee,"translationY",fusee.getY(), 2000);
@@ -42,6 +45,8 @@ public class Paradoxe3 extends AppCompatActivity {
             public void onAnimationEnd(Animator animation) {
                 Toast.makeText(Paradoxe3.this, "DONE", Toast.LENGTH_LONG).show();
                 Intent myIntent = new Intent(Paradoxe3.this, Paradoxe4.class);
+                myIntent.putExtra("ageN", intent.getStringExtra("ageN"));
+                myIntent.putExtra("ageD", intent.getStringExtra("ageD"));
                 startActivity(myIntent);
                 }
             });

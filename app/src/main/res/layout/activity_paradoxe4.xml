@@ -28,7 +28,12 @@
                 android:text="@string/agePremierPassR"
                 android:textSize="20sp"
                 android:textColor="@color/noir"/>
-
+            <TextView
+                android:id="@+id/agedi"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textColor="@color/noir"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -46,6 +51,12 @@
                 android:text="@string/ageDeuxiemePassR"
                 android:textSize="20sp"
                 android:textColor="@color/noir"/>
+            <TextView
+                android:id="@+id/ageno"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/noir"
+                android:textSize="20sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

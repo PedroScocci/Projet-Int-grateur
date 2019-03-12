@@ -24,7 +24,7 @@ public class Paradoxe2 extends AppCompatActivity {
     public static double vitesse_nombre;
     public static double temps;
     public static String dest;
-    public static double temps_dilate, temps_dilatea, temps_dilater;
+    public static double temps_dilate, temps_dilatea, temps_dilater, temps_normal;
     private Spinner sItems;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,23 +53,27 @@ public class Paradoxe2 extends AppCompatActivity {
             public void onClick(View v) {
                 EditText age = (EditText) findViewById(R.id.age);
                 EditText vitesse = (EditText) findViewById(R.id.vitesse);
-                //age_nombre = Double.parseDouble(age.toString());
+
                 try{
                     vitesse_nombre = Double.valueOf(vitesse.getText().toString());
+                    age_nombre = Double.parseDouble(age.toString());
                 }
                 catch (NumberFormatException e){
                     e.printStackTrace();
                 }
                 addSpinerListener();
-                Toast.makeText(Paradoxe2.this, String.valueOf(temps), Toast.LENGTH_SHORT).show();
+
                 temps_dilatea = temps*(sqrt((1-((vitesse_nombre/100))/(1+((vitesse_nombre/100))))));
                 temps_dilater = temps*(sqrt((1+((vitesse_nombre/100))/(1-((vitesse_nombre/100))))));
-                //Toast.makeText(Paradoxe2.this, String.valueOf(temps_dilatea), Toast.LENGTH_SHORT).show();
-                //temps_dilate = temps_dilatea+temps_dilater;
-                TextView txt = (TextView) findViewById(R.id.vv) ;
-                txt.setText(String.valueOf(temps_dilatea));
-                //Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
-                //startActivity(myIntent);
+
+                temps_dilate = temps_dilatea + temps_dilater + age_nombre;
+                temps_normal = (2*temps)+age_nombre;
+
+                Toast.makeText(Paradoxe2.this, String.valueOf(temps_normal), Toast.LENGTH_SHORT).show();
+                /*Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
+                myIntent.putExtra("ageN", String.valueOf(temps_normal));
+                myIntent.putExtra("ageD", String.valueOf(temps_dilate));
+                startActivity(myIntent);*/
             }
         });
     }
