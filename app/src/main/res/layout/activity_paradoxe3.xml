@@ -12,4 +12,11 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@mipmap/ic_launcher" />
+    <WebView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:id="@+id/myBrowser">
+
+    </WebView>
+
 </android.support.constraint.ConstraintLayout>

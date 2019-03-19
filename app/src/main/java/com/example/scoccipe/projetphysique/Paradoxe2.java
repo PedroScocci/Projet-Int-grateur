@@ -1,6 +1,7 @@
 package com.example.scoccipe.projetphysique;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -98,6 +99,8 @@ public class Paradoxe2 extends AppCompatActivity {
                     myIntent.putExtra("ageN", String.valueOf(temps_normal));
                     myIntent.putExtra("ageD", String.valueOf(temps_dilate));
                     startActivity(myIntent);
+                    //Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("file:///C:/Users/Utilisateur/Desktop/Cegep/Session%204/Programmation/Intgration/Logs/WebGl/index.html"));
+                    //startActivity(browserIntent);
                 }
                 else if (vitesse_nombre <=0) {
                     Toast.makeText(Paradoxe2.this, "La vitesse choisie est plus petite ou égale à 0. Alors, il est impossible pour le voyageur de se rendre à destination!", Toast.LENGTH_SHORT).show();
