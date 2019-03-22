@@ -5,6 +5,8 @@ import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.BounceInterpolator;
+import android.view.animation.Interpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -101,8 +103,12 @@ public class GraviteActivity extends AppCompatActivity {
     public void animationTest(){
         ImageView imageCercle = (ImageView) findViewById(R.id.image_test);
 
-        imageCercle.animate().translationYBy(1000).setDuration(2000);
+        //imageCercle.animate().translationYBy(1000).setDuration(2000);
 
+
+        Interpolator Inter = new BounceInterpolator();
+
+        imageCercle.animate().y(1050).setInterpolator(Inter).setDuration(3000).start();
     }
 
     public void ajoutBoutonRetour(){
