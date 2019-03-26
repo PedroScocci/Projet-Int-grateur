@@ -108,7 +108,7 @@ public class GraviteActivity extends AppCompatActivity {
 
         Interpolator Inter = new BounceInterpolator();
 
-        imageCercle.animate().y(1050).setInterpolator(Inter).setDuration(3000).start();
+        imageCercle.animate().y(1050).setInterpolator(Inter).setDuration(temps_de_chute.longValue()*1000).start();
     }
 
     public void ajoutBoutonRetour(){

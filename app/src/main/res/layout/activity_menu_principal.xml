@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bckgrnd"
     tools:context="com.example.scoccipe.projetphysique.MenuPrincipal">
 
     <RelativeLayout
@@ -64,6 +65,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
             android:textSize="35dp"
+            android:background="#3d84a7"
             android:text="@string/app_name" />
     </RelativeLayout>
 

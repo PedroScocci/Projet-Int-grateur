@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/parambck"
     tools:context="com.example.scoccipe.projetphysique.ParametresGravite">
 
     <LinearLayout
@@ -15,14 +16,19 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
             android:gravity="center_horizontal|center_vertical"
             android:text="@string/param_gravite"
             android:textAllCaps="true"
             android:textColor="@color/noir"
+            android:background="#ccffffff"
             android:textSize="35dp" />
 
         <LinearLayout
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:orientation="horizontal">
@@ -33,6 +39,7 @@
                 android:layout_weight="0"
                 android:paddingLeft="10dp"
                 android:text="@string/planete"
+                android:background="#ccffffff"
                 android:textColor="@color/noir" />
 
             <LinearLayout
@@ -48,7 +55,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:alwaysDrawnWithCache="false"
-
+                    android:popupBackground="#ccffffff"
                     android:entries="@array/liste_planetes" />
             </LinearLayout>
 
@@ -65,6 +72,7 @@
                 android:layout_weight="0"
                 android:paddingLeft="10dp"
                 android:text="@string/masse_1"
+                android:background="@color/blanc"
                 android:textColor="@color/noir" />
 
             <EditText
@@ -73,6 +81,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:ems="10"
+                android:background="@color/blanc"
                 android:inputType="numberDecimal" />
         </LinearLayout>
 
@@ -87,6 +96,7 @@
                 android:layout_weight="0"
                 android:paddingLeft="10dp"
                 android:text="@string/objet_2"
+                android:background="@color/blanc"
                 android:textColor="@color/noir" />
 
             <LinearLayout
@@ -117,6 +127,7 @@
                 android:layout_weight="0"
                 android:paddingLeft="10dp"
                 android:text="@string/hauteur_m"
+                android:background="@color/blanc"
                 android:textColor="@color/noir" />
 
             <EditText
@@ -125,6 +136,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:ems="10"
+                android:background="@color/blanc"
                 android:inputType="numberDecimal" />
 
         </LinearLayout>
@@ -134,6 +146,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal"
             android:background="@drawable/border">
+
 
             <Button
                 android:id="@+id/bouton_retourPG-M"
