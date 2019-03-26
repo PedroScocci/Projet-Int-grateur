@@ -33,7 +33,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/Corde onde-1"
+                android:src="@drawable/corde_onde_1"
                 android:contentDescription="" />
 
             <ImageView
