@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Timer;
@@ -21,12 +22,30 @@ public class OndesSimu extends AppCompatActivity {
     private Intent intent;
     private int images[];
     private double mode;
-    private Chronometer time;
     private boolean started = false;
     private long temps,tempsPasser;
     private Button start;
-    ImageView corde;
-    Handler custom = new Handler();
+    private ImageView corde;
+
+    private  Handler customHandler = new Handler();
+    long startTime = 0L, timeInMilliseconds = 0L, timeSwapBuff=0L,updateTime=0L;
+    TextView txtTimer;
+
+    Runnable updateTimerThread = new Runnable() {
+        @Override
+        public void run() {
+            timeInMilliseconds = SystemClock.uptimeMillis() -startTime;
+            updateTime = timeSwapBuff + timeInMilliseconds;
+            int secs=(int)(updateTime/1000);
+            int mins= secs/60;
+            secs%=60;
+            int miliseconds=(int)(updateTime%1000);
+
+            txtTimer.setText(""+mins+":"+String.format("%2d",secs) + ":" + String.format("%3d",miliseconds));
+
+            customHandler.postDelayed(this, 0);
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,26 +56,35 @@ public class OndesSimu extends AppCompatActivity {
         mode = Double.parseDouble(intent.getStringExtra(OndesParam.MODE_STATIONNAIRE));
 
         Toast.makeText(OndesSimu.this, String.valueOf(mode), Toast.LENGTH_LONG).show();
-
-        time = (Chronometer) findViewById(R.id.timer);
         corde = (ImageView) findViewById(R.id.cordeAnimation);
 
         images = new int[]{R.drawable.corde_onde_1, R.drawable.corde_onde_27, R.drawable.corde_onde_r_26};
+
+
+
+        txtTimer = (TextView) findViewById(R.id.timerValue);
+
 
         start = (Button) findViewById(R.id.bOndesSimu);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!started){
-                    
+                    startTime = SystemClock.uptimeMillis();
+                    customHandler.postDelayed(updateTimerThread, 0);
+
 
                     start.setText("ARRÊTER");
+                    started = true;
                 }
                 else if(started){
 
-                    start.setText("COMMENCER");
+                    customHandler.removeCallbacks(updateTimerThread);
 
-                    Toast.makeText(OndesSimu.this, String.valueOf(time.getBase()), Toast.LENGTH_LONG).show();
+                    Toast.makeText(OndesSimu.this, txtTimer.getText().toString(), Toast.LENGTH_LONG).show();
+
+                    start.setText("COMMENCER");
+                    started = false;
                 }
                 /*while (!started){
                     for(int i = 1; i<=27; i++)
@@ -119,23 +147,5 @@ public class OndesSimu extends AppCompatActivity {
                     return super.onOptionsItemSelected(item);
         }
     }
-
-    void chronoCommencer(){
-        started = true;
-
-        time.setBase(SystemClock.elapsedRealtime());
-        time.start();
-
-        //tempsPasser = SystemClock.elapsedRealtime();
-
-        corde.setImageResource(images[1]);
-    }
-
-    void chronoArreter(){
-        started = false;
-
-        time.stop();
-    }
-
 
 }

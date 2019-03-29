@@ -43,13 +43,15 @@
                 android:src="@drawable/ic_launcher_background"
                 android:contentDescription="" />
 
-
         </LinearLayout>
-
-        <Chronometer
-            android:id="@+id/timer"
+        
+        <TextView
+            android:id="@+id/timerValue"
+            android:layout_gravity="center_horizontal"
+            android:textColor="@color/noir"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:text="0:00:000"/>
 
         <Button
             android:id="@+id/bOndesSimu"
