@@ -10,7 +10,7 @@
     </style>
 
     <style name="mySpinnerItemStyle" parent="@android:style/Widget.Holo.DropDownItem.Spinner">
-        <item name="android:background">#ccd61818</item>
-        <item name="android:actionModeSplitBackground">#ccd61818</item>
+        <item name="android:background">@color/rouge2</item>
+        <item name="android:actionModeSplitBackground">@color/rouge2</item>
     </style>
 </resources>

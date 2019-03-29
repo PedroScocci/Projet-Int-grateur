@@ -24,7 +24,7 @@
             android:text="@string/param_gravite"
             android:textAllCaps="true"
             android:textColor="@color/noir"
-            android:background="#ccffffff"
+            android:background="@color/blanc2"
             android:textSize="35dp" />
 
         <LinearLayout
@@ -35,11 +35,11 @@
 
             <TextView
                 android:layout_width="130dp"
-                android:layout_height="wrap_content"
+                android:layout_height="23dp"
                 android:layout_weight="0"
                 android:paddingLeft="10dp"
                 android:text="@string/planete"
-                android:background="#ccffffff"
+                android:background="@color/blanc2"
                 android:textColor="@color/noir" />
 
             <LinearLayout
@@ -52,10 +52,10 @@
                 <Spinner
                     android:id="@+id/spinner_planete"
                     android:layout_width="150dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="23dp"
                     android:layout_weight="1"
                     android:alwaysDrawnWithCache="false"
-                    android:popupBackground="#ccffffff"
+                    android:popupBackground="@color/blanc2"
                     android:entries="@array/liste_planetes" />
             </LinearLayout>
 
@@ -68,20 +68,21 @@
 
             <TextView
                 android:layout_width="130dp"
-                android:layout_height="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginTop="-5dp"
                 android:layout_weight="0"
+                android:background="@color/blanc2"
                 android:paddingLeft="10dp"
                 android:text="@string/masse_1"
-                android:background="@color/blanc"
                 android:textColor="@color/noir" />
 
             <EditText
                 android:id="@+id/masse_obj1"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="23dp"
                 android:layout_weight="0"
                 android:ems="10"
-                android:background="@color/blanc"
+                android:background="@color/blanc2"
                 android:inputType="numberDecimal" />
         </LinearLayout>
 
@@ -92,11 +93,11 @@
 
             <TextView
                 android:layout_width="130dp"
-                android:layout_height="wrap_content"
+                android:layout_height="23dp"
                 android:layout_weight="0"
                 android:paddingLeft="10dp"
                 android:text="@string/objet_2"
-                android:background="@color/blanc"
+                android:background="@color/blanc2"
                 android:textColor="@color/noir" />
 
             <LinearLayout
@@ -108,7 +109,7 @@
                 <Spinner
                     android:id="@+id/spinner_objets"
                     android:layout_width="150dp"
-                    android:layout_height="wrap_content"
+                    android:layout_height="23dp"
                     android:layout_weight="0"
 
                     android:entries="@array/liste_objets" />
@@ -123,20 +124,21 @@
 
             <TextView
                 android:layout_width="130dp"
-                android:layout_height="wrap_content"
+                android:layout_height="23dp"
+                android:layout_marginTop="-5dp"
                 android:layout_weight="0"
+                android:background="@color/blanc2"
                 android:paddingLeft="10dp"
                 android:text="@string/hauteur_m"
-                android:background="@color/blanc"
                 android:textColor="@color/noir" />
 
             <EditText
                 android:id="@+id/hauteur"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="23dp"
                 android:layout_weight="0"
                 android:ems="10"
-                android:background="@color/blanc"
+                android:background="@color/blanc2"
                 android:inputType="numberDecimal" />
 
         </LinearLayout>
