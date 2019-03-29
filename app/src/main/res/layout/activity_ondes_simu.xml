@@ -31,6 +31,7 @@
                 android:contentDescription="" />
 
             <ImageView
+                android:id="@+id/cordeAnimation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/corde_onde_1"
@@ -44,6 +45,11 @@
 
 
         </LinearLayout>
+
+        <Chronometer
+            android:id="@+id/timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
 
         <Button
             android:id="@+id/bOndesSimu"
