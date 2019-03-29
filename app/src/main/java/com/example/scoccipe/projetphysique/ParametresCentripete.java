@@ -15,13 +15,15 @@ import android.widget.Toast;
 public class ParametresCentripete extends AppCompatActivity {
     public static final int PARAM = 1;
     public static final String PARAMETRES = "param";
-    public static double masse;
-    public static double vitesse;
-    public static double rayon;
-    public double coef;
-    public double friction;
-    public double centripete;
-    public static boolean derap;
+    public static final String PARAMETRES2 = "param2";
+    public static final String PARAMETRES3 = "param3";
+    private double masse;
+    private double vitesse;
+    private double rayon;
+    private double coef;
+    private double friction;
+    private double centripete;
+    private boolean derap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,12 +82,17 @@ public class ParametresCentripete extends AppCompatActivity {
                     }
                     else {
                         derap = false;
+
                     }
                     tv1.setTextColor(getResources().getColor(R.color.noir));
                     tv2.setTextColor(getResources().getColor(R.color.noir));
                     tv3.setTextColor(getResources().getColor(R.color.noir));
+
                     Intent intent = new Intent(ParametresCentripete.this, Force_Centripete.class);
                     intent.putExtra(PARAMETRES, derap);
+                    intent.putExtra(PARAMETRES2,String.valueOf(vitesse));
+                    intent.putExtra(PARAMETRES3,String.valueOf(rayon));
+
                     startActivityForResult(intent, PARAM);
                 }
                 catch (NumberFormatException e){

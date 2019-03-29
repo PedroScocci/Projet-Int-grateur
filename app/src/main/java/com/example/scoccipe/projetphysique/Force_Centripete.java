@@ -15,9 +15,13 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Force_Centripete extends AppCompatActivity {
-    public Intent intent;
-    public boolean derapage;
-    public ImageView iv = findViewById(R.id.voit);
+    private Intent intent;
+    private boolean derapage;
+    private double vitesse;
+    private double rayon;
+    private long temps;
+    private ImageView iv ;
+    private Button b;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +29,12 @@ public class Force_Centripete extends AppCompatActivity {
         setContentView(R.layout.activity_force__centripete);
 
         intent = getIntent();
-        derapage = intent.getBooleanExtra("derap", ParametresCentripete.derap);
+        derapage = intent.getBooleanExtra(ParametresCentripete.PARAMETRES, false);
+        vitesse = Double.parseDouble(intent.getStringExtra(ParametresCentripete.PARAMETRES2));
+        rayon = Double.parseDouble(intent.getStringExtra(ParametresCentripete.PARAMETRES3));
+        temps = Math.round((2*Math.PI*rayon)/(vitesse)*1000);
+
+
         if(derapage) {
             Toast.makeText(Force_Centripete.this,"feef" , Toast.LENGTH_LONG).show();
         }
@@ -33,29 +42,24 @@ public class Force_Centripete extends AppCompatActivity {
             Toast.makeText(Force_Centripete.this,"deg" , Toast.LENGTH_LONG).show();
         }
 
-        Button b = findViewById(R.id.buttonsim);
+        b = findViewById(R.id.buttonsim);
+        iv = findViewById(R.id.voit);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(derapage){
-                    Path path = new Path();
-                    path.addCircle(0,411, 450, Path.Direction.CCW);
-                    iv.animate().rotationBy(-360).setDuration(2000);
 
-                    //ObjectAnimator animRot = ObjectAnimator.ofFloat(iv, "rotation", -360);
-                    ObjectAnimator animator = ObjectAnimator.ofFloat(iv,View.X,View.Y,path);
 
-                    //AnimatorSet xy = new AnimatorSet();
-                    //xy.playTogether(animRot,animator);
-
-                    animator.setDuration(2000).start();
                 }
                 else{
+                    Path path = new Path();
+                    path.addCircle(0,411, 450, Path.Direction.CCW);
 
+                    iv.animate().rotationBy(-360).setDuration(temps);
+                    ObjectAnimator animator = ObjectAnimator.ofFloat(iv,View.X,View.Y,path);
+                    animator.setDuration(temps).start();
                 }
             }
         });
-
-
     }
 }
