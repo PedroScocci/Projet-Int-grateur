@@ -46,8 +46,8 @@ public class OndesSimu extends AppCompatActivity {
 
             txtTimer.setText(""+mins+":"+String.format("%2d",secs) + ":" + String.format("%3d",miliseconds));
 
-            if(secs == (tempSec + 1)){
-                tempSec = secs;
+            if(secs + (mins * 60) == (tempSec + 1)){
+                tempSec = secs + (mins * 60);
 
                 if(reverseImage == 0){
 
@@ -84,13 +84,13 @@ public class OndesSimu extends AppCompatActivity {
                             corde.setImageResource(images[imageActuel]);
                         }
                     } else if(sensImage == 1) {
-                        if (imageActuel > 0) {
+                        if (imageActuel > 27) {
                             imageActuel--;
                             corde.setImageResource(images[imageActuel]);
-                        } else if (imageActuel == 0) {
+                        } else if (imageActuel == 27) {
                             sensImage--;
-                            reverseImage++;
-                            imageActuel = 27;
+                            reverseImage--;
+                            imageActuel = 0;
                             corde.setImageResource(images[imageActuel]);
                         }
                     }
