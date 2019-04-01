@@ -46,60 +46,12 @@ public class OndesSimu extends AppCompatActivity {
 
             txtTimer.setText(""+mins+":"+String.format("%2d",secs) + ":" + String.format("%3d",miliseconds));
 
-            if(secs + (mins * 60) == (tempSec + 1)){
+            //Toast.makeText(OndesSimu.this, String.valueOf(miliseconds), Toast.LENGTH_LONG).show();
+            
+            if(secs + (mins * 60) == (tempSec + 1)) {
                 tempSec = secs + (mins * 60);
 
-                if(reverseImage == 0){
-
-                    if(sensImage == 0) {
-                        if (imageActuel < 26) {
-                            imageActuel++;
-                            corde.setImageResource(images[imageActuel]);
-                        } else if (imageActuel == 26) {
-                            sensImage++;
-                            imageActuel--;
-                            corde.setImageResource(images[imageActuel]);
-                        }
-                    } else if(sensImage == 1) {
-                        if (imageActuel > 0) {
-                            imageActuel--;
-                            corde.setImageResource(images[imageActuel]);
-                        } else if (imageActuel == 0) {
-                            sensImage--;
-                            reverseImage++;
-                            imageActuel = 27;
-                            corde.setImageResource(images[imageActuel]);
-                        }
-                    }
-
-                } else if(reverseImage == 1){
-
-                    if(sensImage == 0) {
-                        if (imageActuel < 51) {
-                            imageActuel++;
-                            corde.setImageResource(images[imageActuel]);
-                        } else if (imageActuel == 51) {
-                            sensImage++;
-                            imageActuel--;
-                            corde.setImageResource(images[imageActuel]);
-                        }
-                    } else if(sensImage == 1) {
-                        if (imageActuel > 27) {
-                            imageActuel--;
-                            corde.setImageResource(images[imageActuel]);
-                        } else if (imageActuel == 27) {
-                            sensImage--;
-                            reverseImage--;
-                            imageActuel = 0;
-                            corde.setImageResource(images[imageActuel]);
-                        }
-                    }
-
-                } else {
-                    corde.setImageResource(R.drawable.message_erreur);
-                }
-
-
+                changerImage();
             }
 
             customHandler.postDelayed(this, 0);
@@ -156,11 +108,94 @@ public class OndesSimu extends AppCompatActivity {
 
                     //Toast.makeText(OndesSimu.this, txtTimer.getText().toString(), Toast.LENGTH_LONG).show();
 
-
                     start.setText("COMMENCER");
                     started = false;
                 }
-                /*while (!started){
+            }
+        });
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.ondes_simu_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.iOndesMenu:
+                setResult(MenuPrincipal.RETOUR_MENU_PRINCIPAL);
+                finish();
+                return true;
+
+            case R.id.iOndesParam:
+                setResult(RESULT_OK);
+                finish();
+                return true;
+
+                default:
+                    return super.onOptionsItemSelected(item);
+        }
+    }
+
+    public void changerImage() {
+
+            if(reverseImage == 0){
+
+                if(sensImage == 0) {
+                    if (imageActuel < 26) {
+                        imageActuel++;
+                        corde.setImageResource(images[imageActuel]);
+                    } else if (imageActuel == 26) {
+                        sensImage++;
+                        imageActuel--;
+                        corde.setImageResource(images[imageActuel]);
+                    }
+                } else if(sensImage == 1) {
+                    if (imageActuel > 0) {
+                        imageActuel--;
+                        corde.setImageResource(images[imageActuel]);
+                    } else if (imageActuel == 0) {
+                        sensImage--;
+                        reverseImage++;
+                        imageActuel = 27;
+                        corde.setImageResource(images[imageActuel]);
+                    }
+                }
+
+            } else if(reverseImage == 1){
+
+                if(sensImage == 0) {
+                    if (imageActuel < 51) {
+                        imageActuel++;
+                        corde.setImageResource(images[imageActuel]);
+                    } else if (imageActuel == 51) {
+                        sensImage++;
+                        imageActuel--;
+                        corde.setImageResource(images[imageActuel]);
+                    }
+                } else if(sensImage == 1) {
+                    if (imageActuel > 27) {
+                        imageActuel--;
+                        corde.setImageResource(images[imageActuel]);
+                    } else if (imageActuel == 27) {
+                        sensImage--;
+                        reverseImage--;
+                        imageActuel = 0;
+                        corde.setImageResource(images[imageActuel]);
+                    }
+                }
+
+            } else {
+                corde.setImageResource(R.drawable.message_erreur);
+            }
+
+    }
+
+}
+
+/*while (!started){
                     for(int i = 1; i<=27; i++)
                     {
                         String fileName = "drawable/corde_onde_" + i + ".png";
@@ -194,32 +229,3 @@ public class OndesSimu extends AppCompatActivity {
                         bob.setImageDrawable(image);
                     }
                 }*/
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.ondes_simu_menu, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.iOndesMenu:
-                setResult(MenuPrincipal.RETOUR_MENU_PRINCIPAL);
-                finish();
-                return true;
-
-            case R.id.iOndesParam:
-                setResult(RESULT_OK);
-                finish();
-                return true;
-
-                default:
-                    return super.onOptionsItemSelected(item);
-        }
-    }
-
-}
