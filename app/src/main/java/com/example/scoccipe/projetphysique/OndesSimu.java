@@ -28,12 +28,15 @@ public class OndesSimu extends AppCompatActivity {
     private ImageView corde;
 
     private  Handler customHandler = new Handler();
-    long startTime = 0L, timeInMilliseconds = 0L, timeSwapBuff=0L,updateTime=0L;
+    private long startTime = 0L, timeInMilliseconds = 0L, timeSwapBuff=0L,updateTime=0L;
+    private long tempSec = 0;
+    private int imageActuel = 0, sensImage = 0, reverseImage = 0;
     TextView txtTimer;
 
     Runnable updateTimerThread = new Runnable() {
         @Override
         public void run() {
+
             timeInMilliseconds = SystemClock.uptimeMillis() -startTime;
             updateTime = timeSwapBuff + timeInMilliseconds;
             int secs=(int)(updateTime/1000);
@@ -42,6 +45,62 @@ public class OndesSimu extends AppCompatActivity {
             int miliseconds=(int)(updateTime%1000);
 
             txtTimer.setText(""+mins+":"+String.format("%2d",secs) + ":" + String.format("%3d",miliseconds));
+
+            if(secs == (tempSec + 1)){
+                tempSec = secs;
+
+                if(reverseImage == 0){
+
+                    if(sensImage == 0) {
+                        if (imageActuel < 26) {
+                            imageActuel++;
+                            corde.setImageResource(images[imageActuel]);
+                        } else if (imageActuel == 26) {
+                            sensImage++;
+                            imageActuel--;
+                            corde.setImageResource(images[imageActuel]);
+                        }
+                    } else if(sensImage == 1) {
+                        if (imageActuel > 0) {
+                            imageActuel--;
+                            corde.setImageResource(images[imageActuel]);
+                        } else if (imageActuel == 0) {
+                            sensImage--;
+                            reverseImage++;
+                            imageActuel = 27;
+                            corde.setImageResource(images[imageActuel]);
+                        }
+                    }
+
+                } else if(reverseImage == 1){
+
+                    if(sensImage == 0) {
+                        if (imageActuel < 51) {
+                            imageActuel++;
+                            corde.setImageResource(images[imageActuel]);
+                        } else if (imageActuel == 51) {
+                            sensImage++;
+                            imageActuel--;
+                            corde.setImageResource(images[imageActuel]);
+                        }
+                    } else if(sensImage == 1) {
+                        if (imageActuel > 0) {
+                            imageActuel--;
+                            corde.setImageResource(images[imageActuel]);
+                        } else if (imageActuel == 0) {
+                            sensImage--;
+                            reverseImage++;
+                            imageActuel = 27;
+                            corde.setImageResource(images[imageActuel]);
+                        }
+                    }
+
+                } else {
+                    corde.setImageResource(R.drawable.message_erreur);
+                }
+
+
+            }
 
             customHandler.postDelayed(this, 0);
         }
@@ -58,9 +117,17 @@ public class OndesSimu extends AppCompatActivity {
         Toast.makeText(OndesSimu.this, String.valueOf(mode), Toast.LENGTH_LONG).show();
         corde = (ImageView) findViewById(R.id.cordeAnimation);
 
-        images = new int[]{R.drawable.corde_onde_1, R.drawable.corde_onde_27, R.drawable.corde_onde_r_26};
-
-
+        images = new int[]{R.drawable.corde_onde_1,R.drawable.corde_onde_2,R.drawable.corde_onde_3, R.drawable.corde_onde_4,  R.drawable.corde_onde_5,
+                R.drawable.corde_onde_6, R.drawable.corde_onde_7, R.drawable.corde_onde_8, R.drawable.corde_onde_9, R.drawable.corde_onde_10, R.drawable.corde_onde_11,
+                R.drawable.corde_onde_12, R.drawable.corde_onde_13, R.drawable.corde_onde_14, R.drawable.corde_onde_15, R.drawable.corde_onde_16,
+                R.drawable.corde_onde_17, R.drawable.corde_onde_18, R.drawable.corde_onde_19, R.drawable.corde_onde_20, R.drawable.corde_onde_21,
+                R.drawable.corde_onde_22, R.drawable.corde_onde_23, R.drawable.corde_onde_24, R.drawable.corde_onde_25, R.drawable.corde_onde_26,
+                R.drawable.corde_onde_27, R.drawable.corde_onde_r_2, R.drawable.corde_onde_r_3, R.drawable.corde_onde_r_4, R.drawable.corde_onde_r_5,
+                R.drawable.corde_onde_r_6, R.drawable.corde_onde_r_7, R.drawable.corde_onde_r_8, R.drawable.corde_onde_r_9, R.drawable.corde_onde_r_10,
+                R.drawable.corde_onde_r_11, R.drawable.corde_onde_r_12, R.drawable.corde_onde_r_13, R.drawable.corde_onde_r_14, R.drawable.corde_onde_r_15,
+                R.drawable.corde_onde_r_16, R.drawable.corde_onde_r_17, R.drawable.corde_onde_r_18, R.drawable.corde_onde_r_19, R.drawable.corde_onde_r_20,
+                R.drawable.corde_onde_r_21, R.drawable.corde_onde_r_22, R.drawable.corde_onde_r_23, R.drawable.corde_onde_r_24, R.drawable.corde_onde_r_25,
+                R.drawable.corde_onde_r_26}; // 52 cases
 
         txtTimer = (TextView) findViewById(R.id.timerValue);
 
@@ -73,15 +140,22 @@ public class OndesSimu extends AppCompatActivity {
                     startTime = SystemClock.uptimeMillis();
                     customHandler.postDelayed(updateTimerThread, 0);
 
+                    //corde.setImageResource(images[26]);
 
                     start.setText("ARRÊTER");
                     started = true;
                 }
                 else if(started){
 
+                    corde.setImageResource(images[0]);
+                    imageActuel = 0;
+                    sensImage = 0;
+                    reverseImage = 0;
+                    tempSec = 0;
                     customHandler.removeCallbacks(updateTimerThread);
 
-                    Toast.makeText(OndesSimu.this, txtTimer.getText().toString(), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(OndesSimu.this, txtTimer.getText().toString(), Toast.LENGTH_LONG).show();
+
 
                     start.setText("COMMENCER");
                     started = false;
