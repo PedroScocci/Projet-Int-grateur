@@ -9,7 +9,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -21,6 +25,7 @@ public class Force_Centripete extends AppCompatActivity {
     private double rayon;
     private long temps;
     private ImageView iv ;
+    private ImageView iv2;
     private Button b;
 
     @Override
@@ -48,18 +53,32 @@ public class Force_Centripete extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(derapage){
-
-
+                    faireUnTour();
+                    AnimationSet as = new AnimationSet(true);
+                    TranslateAnimation animator2 = new TranslateAnimation(0,0,0,-700);
+                    //RotateAnimation animation2 = new RotateAnimation(0,-360, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
+                    //animation2.setDuration(6000);
+                    animator2.setDuration(1000);
+                    animator2.setStartOffset(temps);
+                    //animation2.setInterpolator(new LinearInterpolator());
+                    //as.addAnimation(animation2);
+                    as.addAnimation(animator2);
+                    iv.startAnimation(as);
                 }
                 else{
-                    Path path = new Path();
-                    path.addCircle(0,411, 450, Path.Direction.CCW);
-
-                    iv.animate().rotationBy(-360).setDuration(temps);
-                    ObjectAnimator animator = ObjectAnimator.ofFloat(iv,View.X,View.Y,path);
-                    animator.setDuration(temps).start();
+                    faireUnTour();
                 }
             }
         });
+    }
+
+    public void faireUnTour() {
+
+        Path path = new Path();
+        path.addCircle(450,411, 450, Path.Direction.CCW);
+
+        iv.animate().rotationBy(-360).setDuration(temps);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(iv,View.X,View.Y,path);
+        animator.setDuration(temps).start();
     }
 }
