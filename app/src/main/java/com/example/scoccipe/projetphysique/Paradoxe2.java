@@ -74,8 +74,6 @@ public class Paradoxe2 extends AppCompatActivity {
                     temps_dilate = temps_dilatea + temps_dilater + age_nombre;
                     temps_normal = (2*temps) + age_nombre;
 
-                    Toast.makeText(Paradoxe2.this, String.valueOf(temps), Toast.LENGTH_SHORT).show();
-
                     Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
                     myIntent.putExtra("ageN", String.valueOf(temps_normal));
                     myIntent.putExtra("ageD", String.valueOf(temps_dilate));
@@ -92,8 +90,6 @@ public class Paradoxe2 extends AppCompatActivity {
 
                     temps_dilate = temps_dilatea + temps_dilater + age_nombre;
                     temps_normal = (2*temps) + age_nombre;
-
-                    Toast.makeText(Paradoxe2.this, String.valueOf(temps), Toast.LENGTH_SHORT).show();
 
                     Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
 

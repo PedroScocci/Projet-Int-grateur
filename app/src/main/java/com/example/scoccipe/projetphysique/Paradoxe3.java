@@ -36,27 +36,25 @@ public class Paradoxe3 extends AppCompatActivity {
         final ImageView perso = (ImageView) findViewById(R.id.pers);
         //fusee.setImageResource(R.drawable.fusee);
 
-        ObjectAnimator Yperso = ObjectAnimator.ofFloat(perso, "translationY", perso.getY(), -2000);
-        Yperso.setDuration(8000);
+        ObjectAnimator Yperso = ObjectAnimator.ofFloat(perso, "translationY", perso.getY(), -250 * Animation.RELATIVE_TO_PARENT);
+        Yperso.setDuration(2250);
         Yperso.setInterpolator(new AccelerateInterpolator());
         Yperso.start();
 
         Yperso.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                ObjectAnimator Yrebond = ObjectAnimator.ofFloat(perso, "translationY",200);
-                Yrebond.setDuration(5000);
+                ObjectAnimator Yrebond = ObjectAnimator.ofFloat(perso, "translationY",1 * Animation.RELATIVE_TO_PARENT);
+                Yrebond.setDuration(1750);
                 Yrebond.setInterpolator(new BounceInterpolator());
                 Yrebond.start();
             }
         });
-
-        Toast.makeText(this, intent.getStringExtra("ageD"), Toast.LENGTH_SHORT).show();
         AnimatorSet animSetXY = new AnimatorSet();
 
-        ObjectAnimator y = ObjectAnimator.ofFloat(fusee,"translationY",fusee.getY(), -2000);
+        ObjectAnimator y = ObjectAnimator.ofFloat(fusee,"translationY",fusee.getY(), -750 * Animation.RELATIVE_TO_PARENT);
 
-        ObjectAnimator x = ObjectAnimator.ofFloat(fusee,"translationX", fusee.getX(), 1000);
+        ObjectAnimator x = ObjectAnimator.ofFloat(fusee,"translationX", fusee.getX(), 500 * Animation.RELATIVE_TO_PARENT);
 
         ObjectAnimator fadeOut = ObjectAnimator.ofFloat(fusee, "alpha",  1f, 0f);
         fadeOut.setDuration(2000);
@@ -74,13 +72,13 @@ public class Paradoxe3 extends AppCompatActivity {
 
                 Toast.makeText(Paradoxe3.this, String.valueOf(perso.getY()), Toast.LENGTH_LONG).show();
 
-                ObjectAnimator xRetour = ObjectAnimator.ofFloat(fusee, "translationX", fusee.getX(), -75);
+                ObjectAnimator xRetour = ObjectAnimator.ofFloat(fusee, "translationX", fusee.getX(), 1* Animation.RELATIVE_TO_PARENT);
                 xRetour.setDuration(1000);
                 xRetour.start();
 
                 xRetour.addListener(new AnimatorListenerAdapter(){
                     public void onAnimationEnd(Animator animation){
-                        ObjectAnimator yRetour = ObjectAnimator.ofFloat(fusee, "translationY",200);
+                        ObjectAnimator yRetour = ObjectAnimator.ofFloat(fusee, "translationY",1* Animation.RELATIVE_TO_PARENT);
                         ObjectAnimator scaleXRetour = ObjectAnimator.ofFloat(fusee, "scaleX", 0f,1f);
                         ObjectAnimator scaleYRetour = ObjectAnimator.ofFloat(fusee, "scaleY", 0f,1f);
                         AnimatorSet animRetour = new AnimatorSet();
