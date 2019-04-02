@@ -96,8 +96,9 @@ public class Paradoxe2 extends AppCompatActivity {
                     Toast.makeText(Paradoxe2.this, String.valueOf(temps), Toast.LENGTH_SHORT).show();
 
                     Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
-                    myIntent.putExtra("ageN", String.valueOf(temps_normal));
-                    myIntent.putExtra("ageD", String.valueOf(temps_dilate));
+
+                    myIntent.putExtra("ageN", String.valueOf(Math.round(temps_normal)));
+                    myIntent.putExtra("ageD", String.valueOf(Math.round(temps_dilate)));
                     startActivity(myIntent);
                     //Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("file:///C:/Users/Utilisateur/Desktop/Cegep/Session%204/Programmation/Intgration/Logs/WebGl/index.html"));
                     //startActivity(browserIntent);

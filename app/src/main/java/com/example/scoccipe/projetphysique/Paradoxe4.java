@@ -19,8 +19,7 @@ public class Paradoxe4 extends AppCompatActivity {
         TextView txtn = (TextView) findViewById(R.id.ageno);
         TextView txtd = (TextView) findViewById(R.id.agedi);
 
-        txtn.setText(agen);
-        txtd.setText(aged);
-
+        txtn.setText(" " + agen + " ");
+        txtd.setText(" " + aged + " ");
     }
 }
