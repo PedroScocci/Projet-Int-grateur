@@ -79,7 +79,6 @@ public class OndesSimu extends AppCompatActivity {
 
         txtTimer = (TextView) findViewById(R.id.timerValue);
 
-
         start = (Button) findViewById(R.id.bOndesSimu);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,8 +86,6 @@ public class OndesSimu extends AppCompatActivity {
                 if(!started){
                     tempsDepart = SystemClock.uptimeMillis();
                     customHandler.postDelayed(updateTimerThread, 0);
-
-                    //corde.setImageResource(images[26]);
 
                     start.setText("ARRÊTER");
                     started = true;
@@ -101,8 +98,6 @@ public class OndesSimu extends AppCompatActivity {
                     reverseImage = 0;
                     tempSec = 0;
                     customHandler.removeCallbacks(updateTimerThread);
-
-                    //Toast.makeText(OndesSimu.this, txtTimer.getText().toString(), Toast.LENGTH_LONG).show();
 
                     start.setText("COMMENCER");
                     started = false;
