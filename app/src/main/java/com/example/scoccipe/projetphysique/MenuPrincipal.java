@@ -14,19 +14,19 @@ public class MenuPrincipal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_principal);
+        setContentView(R.layout.activity_menu_principal2);
 
         ajoutListenerBoutons();
     }
 
     public void ajoutListenerBoutons(){
-        boutonGrav = (Button) findViewById(R.id.Gravite);
+        /*boutonGrav = (Button) findViewById(R.id.Gravite);
         boutonGrav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MenuPrincipal.this, "GRAVITÉ", Toast.LENGTH_LONG).show();
             }
-        });
+        });*/
 
         boutonCentri = (Button) findViewById(R.id.ForceCentripete);
         boutonCentri.setOnClickListener(new View.OnClickListener() {
