@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blanc_trans2"
+            android:gravity="center"
+            android:paddingBottom="5dp"
+            android:paddingTop="5dp"
+            android:text="@string/app_name"
+            android:textColor="@color/noir"
+            android:textSize="35dp"
+            />
+
+        <Button
+            android:id="@+id/Onde"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="120dp"
+            android:background="@drawable/borders"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:text="@string/ondesStationnaires"
+            android:textSize="15dp"
+            />
+
+        <Button
+            android:id="@+id/Paradoxe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/borders"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:text="@string/paradoxeJumeaux"
+            android:textSize="15dp" />
+
+        <Button
+            android:id="@+id/ForceCentripete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/borders"
+            android:paddingLeft="2dp"
+            android:paddingRight="2dp"
+            android:text="@string/forceCentripete"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

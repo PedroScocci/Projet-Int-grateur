@@ -4,6 +4,9 @@
     <color name="colorPrimaryDark">#bc6700</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="blanc_trans">#CCFFFFFF</color>
+    <color name="blanc_trans2">#e6ffffff</color>
+
     <color name="noir">#000000</color>
     <color name="blanc">#FFFFFF</color>
     <color name="rouge">#ff0000</color>
