@@ -16,7 +16,7 @@ public class MenuPrincipal extends AppCompatActivity {
         Button but = (Button) findViewById(R.id.Paradoxe);
         but.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent myIntent = new Intent(MenuPrincipal.this, Paradoxe3.class);
+                Intent myIntent = new Intent(MenuPrincipal.this, Paradoxe.class);
                 startActivity(myIntent);
             }
         });

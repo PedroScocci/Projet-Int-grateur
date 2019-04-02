@@ -70,8 +70,6 @@ public class Paradoxe3 extends AppCompatActivity {
         animSetXY.addListener(new AnimatorListenerAdapter() {
             public void onAnimationEnd(Animator animation) {
 
-                Toast.makeText(Paradoxe3.this, String.valueOf(perso.getY()), Toast.LENGTH_LONG).show();
-
                 ObjectAnimator xRetour = ObjectAnimator.ofFloat(fusee, "translationX", fusee.getX(), 1* Animation.RELATIVE_TO_PARENT);
                 xRetour.setDuration(1000);
                 xRetour.start();

@@ -8,13 +8,14 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/noir"
         android:orientation="vertical">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/retour"
             android:textSize="40dp"
-            android:textColor="@color/noir"
+            android:textColor="@color/blanc"
             android:gravity="center"
             android:paddingBottom="40dp"/>
         <LinearLayout
@@ -27,18 +28,18 @@
                 android:layout_height="wrap_content"
                 android:text="@string/agePremierPassR"
                 android:textSize="20sp"
-                android:textColor="@color/noir"/>
+                android:textColor="@color/blanc"/>
             <TextView
                 android:id="@+id/agedi"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
-                android:textColor="@color/noir"/>
+                android:textColor="@color/blanc"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ans"
-                android:textColor="@color/noir"
+                android:textColor="@color/blanc"
                 android:textSize="20sp" />
         </LinearLayout>
         <LinearLayout
@@ -50,18 +51,18 @@
                 android:layout_height="wrap_content"
                 android:text="@string/ageDeuxiemePassR"
                 android:textSize="20sp"
-                android:textColor="@color/noir"/>
+                android:textColor="@color/blanc"/>
             <TextView
                 android:id="@+id/ageno"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/noir"
+                android:textColor="@color/blanc"
                 android:textSize="20sp"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/ans"
-                android:textColor="@color/noir"
+                android:textColor="@color/blanc"
                 android:textSize="20sp"/>
         </LinearLayout>
 
