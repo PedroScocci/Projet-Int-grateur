@@ -20,36 +20,32 @@ import java.util.Timer;
 public class OndesSimu extends AppCompatActivity {
 
     private Intent intent;
-    private int images[];
+
     private double mode;
     private boolean started = false;
-    private long temps,tempsPasser;
     private Button start;
     private ImageView corde;
-
     private  Handler customHandler = new Handler();
-    private long startTime = 0L, timeInMilliseconds = 0L, timeSwapBuff=0L,updateTime=0L;
-    private long tempSec = 0;
-    private int imageActuel = 0, sensImage = 0, reverseImage = 0;
-    TextView txtTimer;
+    private long tempsDepart = 0, tempsMiliSecs = 0,tempSec = 0;
+    private int imageActuel = 0, sensImage = 0, reverseImage = 0, images[];
+    private TextView txtTimer;
 
     Runnable updateTimerThread = new Runnable() {
         @Override
         public void run() {
 
-            timeInMilliseconds = SystemClock.uptimeMillis() -startTime;
-            updateTime = timeSwapBuff + timeInMilliseconds;
-            int secs=(int)(updateTime/1000);
+            tempsMiliSecs = SystemClock.uptimeMillis() - tempsDepart;
+            int secs=(int)(tempsMiliSecs/1000);
             int mins= secs/60;
             secs%=60;
-            int miliseconds=(int)(updateTime%1000);
+            int miliseconds=(int)(tempsMiliSecs%1000);
 
             txtTimer.setText(""+mins+":"+String.format("%2d",secs) + ":" + String.format("%3d",miliseconds));
 
-            //Toast.makeText(OndesSimu.this, String.valueOf(miliseconds), Toast.LENGTH_LONG).show();
-            
-            if(secs + (mins * 60) == (tempSec + 1)) {
-                tempSec = secs + (mins * 60);
+            //Toast.makeText(OndesSimu.this, String.valueOf(tempsMiliSecs), Toast.LENGTH_LONG).show();
+
+            if(tempsMiliSecs >= tempSec + 1 && tempsMiliSecs <= tempSec + 40  ) {
+                tempSec = tempsMiliSecs;
 
                 changerImage();
             }
@@ -89,7 +85,7 @@ public class OndesSimu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(!started){
-                    startTime = SystemClock.uptimeMillis();
+                    tempsDepart = SystemClock.uptimeMillis();
                     customHandler.postDelayed(updateTimerThread, 0);
 
                     //corde.setImageResource(images[26]);
@@ -140,9 +136,7 @@ public class OndesSimu extends AppCompatActivity {
     }
 
     public void changerImage() {
-
             if(reverseImage == 0){
-
                 if(sensImage == 0) {
                     if (imageActuel < 26) {
                         imageActuel++;
@@ -163,9 +157,7 @@ public class OndesSimu extends AppCompatActivity {
                         corde.setImageResource(images[imageActuel]);
                     }
                 }
-
             } else if(reverseImage == 1){
-
                 if(sensImage == 0) {
                     if (imageActuel < 51) {
                         imageActuel++;
@@ -186,46 +178,9 @@ public class OndesSimu extends AppCompatActivity {
                         corde.setImageResource(images[imageActuel]);
                     }
                 }
-
             } else {
                 corde.setImageResource(R.drawable.message_erreur);
             }
-
     }
 
 }
-
-/*while (!started){
-                    for(int i = 1; i<=27; i++)
-                    {
-                        String fileName = "drawable/corde_onde_" + i + ".png";
-                        int imageResource = getResources().getIdentifier(fileName, null, getPackageName());
-                        ImageView bob = (ImageView) findViewById(R.id.cordeAnimation);
-                        Drawable image = getResources().getDrawable(imageResource);
-                        bob.setImageDrawable(image);
-                    }
-                    for(int i = 27; i<=1; i--)
-                    {
-                        String fileName = "drawable/corde_onde_" + i + ".png";
-                        int imageResource = getResources().getIdentifier(fileName, null, getPackageName());
-                        ImageView bob = (ImageView) findViewById(R.id.cordeAnimation);
-                        Drawable image = getResources().getDrawable(imageResource);
-                        bob.setImageDrawable(image);
-                    }
-                    for(int i = 1; i<=27; i++)
-                    {
-                        String fileName = "drawable/corde_onde_r_" + i + ".png";
-                        int imageResource = getResources().getIdentifier(fileName, null, getPackageName());
-                        ImageView bob = (ImageView) findViewById(R.id.cordeAnimation);
-                        Drawable image = getResources().getDrawable(imageResource);
-                        bob.setImageDrawable(image);
-                    }
-                    for(int i = 27; i<=1; i--)
-                    {
-                        String fileName = "drawable/corde_onde_r_" + i + ".png";
-                        int imageResource = getResources().getIdentifier(fileName, null, getPackageName());
-                        ImageView bob = (ImageView) findViewById(R.id.cordeAnimation);
-                        Drawable image = getResources().getDrawable(imageResource);
-                        bob.setImageDrawable(image);
-                    }
-                }*/
