@@ -7,6 +7,8 @@ import android.graphics.Path;
 import android.graphics.RectF;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
@@ -70,6 +72,22 @@ public class Force_Centripete extends AppCompatActivity {
                 }
             }
         });
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.menu_centripete, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.menu_principal2:
+                return true;
+            case R.id.menu_Parametres:
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void faireUnTour() {

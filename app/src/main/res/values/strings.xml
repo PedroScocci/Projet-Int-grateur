@@ -12,4 +12,6 @@
     <string name="type_de_route">Type de route</string>
     <string name="transmettre_les_param_tres">Transmettre les paramètres</string>
     <string name="sim">Lancement de la simulation</string>
+    <string name="param_tres_cenrip_te">Paramètres cenripète</string>
+    <string name="menu_principal">Menu Principal</string>
 </resources>
