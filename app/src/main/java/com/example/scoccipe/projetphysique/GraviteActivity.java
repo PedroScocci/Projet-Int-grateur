@@ -1,12 +1,10 @@
 package com.example.scoccipe.projetphysique;
 
 import android.content.Intent;
-import android.media.Image;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.animation.BounceInterpolator;
-import android.view.animation.Interpolator;
+import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -87,7 +85,8 @@ public class GraviteActivity extends AppCompatActivity {
 
     public void calculTempsDeChute(){
         temps_de_chute = Math.sqrt(2.0 * Double.parseDouble(hauteur) / acceleration_grav);
-        temps_de_chute = Math.round(temps_de_chute * 100d) / 100d;
+        temps_de_chute = Math.round(temps_de_chute * 100.0d) / 100.0d;
+        temps_de_chute *= 1000; //Pour l'avoir en ms
 
         calculForceImpact();
     }
@@ -97,18 +96,20 @@ public class GraviteActivity extends AppCompatActivity {
         vitesse_finale = Math.round(vitesse_finale * 100d) / 100d;
         energie_impact = 0.5 * Double.parseDouble(masse) * Math.pow(vitesse_finale, 2);
         energie_impact = Math.round(energie_impact * 100d) / 100d;
-        Toast.makeText(GraviteActivity.this,energie_impact.toString() + " J", Toast.LENGTH_SHORT).show();
+        //Toast.makeText(GraviteActivity.this,energie_impact.toString() + " J", Toast.LENGTH_SHORT).show();
     }
 
     public void animationTest(){
         ImageView imageCercle = (ImageView) findViewById(R.id.image_test);
 
-        //imageCercle.animate().translationYBy(1000).setDuration(2000);
 
+        imageCercle.animate()
+                .y(1075)
+                .setInterpolator(new AccelerateInterpolator(1.5f))
+                .setDuration(temps_de_chute.longValue())
+                .start();
 
-        Interpolator Inter = new BounceInterpolator();
-
-        imageCercle.animate().y(1050).setInterpolator(Inter).setDuration(temps_de_chute.longValue()*1000).start();
+        Toast.makeText(GraviteActivity.this, temps_de_chute.toString(), Toast.LENGTH_SHORT).show();
     }
 
     public void ajoutBoutonRetour(){

@@ -15,8 +15,8 @@ import android.widget.Toast;
 public class ParametresGravite extends AppCompatActivity {
 
     private Button bouton_ok, bouton_retour;
-    private Spinner spinner_planete, spinner_objets;
-    private String planete, objet, masse, hauteur;
+    private Spinner spinner_planete;
+    private String planete, masse, hauteur;
     private Intent intent;
 
     @Override
@@ -31,7 +31,6 @@ public class ParametresGravite extends AppCompatActivity {
 
         ajoutListenerButton();
         ajoutListenerPlanete();
-        ajoutListenerObjets();
     }
 
     public void ajoutListenerButton(){
@@ -88,22 +87,6 @@ public class ParametresGravite extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
                 planete = parent.getItemAtPosition(pos).toString();
                 intent.putExtra("planete", planete);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-    }
-
-    public void ajoutListenerObjets(){
-        spinner_objets = (Spinner) findViewById(R.id.spinner_objets);
-        spinner_objets.setOnItemSelectedListener(new OnItemSelectedListener(){
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
-                objet = parent.getItemAtPosition(pos).toString();
-                intent.putExtra("objet", objet);
             }
 
             @Override
