@@ -18,14 +18,20 @@ import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 public class Force_Centripete extends AppCompatActivity {
+    public static final int FORCE = 2;
     private Intent intent;
+    private Intent intent2;
+    private RelativeLayout relativeLayout;
     private boolean derapage;
     private double vitesse;
     private double rayon;
+    private int route;
     private long temps;
+    private long tempsderap;
     private ImageView iv ;
     private ImageView iv2;
     private Button b;
@@ -35,11 +41,17 @@ public class Force_Centripete extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_force__centripete);
 
+        relativeLayout = findViewById(R.id.back);
+        iv = findViewById(R.id.voit);
+
         intent = getIntent();
         derapage = intent.getBooleanExtra(ParametresCentripete.PARAMETRES, false);
-        vitesse = Double.parseDouble(intent.getStringExtra(ParametresCentripete.PARAMETRES2));
-        rayon = Double.parseDouble(intent.getStringExtra(ParametresCentripete.PARAMETRES3));
+        vitesse = intent.getDoubleExtra(ParametresCentripete.PARAMETRES2, 0);
+        rayon = intent.getDoubleExtra(ParametresCentripete.PARAMETRES3, 0);
+        route = intent.getIntExtra(ParametresCentripete.PARAMETRES4, 0);
         temps = Math.round((2*Math.PI*rayon)/(vitesse)*1000);
+        tempsderap = Math.round(rayon/vitesse*1000);
+
 
 
         if(derapage) {
@@ -50,7 +62,22 @@ public class Force_Centripete extends AppCompatActivity {
         }
 
         b = findViewById(R.id.buttonsim);
-        iv = findViewById(R.id.voit);
+        switch(route){
+            case 0: relativeLayout.setBackground(getDrawable(R.drawable.route));
+                break;
+            case 1: relativeLayout.setBackground(getDrawable(R.drawable.route));
+                break;
+            case 2: relativeLayout.setBackground(getDrawable(R.drawable.route2));
+                break;
+            case 3: relativeLayout.setBackground(getDrawable(R.drawable.route2));
+                break;
+            case 4: relativeLayout.setBackground(getDrawable(R.drawable.route3));
+                break;
+            case 5: relativeLayout.setBackground(getDrawable(R.drawable.route4));
+                break;
+        }
+
+
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -82,8 +109,12 @@ public class Force_Centripete extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.menu_principal2:
+                intent2 = new Intent(Force_Centripete.this, MenuPrincipal.class);
+                startActivityForResult(intent, FORCE);
                 return true;
             case R.id.menu_Parametres:
+                intent2 = new Intent(Force_Centripete.this, ParametresCentripete.class);
+                startActivityForResult(intent, FORCE);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

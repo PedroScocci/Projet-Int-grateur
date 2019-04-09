@@ -19,6 +19,8 @@ public class ParametresCentripete extends AppCompatActivity {
     public static final String PARAMETRES = "param";
     public static final String PARAMETRES2 = "param2";
     public static final String PARAMETRES3 = "param3";
+    public static final String PARAMETRES4 = "param4";
+    private int route;
     private double masse;
     private double vitesse;
     private double rayon;
@@ -52,13 +54,24 @@ public class ParametresCentripete extends AppCompatActivity {
             {
                 switch(pos)
                 {
-                    case 0: coef = 0.2;
+                    case 0: coef = 0.72;
+                    route = 0;
                     break;
-                    case 1: coef = 0.899;
+                    case 1: coef = 0.5;
+                    route = 1;
                     break;
-                    case 2: coef = 0.876;
+                    case 2: coef = 0.725;
+                    route = 2;
                     break;
-                    case 3: coef = 0.745;
+                    case 3: coef = 0.6;
+                    route = 3;
+                    break;
+                    case 4: coef = 0.65;
+                    route = 4;
+                    break;
+                    case 5: coef = 0.35;
+                    route = 5;
+                    break;
                 }
             }
 
@@ -79,21 +92,16 @@ public class ParametresCentripete extends AppCompatActivity {
                     rayon = Double.parseDouble(et3.getText().toString());
                     friction = masse*9.81*coef;
                     centripete = (masse*Math.pow(vitesse,2))/rayon;
-                    if(friction < centripete) {
-                        derap = true;
-                    }
-                    else {
-                        derap = false;
-
-                    }
+                    derap = friction < centripete;
                     tv1.setTextColor(getResources().getColor(R.color.noir));
                     tv2.setTextColor(getResources().getColor(R.color.noir));
                     tv3.setTextColor(getResources().getColor(R.color.noir));
 
                     Intent intent = new Intent(ParametresCentripete.this, Force_Centripete.class);
                     intent.putExtra(PARAMETRES, derap);
-                    intent.putExtra(PARAMETRES2,String.valueOf(vitesse));
-                    intent.putExtra(PARAMETRES3,String.valueOf(rayon));
+                    intent.putExtra(PARAMETRES2,vitesse);
+                    intent.putExtra(PARAMETRES3,rayon);
+                    intent.putExtra(PARAMETRES4,route);
 
                     startActivityForResult(intent, PARAM);
                 }
@@ -133,6 +141,8 @@ public class ParametresCentripete extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.menu_principal:
+                Intent intent2 = new Intent(ParametresCentripete.this, MenuPrincipal.class);
+                startActivityForResult(intent2, PARAM);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
