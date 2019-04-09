@@ -16,5 +16,6 @@
     <string name="retour">Retour du voyage</string>
     <string name="jumeaux">Age des jumeaux au depart</string>
     <string name="ans">ans.</string>
+    <string name="dest">Destination</string>
 
 </resources>

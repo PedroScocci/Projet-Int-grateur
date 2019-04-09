@@ -17,7 +17,7 @@
             android:text="@string/detailsDuVoyage"
             android:textSize="40dp"
             android:gravity="center"
-            android:textColor="@color/noir"
+            android:textColor="@color/grisMate"
             android:paddingBottom="40dp"/>
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,13 +36,15 @@
                     android:layout_height="wrap_content"
                     android:text="@string/jumeaux"
                     android:textSize="20dp"
-                    android:textColor="@color/noir"/>
+                    android:textColor="@color/grisMate"/>
                 <EditText
                     android:id="@+id/age"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number"
-                    android:textAlignment="center"/>
+                    android:textAlignment="center"
+                    android:textColor="@color/grisMate"
+                    android:backgroundTint="@color/grisMate"/>
             </LinearLayout>
 
         </LinearLayout>
@@ -54,25 +56,35 @@
             android:textAlignment="center"
             android:text="@string/vitesse"
             android:textSize="20dp"
-            android:textColor="@color/noir"/>
+            android:textColor="@color/grisMate"/>
         <EditText
             android:id="@+id/vitesse"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:inputType="numberDecimal"
-            android:textColor="@color/noir"
+            android:textColor="@color/grisMate"
+            android:backgroundTint="@color/grisMate"
             android:layout_gravity="center"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textColor="@color/noir"
+            android:textColor="@color/grisMate"
             android:text="@string/uniteVitesse"
             android:gravity="center"
-            android:paddingBottom="50dp"/>
+            android:paddingBottom="20dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grisMate"
+            android:text="@string/dest"
+            android:gravity="center"
+            android:textSize="20dp"
+            android:paddingBottom="10dp"/>
         <Spinner
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/grisMate"
             android:id="@+id/spinner">
         </Spinner>
         <Button
@@ -80,7 +92,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/boutonTexteParadoxe"
-            android:textColor="@color/noir"
+            android:textColor="@color/grisMate"
+            android:background="@color/noir"
             android:layout_gravity="center"
             android:textSize="20sp" />
     </LinearLayout>
