@@ -1,11 +1,13 @@
 package com.example.scoccipe.projetphysique;
 
+import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MenuPrincipal extends AppCompatActivity {
@@ -16,7 +18,20 @@ public class MenuPrincipal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal2);
 
+        modifierPoliceTextes();
         ajoutListenerBoutons();
+    }
+
+    public void modifierPoliceTextes(){
+        Typeface font = Typeface.createFromAsset(getAssets(), "CooperB.ttf");
+        TextView texte = (TextView) findViewById(R.id.Titre_menuP);
+        texte.setTypeface(font);
+        texte = (TextView) findViewById(R.id.Onde);
+        texte.setTypeface(font);
+        texte = (TextView) findViewById(R.id.Paradoxe);
+        texte.setTypeface(font);
+        texte = (TextView) findViewById(R.id.ForceCentripete);
+        texte.setTypeface(font);
     }
 
     public void ajoutListenerBoutons(){
@@ -70,4 +85,5 @@ public class MenuPrincipal extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
+
 }

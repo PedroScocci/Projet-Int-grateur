@@ -2,7 +2,7 @@
 <android.support.constraint.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bckgrnd">
+    android:background="@drawable/background_principal">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -10,16 +10,16 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/Titre_menuP"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/blanc_trans2"
             android:gravity="center"
             android:paddingBottom="5dp"
             android:paddingTop="5dp"
             android:text="@string/app_name"
-            android:textColor="@color/noir"
+            android:textColor="@color/couleur_textes"
             android:textSize="35dp"
+            android:textStyle="bold"
             />
 
         <Button
@@ -27,13 +27,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginTop="120dp"
-            android:background="@drawable/borders"
+            android:layout_marginTop="80dp"
+            android:background="@color/transparent"
             android:paddingLeft="2dp"
             android:paddingRight="2dp"
             android:text="@string/ondesStationnaires"
+            android:textColor="@color/couleur_textes"
             android:textSize="15dp"
-            />
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/Paradoxe"
@@ -41,11 +42,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            android:background="@drawable/borders"
+            android:background="@color/transparent"
             android:paddingLeft="2dp"
             android:paddingRight="2dp"
             android:text="@string/paradoxeJumeaux"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textColor="@color/couleur_textes"
+            android:textStyle="bold"
+            />
 
         <Button
             android:id="@+id/ForceCentripete"
@@ -53,11 +57,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginTop="50dp"
-            android:background="@drawable/borders"
+            android:background="@color/transparent"
             android:paddingLeft="2dp"
             android:paddingRight="2dp"
             android:text="@string/forceCentripete"
-            android:textSize="15dp" />
+            android:textSize="15dp"
+            android:textColor="@color/couleur_textes"
+            android:textStyle="bold"
+            />
     </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>
