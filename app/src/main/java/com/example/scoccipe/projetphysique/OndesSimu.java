@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,14 +22,18 @@ public class OndesSimu extends AppCompatActivity {
 
     private Intent intent;
 
-    private double mode;
-    private boolean started = false;
+    private LinearLayout layout;
+    private TextView txtTimer;
     private Button start;
     private ImageView corde;
+    private ImageView cordes[];
     private  Handler customHandler = new Handler();
+
+    private double mode;
+    private boolean started = false;
     private long tempsDepart = 0, tempsMiliSecs = 0,tempSec = 0;
-    private int imageActuel = 0, sensImage = 0, reverseImage = 0, images[];
-    private TextView txtTimer;
+    private int imageActuel[], sensImage[], reverseImage[], images[];
+
 
     Runnable updateTimerThread = new Runnable() {
         @Override
@@ -44,10 +49,12 @@ public class OndesSimu extends AppCompatActivity {
 
             //Toast.makeText(OndesSimu.this, String.valueOf(tempsMiliSecs), Toast.LENGTH_LONG).show();
 
-            if(tempsMiliSecs >= tempSec + 1 && tempsMiliSecs <= tempSec + 40  ) {
+            if(tempsMiliSecs >= tempSec + 1 && tempsMiliSecs <= tempSec + 42  ) {
                 tempSec = tempsMiliSecs;
 
-                changerImage();
+                changerImage(0);
+                changerImage(1);
+                changerImage(2);
             }
 
             customHandler.postDelayed(this, 0);
@@ -62,8 +69,28 @@ public class OndesSimu extends AppCompatActivity {
         intent = getIntent();
         mode = Double.parseDouble(intent.getStringExtra(OndesParam.MODE_STATIONNAIRE));
 
-        Toast.makeText(OndesSimu.this, String.valueOf(mode), Toast.LENGTH_LONG).show();
-        corde = (ImageView) findViewById(R.id.cordeAnimation);
+        Toast.makeText(OndesSimu.this, String.valueOf(mode), Toast.LENGTH_LONG).show();// à enlever après
+
+        imageActuel = new int[]{0,27,0};
+        sensImage = new int[]{0,0,0};
+        reverseImage = new int[]{0,1,0};
+
+        corde = new ImageView(this);
+        corde.setImageResource(R.drawable.corde_onde_1);
+        cordes = new ImageView[5];
+        for(int i = 0; i < 5; i++){
+            cordes[i] = new ImageView(this);
+            cordes[i].setImageResource(R.drawable.corde_onde_1);
+            cordes[i].setAdjustViewBounds(true);
+        }
+
+        cordes[0].setImageResource(R.drawable.corde_onde_1);
+        txtTimer = (TextView) findViewById(R.id.timerValue);
+        layout = (LinearLayout) findViewById(R.id.cordeLayout);
+        layout.addView(cordes[0]);
+        layout.addView(cordes[1]);
+        layout.addView(cordes[2]);
+
 
         images = new int[]{R.drawable.corde_onde_1,R.drawable.corde_onde_2,R.drawable.corde_onde_3, R.drawable.corde_onde_4,  R.drawable.corde_onde_5,
                 R.drawable.corde_onde_6, R.drawable.corde_onde_7, R.drawable.corde_onde_8, R.drawable.corde_onde_9, R.drawable.corde_onde_10, R.drawable.corde_onde_11,
@@ -77,25 +104,32 @@ public class OndesSimu extends AppCompatActivity {
                 R.drawable.corde_onde_r_21, R.drawable.corde_onde_r_22, R.drawable.corde_onde_r_23, R.drawable.corde_onde_r_24, R.drawable.corde_onde_r_25,
                 R.drawable.corde_onde_r_26}; // 52 cases
 
-        txtTimer = (TextView) findViewById(R.id.timerValue);
-
         start = (Button) findViewById(R.id.bOndesSimu);
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(!started){
                     tempsDepart = SystemClock.uptimeMillis();
+
                     customHandler.postDelayed(updateTimerThread, 0);
 
                     start.setText("ARRÊTER");
                     started = true;
                 }
                 else if(started){
+                    for(int y = 0; y < 2; y++){
+                        cordes[y].setImageResource(images[0]);
+                        if(y%2 == 1){
+                            reverseImage[y] = 1;
+                            imageActuel[y] = 27;
+                        }
+                        else if(y%2 == 0){
+                            reverseImage[y] = 0;
+                            imageActuel[y] = 0;
+                        }
 
-                    corde.setImageResource(images[0]);
-                    imageActuel = 0;
-                    sensImage = 0;
-                    reverseImage = 0;
+                        sensImage[y] = 0;
+                    }
                     tempSec = 0;
                     customHandler.removeCallbacks(updateTimerThread);
 
@@ -130,52 +164,52 @@ public class OndesSimu extends AppCompatActivity {
         }
     }
 
-    public void changerImage() {
-            if(reverseImage == 0){
-                if(sensImage == 0) {
-                    if (imageActuel < 26) {
-                        imageActuel++;
-                        corde.setImageResource(images[imageActuel]);
-                    } else if (imageActuel == 26) {
-                        sensImage++;
-                        imageActuel--;
-                        corde.setImageResource(images[imageActuel]);
+    public void changerImage(int location) {
+            if(reverseImage[location] == 0){
+                if(sensImage[location] == 0) {
+                    if (imageActuel[location] < 26) {
+                        imageActuel[location]++;
+                        cordes[location].setImageResource(images[imageActuel[location]]);
+                    } else if (imageActuel[location] == 26) {
+                        sensImage[location]++;
+                        imageActuel[location]--;
+                        cordes[location].setImageResource(images[imageActuel[location]]);
                     }
-                } else if(sensImage == 1) {
-                    if (imageActuel > 0) {
-                        imageActuel--;
-                        corde.setImageResource(images[imageActuel]);
-                    } else if (imageActuel == 0) {
-                        sensImage--;
-                        reverseImage++;
-                        imageActuel = 27;
-                        corde.setImageResource(images[imageActuel]);
+                } else if(sensImage[location] == 1) {
+                    if (imageActuel[location] > 0) {
+                        imageActuel[location]--;
+                        cordes[location].setImageResource(images[imageActuel[location]]);
+                    } else if (imageActuel[location] == 0) {
+                        sensImage[location]--;
+                        reverseImage[location]++;
+                        imageActuel[location] = 27;
+                        cordes[location].setImageResource(images[imageActuel[location]]);
                     }
                 }
-            } else if(reverseImage == 1){
-                if(sensImage == 0) {
-                    if (imageActuel < 51) {
-                        imageActuel++;
-                        corde.setImageResource(images[imageActuel]);
-                    } else if (imageActuel == 51) {
-                        sensImage++;
-                        imageActuel--;
-                        corde.setImageResource(images[imageActuel]);
+
+            } else if(reverseImage[location] == 1){
+                if(sensImage[location] == 0) {
+                    if (imageActuel[location] < 51) {
+                        imageActuel[location]++;
+                        cordes[location].setImageResource(images[imageActuel[location]]);
+                    } else if (imageActuel[location] == 51) {
+                        sensImage[location]++;
+                        imageActuel[location]--;
+                        cordes[location].setImageResource(images[imageActuel[location]]);
                     }
-                } else if(sensImage == 1) {
-                    if (imageActuel > 27) {
-                        imageActuel--;
-                        corde.setImageResource(images[imageActuel]);
-                    } else if (imageActuel == 27) {
-                        sensImage--;
-                        reverseImage--;
-                        imageActuel = 0;
-                        corde.setImageResource(images[imageActuel]);
+                } else if(sensImage[location] == 1) {
+                    if (imageActuel[location] > 27) {
+                        imageActuel[location]--;
+                        cordes[location].setImageResource(images[imageActuel[location]]);
+                    } else if (imageActuel[location] == 27) {
+                        sensImage[location]--;
+                        reverseImage[location]--;
+                        imageActuel[location] = 0;
+                        cordes[location].setImageResource(images[imageActuel[location]]);
                     }
                 }
             } else {
-                corde.setImageResource(R.drawable.message_erreur);
+                cordes[location].setImageResource(R.drawable.message_erreur);
             }
     }
-
 }

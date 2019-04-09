@@ -28,21 +28,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_launcher_background"
-                android:contentDescription="" />
+                android:contentDescription=""
+                android:maxHeight="100dp"/>
 
 
             <LinearLayout
                 android:id="@+id/cordeLayout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_weight="1"
                 android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/cordeAnimation"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:src="@drawable/corde_onde_1"
-                    android:contentDescription="" />
 
             </LinearLayout>
 
