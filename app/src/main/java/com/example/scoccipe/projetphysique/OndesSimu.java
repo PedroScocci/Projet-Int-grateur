@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.ImageView;
@@ -25,13 +26,12 @@ public class OndesSimu extends AppCompatActivity {
     private LinearLayout layout;
     private TextView txtTimer;
     private Button start;
-    private ImageView corde;
-    private ImageView cordes[];
+    private ImageView machine, extremite, cordes[];
     private  Handler customHandler = new Handler();
 
     private double mode;
     private boolean started = false;
-    private long tempsDepart = 0, tempsMiliSecs = 0,tempSec = 0;
+    private long tempsDepart = 0, tempsMiliSecs = 0,tempsTemporaire = 0;
     private int imageActuel[], sensImage[], reverseImage[], images[];
 
 
@@ -49,12 +49,23 @@ public class OndesSimu extends AppCompatActivity {
 
             //Toast.makeText(OndesSimu.this, String.valueOf(tempsMiliSecs), Toast.LENGTH_LONG).show();
 
-            if(tempsMiliSecs >= tempSec + 1 && tempsMiliSecs <= tempSec + 42  ) {
-                tempSec = tempsMiliSecs;
+            if(tempsMiliSecs >= tempsTemporaire + 1 && tempsMiliSecs <= tempsTemporaire + 60  ) { //Si le téléphone est performant
+                tempsTemporaire = tempsMiliSecs;
+                for(int i = 0; i < 3; i++) {
+                    changerImage(i);
+                }
 
-                changerImage(0);
-                changerImage(1);
-                changerImage(2);
+            } else if(tempsMiliSecs >= tempsTemporaire + 61 && tempsMiliSecs <= tempsTemporaire + 500 ) { //Si le téléphone est plus ou moins performant
+                tempsTemporaire = tempsMiliSecs;
+                for(int i = 0; i < 3; i++) {
+                    changerImage(i);
+                }
+
+            } else if(tempsMiliSecs >= tempsTemporaire + 501 && tempsMiliSecs <= tempsTemporaire + 1500 ) { //Si le téléphone n'est pas très performant
+                tempsTemporaire = tempsMiliSecs;
+                for(int i = 0; i < 3; i++) {
+                    changerImage(i);
+                }
             }
 
             customHandler.postDelayed(this, 0);
@@ -75,21 +86,29 @@ public class OndesSimu extends AppCompatActivity {
         sensImage = new int[]{0,0,0};
         reverseImage = new int[]{0,1,0};
 
-        corde = new ImageView(this);
-        corde.setImageResource(R.drawable.corde_onde_1);
+        machine = new ImageView(this);
+        machine.setImageResource(R.drawable.machine_corde_1);
+        machine.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
+
         cordes = new ImageView[5];
         for(int i = 0; i < 5; i++){
             cordes[i] = new ImageView(this);
             cordes[i].setImageResource(R.drawable.corde_onde_1);
-            cordes[i].setAdjustViewBounds(true);
+            cordes[i].setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
         }
+
+        extremite = new ImageView(this);
+        extremite.setImageResource(R.drawable.machine_corde_1);
+        extremite.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
 
         cordes[0].setImageResource(R.drawable.corde_onde_1);
         txtTimer = (TextView) findViewById(R.id.timerValue);
         layout = (LinearLayout) findViewById(R.id.cordeLayout);
+        layout.addView(machine);
         layout.addView(cordes[0]);
         layout.addView(cordes[1]);
         layout.addView(cordes[2]);
+        layout.addView(extremite);
 
 
         images = new int[]{R.drawable.corde_onde_1,R.drawable.corde_onde_2,R.drawable.corde_onde_3, R.drawable.corde_onde_4,  R.drawable.corde_onde_5,
@@ -117,7 +136,7 @@ public class OndesSimu extends AppCompatActivity {
                     started = true;
                 }
                 else if(started){
-                    for(int y = 0; y < 2; y++){
+                    for(int y = 0; y < 3; y++){
                         cordes[y].setImageResource(images[0]);
                         if(y%2 == 1){
                             reverseImage[y] = 1;
@@ -130,7 +149,7 @@ public class OndesSimu extends AppCompatActivity {
 
                         sensImage[y] = 0;
                     }
-                    tempSec = 0;
+                    tempsTemporaire = 0;
                     customHandler.removeCallbacks(updateTimerThread);
 
                     start.setText("COMMENCER");

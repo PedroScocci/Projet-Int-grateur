@@ -21,32 +21,28 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:orientation="horizontal"
+            android:orientation="vertical"
             android:layout_weight="1">
-
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher_background"
-                android:contentDescription=""
-                android:maxHeight="100dp"/>
-
 
             <LinearLayout
                 android:id="@+id/cordeLayout"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:orientation="horizontal">
 
+
             </LinearLayout>
 
 
-            <ImageView
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_launcher_background"
-                android:contentDescription="" />
+                android:layout_weight="2"
+                android:orientation="horizontal">
+
+
+            </LinearLayout>
 
         </LinearLayout>
         
