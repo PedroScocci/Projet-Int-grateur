@@ -1,5 +1,6 @@
 package com.example.scoccipe.projetphysique;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +11,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.IOException;
@@ -19,44 +21,53 @@ public class OndesParam extends AppCompatActivity {
     final static int ALLER_ONDES_SIMULATIONS = 2;
     final static String MODE_STATIONNAIRE = "mode";
     private double modeStationnaire = 0;
-    private double tension = 0;
-    private double frequence = 0;
-    private double longueur = 0;
-    private double masse = 0;
+    private double tension = 0, frequence = 0, longueur = 0, masse = 0;
     private String extremite = "";
+    private boolean calculEffectuer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ondes_param);
 
-        Button param = (Button) findViewById(R.id.bOndesParam);
+        calculEffectuer = false;
 
+        final Button calcul = (Button) findViewById(R.id.bOndesParamCalcul);
+        calcul.setOnClickListener(new View.OnClickListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onClick(View view) {
+                calculEffectuer = true;
+
+                Spinner extrem = (Spinner) findViewById(R.id.ondesExtrem);
+                extremite = extrem.getSelectedItem().toString();
+
+                if(Objects.equals(extremite, "Type d'extrémité")) {
+                    Toast.makeText(OndesParam.this, "Chosir un type d'extrémité à la corde!", Toast.LENGTH_LONG).show();
+
+                } else {
+                    modeStationnaire = calculModeStationnaire();
+
+                    if(calculEffectuer) {
+                        TextView modeStatio = (TextView) findViewById(R.id.ondesModeStatio);
+                        double temp = (double) Math.round(modeStationnaire*1000)/1000;
+                        modeStatio.setText("Mode(s) Stationnaire(s) : "+ String.valueOf(temp));
+                    }
+                }
+            }
+        });
+
+        Button param = (Button) findViewById(R.id.bOndesParamDemarrer);
         param.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(OndesParam.this, OndesSimu.class);
 
-                Spinner extrem = (Spinner) findViewById(R.id.ondesExtrem);
-                extremite = extrem.getSelectedItem().toString();
-
-
-                if(Objects.equals(extremite, "Type d'extrémité")) {
-                    //extrem.setBackgroundColor(getResources().getColor(R.color.rouge));
-                    Toast.makeText(OndesParam.this, "Chosir un type d'extrémité à la corde!", Toast.LENGTH_LONG).show();
-
+                if (!calculEffectuer) {
+                    Toast.makeText(OndesParam.this, "Le mode stationnaire n'a pas été calculé", Toast.LENGTH_LONG).show();
                 } else {
-                    //extrem.setBackgroundColor(getResources().getColor(R.color.blanc));
-                    if(modeStationnaire == -1) {
-
-                    }
-                    else{
-                        modeStationnaire = calculModeStationnaire();
-                        //Toast.makeText(OndesParam.this,   String.valueOf(modeStationnaire), Toast.LENGTH_LONG).show();
-                        intent.putExtra(MODE_STATIONNAIRE, String.valueOf(modeStationnaire));
-                        startActivityForResult(intent, ALLER_ONDES_SIMULATIONS);
-                    }
-
+                    intent.putExtra(MODE_STATIONNAIRE, String.valueOf(modeStationnaire));
+                    startActivityForResult(intent, ALLER_ONDES_SIMULATIONS);
                 }
             }
         });
@@ -84,6 +95,7 @@ public class OndesParam extends AppCompatActivity {
             }
         } catch (NumberFormatException e) {
             Toast.makeText(OndesParam.this,   "Vous avez oubliez de saisir des paramètres", Toast.LENGTH_LONG).show();
+            calculEffectuer = false;
         }
 
         return mode;
@@ -96,9 +108,6 @@ public class OndesParam extends AppCompatActivity {
         if (requestCode == ALLER_ONDES_SIMULATIONS ) {
             if(resultCode == MenuPrincipal.RETOUR_MENU_PRINCIPAL) {
                 finish();
-            }
-            if(requestCode == RESULT_OK) {
-                Toast.makeText(OndesParam.this, "lol", Toast.LENGTH_LONG).show();
             }
         }
         else {

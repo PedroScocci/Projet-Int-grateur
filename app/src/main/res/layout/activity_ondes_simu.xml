@@ -29,7 +29,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                tools:ignore="NestedWeights">
 
 
             </LinearLayout>
@@ -38,8 +39,24 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:orientation="horizontal">
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/modeStatio"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ondesSimuModeStatio"
+                    android:textColor="@color/noir"
+                    android:padding="15dp"/>
+
+                <TextView
+                    android:id="@+id/ouverture"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/noir"
+                    android:text="@string/ondesSimuOuverture"
+                    android:padding="15dp"/>
 
 
             </LinearLayout>

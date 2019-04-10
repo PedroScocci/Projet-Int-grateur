@@ -16,6 +16,10 @@
     <string name="ondesSimuButton">Commencer</string>
     <string name="ondesMenuMenPrinci">Menu principal</string>
     <string name="ondesMenuParam">Paramètres</string>
+    <string name="ondesSimuModeStatio">Mode(s) Stationnaire(s) :</string>
+    <string name="ondesSimuOuverture">Type d\'ouverture de la corde :</string>
+    <string name="ondesParamButtonCalcul">Calculer le mode stationnaire</string>
+    <string name="ondesParamModeStatio">Mode(s) Stationnaire(s) :</string>
     <string-array name="extremite_array">
         <item>Type d\'extrémité</item>
         <item>Semi-ouvert</item>

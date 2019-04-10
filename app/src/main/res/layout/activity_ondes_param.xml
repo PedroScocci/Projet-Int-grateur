@@ -28,7 +28,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="2"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:padding="15dp">
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -139,8 +140,24 @@
 
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/ondesModeStatio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="15dp"
+            android:textColor="@color/noir"
+            android:text="@string/ondesParamModeStatio"
+            android:gravity="center"/>
+
         <Button
-            android:id="@+id/bOndesParam"
+            android:id="@+id/bOndesParamCalcul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ondesParamButtonCalcul"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/bOndesParamDemarrer"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ondesParamButton"
