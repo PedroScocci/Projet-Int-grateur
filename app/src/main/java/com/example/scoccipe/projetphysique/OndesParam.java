@@ -51,7 +51,7 @@ public class OndesParam extends AppCompatActivity {
                     if(calculEffectuer) {
                         txtModeStatio = (TextView) findViewById(R.id.ondesModeStatio);
                         double temp = (double) Math.round(modeStationnaire*1000)/1000;
-                        txtModeStatio.setText("Mode(s) Stationnaire(s) : "+ String.valueOf(temp));
+                        txtModeStatio.setText(R.string.ondesParamModeStatio + String.valueOf(temp));
                     }
                 }
             }
@@ -111,10 +111,11 @@ public class OndesParam extends AppCompatActivity {
             }
             else if(resultCode == RESULT_OK){
                 calculEffectuer = false;
-
+                txtModeStatio.setText(R.string.ondesParamModeStatio);
             }
             else {
                 calculEffectuer = false;
+                txtModeStatio.setText(R.string.ondesParamModeStatio);
             }
         }
         else {

@@ -1,5 +1,6 @@
 package com.example.scoccipe.projetphysique;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Handler;
@@ -31,10 +32,11 @@ public class OndesSimu extends AppCompatActivity {
 
     private boolean started = false, nonMode = false;
     private long tempsDepart = 0, tempsMiliSecs = 0,tempsTemporaire = 0;
-    private int modeStatio, imageActuel[], imageMachine[], sensImage[], reverseImage[], images[], position;
+    private int modeStatio, imageActuel[], imageMachine[], sensImage[], reverseImage[], images[], position[], imagesNon[];
 
 
     Runnable updateTimerThread = new Runnable() {
+        @SuppressLint({"DefaultLocale", "SetTextI18n"})
         @Override
         public void run() {
 
@@ -46,79 +48,55 @@ public class OndesSimu extends AppCompatActivity {
 
             txtTimer.setText(""+mins+":"+String.format("%2d",secs) + ":" + String.format("%3d",miliseconds));
 
-            if(tempsMiliSecs >= tempsTemporaire + 1 && tempsMiliSecs <= tempsTemporaire + 60  ) { //Si le téléphone est performant
-                tempsTemporaire = tempsMiliSecs;
+            if(!nonMode){
+                if(tempsMiliSecs >= tempsTemporaire + 1 && tempsMiliSecs <= tempsTemporaire + 60  ) { //Si le téléphone est performant
+                    tempsTemporaire = tempsMiliSecs;
+                    changerMachine();
+                    for(int i = 0; i < modeStatio; i++) {
+                        changerImage(i);
+                    }
 
-                changerMachine();
-                for(int i = 0; i < modeStatio; i++) {
-                    changerImage(i);
+                } else if(tempsMiliSecs >= tempsTemporaire + 61 && tempsMiliSecs <= tempsTemporaire + 200 ) { //Si le téléphone est plus ou moins performant
+                    tempsTemporaire = tempsMiliSecs;
+                    changerMachine();
+                    for(int i = 0; i < modeStatio; i++) {
+                        changerImage(i);
+                    }
+
+                } else if(tempsMiliSecs >= tempsTemporaire + 201 && tempsMiliSecs <= tempsTemporaire + 500 ){//Si le téléphone n'est pas très performant
+                    tempsTemporaire = tempsMiliSecs;
+                    changerMachine();
+                    for(int i = 0; i < modeStatio; i++) {
+                        changerImage(i);
+                    }
+
+                } else if(tempsMiliSecs >= tempsTemporaire + 501 && tempsMiliSecs <= tempsTemporaire + 1500 ) { //Si le téléphone n'est pas performant
+                    tempsTemporaire = tempsMiliSecs;
+                    changerMachine();
+                    for(int i = 0; i < modeStatio; i++) {
+                        changerImage(i);
+                    }
                 }
+            } else {
+                if(tempsMiliSecs >= tempsTemporaire + 1 && tempsMiliSecs <= tempsTemporaire + 60  ) { //Si le téléphone est performant
+                    tempsTemporaire = tempsMiliSecs;
+                    changerMachine();
+                    changerImageNonMode();
 
-            } else if(tempsMiliSecs >= tempsTemporaire + 61 && tempsMiliSecs <= tempsTemporaire + 200 ) { //Si le téléphone est plus ou moins performant
-                tempsTemporaire = tempsMiliSecs;
-                changerMachine();
-                for(int i = 0; i < modeStatio; i++) {
-                    changerImage(i);
-                }
+                } else if(tempsMiliSecs >= tempsTemporaire + 61 && tempsMiliSecs <= tempsTemporaire + 200 ) { //Si le téléphone est plus ou moins performant
+                    tempsTemporaire = tempsMiliSecs;
+                    changerMachine();
+                    changerImageNonMode();
 
-            } else if(tempsMiliSecs >= tempsTemporaire + 201 && tempsMiliSecs <= tempsTemporaire + 500 ){
-                tempsTemporaire = tempsMiliSecs;
-                changerMachine();
-                for(int i = 0; i < modeStatio; i++) {
-                    changerImage(i);
-                }
+                } else if(tempsMiliSecs >= tempsTemporaire + 201 && tempsMiliSecs <= tempsTemporaire + 500 ){//Si le téléphone n'est pas très performant
+                    tempsTemporaire = tempsMiliSecs;
+                    changerMachine();
+                    changerImageNonMode();
 
-            } else if(tempsMiliSecs >= tempsTemporaire + 501 && tempsMiliSecs <= tempsTemporaire + 1500 ) { //Si le téléphone n'est pas très performant
-                tempsTemporaire = tempsMiliSecs;
-                changerMachine();
-                for(int i = 0; i < modeStatio; i++) {
-                    changerImage(i);
-                }
-            }
-
-
-            customHandler.postDelayed(this, 0);
-        }
-    };
-
-    Runnable updateTimerThread2 = new Runnable() {
-        @Override
-        public void run() {
-
-            tempsMiliSecs = SystemClock.uptimeMillis() - tempsDepart;
-            int secs=(int)(tempsMiliSecs/1000);
-            int mins= secs/60;
-            secs%=60;
-            int miliseconds=(int)(tempsMiliSecs%1000);
-
-            txtTimer.setText(""+mins+":"+String.format("%2d",secs) + ":" + String.format("%3d",miliseconds));
-
-            if(tempsMiliSecs >= tempsTemporaire + 1 && tempsMiliSecs <= tempsTemporaire + 60  ) { //Si le téléphone est performant
-                tempsTemporaire = tempsMiliSecs;
-                changerMachine();
-                for(int i = 0; i < modeStatio; i++) {//à faire
-
-                }
-
-            } else if(tempsMiliSecs >= tempsTemporaire + 61 && tempsMiliSecs <= tempsTemporaire + 200 ) { //Si le téléphone est plus ou moins performant
-                tempsTemporaire = tempsMiliSecs;
-                changerMachine();
-                for(int i = 0; i < modeStatio; i++) {
-
-                }
-
-            } else if(tempsMiliSecs >= tempsTemporaire + 201 && tempsMiliSecs <= tempsTemporaire + 500 ){
-                tempsTemporaire = tempsMiliSecs;
-                changerMachine();
-                for(int i = 0; i < modeStatio; i++) {
-
-                }
-
-            } else if(tempsMiliSecs >= tempsTemporaire + 501 && tempsMiliSecs <= tempsTemporaire + 1500 ) { //Si le téléphone n'est pas très performant
-                tempsTemporaire = tempsMiliSecs;
-                changerMachine();
-                for(int i = 0; i < modeStatio; i++) {
-
+                } else if(tempsMiliSecs >= tempsTemporaire + 501 && tempsMiliSecs <= tempsTemporaire + 1500 ) { //Si le téléphone n'est pas performant
+                    tempsTemporaire = tempsMiliSecs;
+                    changerMachine();
+                    changerImageNonMode();
                 }
             }
 
@@ -202,7 +180,23 @@ public class OndesSimu extends AppCompatActivity {
                         started = false;
                     }
                 } else {
-                    //à faire quand il ne s'agit pas d'un mode stationnaire
+                    if(!started){
+                        tempsDepart = SystemClock.uptimeMillis();
+
+                        customHandler.postDelayed(updateTimerThread, 0);
+
+                        start.setText("ARRÊTER");
+                        started = true;
+                    }
+                    else if(started){
+                        cordes[0].setImageResource(imagesNon[0]);
+                        tempsTemporaire = 0;
+                        machine.setImageResource(R.drawable.machine_corde_fermer);
+                        customHandler.removeCallbacks(updateTimerThread);
+
+                        start.setText("COMMENCER");
+                        started = false;
+                    }
                 }
             }
         });
@@ -233,10 +227,10 @@ public class OndesSimu extends AppCompatActivity {
     }
 
     public  void changerMachine(){
-        machine.setImageResource(imageMachine[position]);
-        position++;
-        if(position == 12){
-            position = 0;
+        machine.setImageResource(imageMachine[position[0]]);
+        position[0]++;
+        if(position[0] == 12){
+            position[0] = 0;
         }
     }
 
@@ -287,12 +281,20 @@ public class OndesSimu extends AppCompatActivity {
         } else cordes[location].setImageResource(R.drawable.message_erreur);
     }
 
+    public void changerImageNonMode() {
+        cordes[0].setImageResource(imagesNon[position[1]]);
+        position[1]++;
+        if(position[1] == 26) {
+            position[1] = 5;
+        }
+    }
+
     private void initialiserVariable(int mode) {
         imageActuel = new int[mode];
         sensImage = new int[mode];
         reverseImage = new int[mode];
         cordes = new ImageView[mode];
-        position = 0;
+        position = new int[]{0,0,0};
 
         for(int i = 0; i < mode; i++) {
             sensImage[i] = 0;
@@ -328,5 +330,13 @@ public class OndesSimu extends AppCompatActivity {
                 R.drawable.machine_corde_ouvert_4, R.drawable.machine_corde_ouvert_3, R.drawable.machine_corde_ouvert_2,
                 R.drawable.machine_corde_ouvert, R.drawable.machine_corde_ouvert_r_2, R.drawable.machine_corde_ouvert_r_3,
                 R.drawable.machine_corde_ouvert_r_4, R.drawable.machine_corde_ouvert_r_3, R.drawable.machine_corde_ouvert_r_2}; // 12 cases
+
+        imagesNon = new int[]{R.drawable.corde_non_onde, R.drawable.corde_non_onde_2, R.drawable.corde_non_onde_3, R.drawable.corde_non_onde_4,
+                R.drawable.corde_non_onde_5, R.drawable.corde_non_onde_6, R.drawable.corde_non_onde_7, R.drawable.corde_non_onde_8,
+                R.drawable.corde_non_onde_9, R.drawable.corde_non_onde_10, R.drawable.corde_non_onde_11, R.drawable.corde_non_onde_12,
+                R.drawable.corde_non_onde_13, R.drawable.corde_non_onde_14, R.drawable.corde_non_onde_15, R.drawable.corde_non_onde_16,
+                R.drawable.corde_non_onde_15, R.drawable.corde_non_onde_14, R.drawable.corde_non_onde_13, R.drawable.corde_non_onde_12,
+                R.drawable.corde_non_onde_11, R.drawable.corde_non_onde_10, R.drawable.corde_non_onde_9, R.drawable.corde_non_onde_8,
+                R.drawable.corde_non_onde_7, R.drawable.corde_non_onde_6}; //26 cases
     }
 }
