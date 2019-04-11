@@ -24,7 +24,7 @@ public class OndesSimu extends AppCompatActivity {
     private Intent intent;
 
     private LinearLayout layout;
-    private TextView txtTimer;
+    private TextView txtTimer, txtProb;
     private Button start;
     private ImageView machine, extremite, cordes[];
     private  Handler customHandler = new Handler();
@@ -54,7 +54,14 @@ public class OndesSimu extends AppCompatActivity {
                     changerImage(i);
                 }
 
-            } else if(tempsMiliSecs >= tempsTemporaire + 61 && tempsMiliSecs <= tempsTemporaire + 500 ) { //Si le téléphone est plus ou moins performant
+            } else if(tempsMiliSecs >= tempsTemporaire + 61 && tempsMiliSecs <= tempsTemporaire + 200 ) { //Si le téléphone est plus ou moins performant
+                tempsTemporaire = tempsMiliSecs;
+                changerMachine();
+                for(int i = 0; i < modeStatio; i++) {
+                    changerImage(i);
+                }
+
+            } else if(tempsMiliSecs >= tempsTemporaire + 201 && tempsMiliSecs <= tempsTemporaire + 500 ){
                 tempsTemporaire = tempsMiliSecs;
                 changerMachine();
                 for(int i = 0; i < modeStatio; i++) {
@@ -66,6 +73,52 @@ public class OndesSimu extends AppCompatActivity {
                 changerMachine();
                 for(int i = 0; i < modeStatio; i++) {
                     changerImage(i);
+                }
+            }
+
+
+            customHandler.postDelayed(this, 0);
+        }
+    };
+
+    Runnable updateTimerThread2 = new Runnable() {
+        @Override
+        public void run() {
+
+            tempsMiliSecs = SystemClock.uptimeMillis() - tempsDepart;
+            int secs=(int)(tempsMiliSecs/1000);
+            int mins= secs/60;
+            secs%=60;
+            int miliseconds=(int)(tempsMiliSecs%1000);
+
+            txtTimer.setText(""+mins+":"+String.format("%2d",secs) + ":" + String.format("%3d",miliseconds));
+
+            if(tempsMiliSecs >= tempsTemporaire + 1 && tempsMiliSecs <= tempsTemporaire + 60  ) { //Si le téléphone est performant
+                tempsTemporaire = tempsMiliSecs;
+                changerMachine();
+                for(int i = 0; i < modeStatio; i++) {//à faire
+
+                }
+
+            } else if(tempsMiliSecs >= tempsTemporaire + 61 && tempsMiliSecs <= tempsTemporaire + 200 ) { //Si le téléphone est plus ou moins performant
+                tempsTemporaire = tempsMiliSecs;
+                changerMachine();
+                for(int i = 0; i < modeStatio; i++) {
+
+                }
+
+            } else if(tempsMiliSecs >= tempsTemporaire + 201 && tempsMiliSecs <= tempsTemporaire + 500 ){
+                tempsTemporaire = tempsMiliSecs;
+                changerMachine();
+                for(int i = 0; i < modeStatio; i++) {
+
+                }
+
+            } else if(tempsMiliSecs >= tempsTemporaire + 501 && tempsMiliSecs <= tempsTemporaire + 1500 ) { //Si le téléphone n'est pas très performant
+                tempsTemporaire = tempsMiliSecs;
+                changerMachine();
+                for(int i = 0; i < modeStatio; i++) {
+
                 }
             }
 
@@ -91,11 +144,13 @@ public class OndesSimu extends AppCompatActivity {
         extremite.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
 
         txtTimer = (TextView) findViewById(R.id.timerValue);
+        txtProb = (TextView) findViewById(R.id.ondesSimuProb);
         layout = (LinearLayout) findViewById(R.id.cordeLayout);
         layout.addView(machine);
 
         if(mode == Math.round(mode) && mode > 20) {
             modeStatio = (int)(mode)%2 + 20;
+            txtProb.setText(R.string.ondesSimuProb1);
             Toast.makeText(OndesSimu.this, String.valueOf(modeStatio), Toast.LENGTH_LONG).show();
             initialiserVariable(modeStatio);
         } else if(mode == Math.round(mode)){
@@ -104,6 +159,8 @@ public class OndesSimu extends AppCompatActivity {
             initialiserVariable(modeStatio);
         } else {
             nonMode = true;
+            initialiserVariable(1);
+            txtProb.setText(R.string.ondesSimuProb2);
         }
 
         layout.addView(extremite);
@@ -112,6 +169,7 @@ public class OndesSimu extends AppCompatActivity {
         start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                txtProb.setText("");
                 if(!nonMode){
                     if(!started){
                         tempsDepart = SystemClock.uptimeMillis();

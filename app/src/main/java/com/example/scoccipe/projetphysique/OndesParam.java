@@ -20,10 +20,10 @@ import java.util.Objects;
 public class OndesParam extends AppCompatActivity {
     final static int ALLER_ONDES_SIMULATIONS = 2;
     final static String MODE_STATIONNAIRE = "mode";
-    private double modeStationnaire = 0;
-    private double tension = 0, frequence = 0, longueur = 0, masse = 0;
     private String extremite = "";
+    private double modeStationnaire = 0, tension = 0, frequence = 0, longueur = 0, masse = 0;
     private boolean calculEffectuer;
+    private TextView txtModeStatio;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +49,9 @@ public class OndesParam extends AppCompatActivity {
                     modeStationnaire = calculModeStationnaire();
 
                     if(calculEffectuer) {
-                        TextView modeStatio = (TextView) findViewById(R.id.ondesModeStatio);
+                        txtModeStatio = (TextView) findViewById(R.id.ondesModeStatio);
                         double temp = (double) Math.round(modeStationnaire*1000)/1000;
-                        modeStatio.setText("Mode(s) Stationnaire(s) : "+ String.valueOf(temp));
+                        txtModeStatio.setText("Mode(s) Stationnaire(s) : "+ String.valueOf(temp));
                     }
                 }
             }
@@ -108,6 +108,13 @@ public class OndesParam extends AppCompatActivity {
         if (requestCode == ALLER_ONDES_SIMULATIONS ) {
             if(resultCode == MenuPrincipal.RETOUR_MENU_PRINCIPAL) {
                 finish();
+            }
+            else if(resultCode == RESULT_OK){
+                calculEffectuer = false;
+
+            }
+            else {
+                calculEffectuer = false;
             }
         }
         else {

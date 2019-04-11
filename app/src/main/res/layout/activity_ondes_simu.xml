@@ -65,7 +65,8 @@
                     android:textColor="@color/noir"
                     android:text=""
                     android:textSize="20sp"
-                    android:padding="15dp"/>
+                    android:padding="15dp"
+                    android:gravity="center"/>
 
             </LinearLayout>
 
