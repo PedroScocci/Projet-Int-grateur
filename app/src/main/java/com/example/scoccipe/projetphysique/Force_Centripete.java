@@ -82,8 +82,8 @@ public class Force_Centripete extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if(derapage){
-                    faireUnTour();
-                    AnimationSet as = new AnimationSet(true);
+                    faireUnTourDerap();
+                    /*AnimationSet as = new AnimationSet(true);
                     TranslateAnimation animator2 = new TranslateAnimation(0,0,0,-700);
                     //RotateAnimation animation2 = new RotateAnimation(0,-360, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
                     //animation2.setDuration(6000);
@@ -92,7 +92,7 @@ public class Force_Centripete extends AppCompatActivity {
                     //animation2.setInterpolator(new LinearInterpolator());
                     //as.addAnimation(animation2);
                     as.addAnimation(animator2);
-                    iv.startAnimation(as);
+                    iv.startAnimation(as);*/
                 }
                 else{
                     faireUnTour();
@@ -129,5 +129,49 @@ public class Force_Centripete extends AppCompatActivity {
         iv.animate().rotationBy(-360).setDuration(temps);
         ObjectAnimator animator = ObjectAnimator.ofFloat(iv,View.X,View.Y,path);
         animator.setDuration(temps).start();
+    }
+
+    public void faireUnTourDerap(){
+        Path path = new Path();
+        path.arcTo(0f,0f,905f,850f,0f,-60,true);
+        iv.animate().rotationBy(-60).setDuration(5000);
+        ObjectAnimator animator = ObjectAnimator.ofFloat(iv,View.X,View.Y,path);
+        animator.setDuration(5000).start();
+        AnimationSet as = new AnimationSet(true);
+        TranslateAnimation animator2 = new TranslateAnimation(0,-200,0,-275);
+        animator2.setDuration(3000);
+        animator2.setStartOffset(5000);
+        as.addAnimation(animator2);
+        iv.startAnimation(as);
+        animator2.setAnimationListener(new Animation.AnimationListener() {
+
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+                iv.clearAnimation();
+                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(iv.getWidth(), iv.getHeight());
+                lp.setMargins(1105, 750, 700, 0);
+                iv.setLayoutParams(lp);
+                iv.animate().rotationBy(60).setDuration(1);
+
+                // TODO set params of the view to required position
+
+            }
+        });
+
+        /*path.arcTo(0f,0f,905f,850f,-60f,60,true);
+        iv.animate().rotationBy(60).setDuration(5000).setStartDelay(13000);
+        ObjectAnimator animator3 = ObjectAnimator.ofFloat(iv,View.X,View.Y,path);
+        animator3.setDuration(5000).setStartDelay(13000);
+        animator3.start();*/
     }
 }
