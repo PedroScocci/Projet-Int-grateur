@@ -25,7 +25,8 @@ public class OndesSimu extends AppCompatActivity {
     private String extrem;
     private boolean started = false, nonMode = false;
     private long tempsDepart = 0,tempsTemporaire = 0;
-    private int modeStatio, imageActuel[], imageMachine[], sensImage[], reverseImage[], images[], imagesSemiOuvert[], position[], imagesNon[];
+    private int modeStatio, imageActuel[], imageMachine[], sensImage[], reverseImage[], images[], imagesSemiOuvert[], position[], imagesNon[],
+            imagesExtremites[];
 
 
     Runnable updateTimerThread = new Runnable() {
@@ -48,6 +49,7 @@ public class OndesSimu extends AppCompatActivity {
                     for(int i = 0; i < modeStatio; i++) {
                         if(modeStatio - 1 == i && extrem.equals("Semi-ouvert")){
                             changerImage(i , imagesSemiOuvert);
+                            changerImageExtremite(i+1);
                         } else{
                             changerImage(i, images);
                         }
@@ -59,6 +61,7 @@ public class OndesSimu extends AppCompatActivity {
                     for(int i = 0; i < modeStatio; i++) {
                         if(modeStatio - 1 == i && extrem.equals("Semi-ouvert")){
                             changerImage(i , imagesSemiOuvert);
+                            changerImageExtremite(i+1);
                         } else{
                             changerImage(i, images);
                         }
@@ -70,6 +73,7 @@ public class OndesSimu extends AppCompatActivity {
                     for(int i = 0; i < modeStatio; i++) {
                         if(modeStatio - 1 == i && extrem.equals("Semi-ouvert")){
                             changerImage(i , imagesSemiOuvert);
+                            changerImageExtremite(i+1);
                         } else{
                             changerImage(i, images);
                         }
@@ -81,6 +85,7 @@ public class OndesSimu extends AppCompatActivity {
                     for(int i = 0; i < modeStatio; i++) {
                         if(modeStatio - 1 == i && extrem.equals("Semi-ouvert")){
                             changerImage(i , imagesSemiOuvert);
+                            changerImageExtremite(i+1);
                         } else{
                             changerImage(i, images);
                         }
@@ -135,8 +140,8 @@ public class OndesSimu extends AppCompatActivity {
         layout.addView(machine);
 
         if(extrem.equals("Semi-ouvert")) {
-            if(mode == Math.round(mode) && mode > 20) {
-                modeStatio = (int)(mode)%2 + 20;
+            if(mode == Math.round(mode) && mode > 14) {
+                modeStatio = (int)(mode)%2 + 14;
                 txtProb.setText(R.string.ondesSimuProb1);
                 initialiserVariableSemiOuvert(modeStatio);
             } else if(mode == Math.round(mode)){
@@ -151,8 +156,8 @@ public class OndesSimu extends AppCompatActivity {
             extremite.setImageResource(R.drawable.extremite_semi_fermer_1);
             extremite.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
         } else if(extrem.equals("Fermé")) {
-            if(mode == Math.round(mode) && mode > 20) {
-                modeStatio = (int)(mode)%2 + 20;
+            if(mode == Math.round(mode) && mode > 14) {
+                modeStatio = (int)(mode)%2 + 14;
                 txtProb.setText(R.string.ondesSimuProb1);
                 initialiserVariableFermer(modeStatio);
             } else if(mode == Math.round(mode)){
@@ -190,18 +195,24 @@ public class OndesSimu extends AppCompatActivity {
                             cordes[y].setImageResource(images[0]);
 
                             if(y%2 == 1){
-                                reverseImage[y] = 1;
                                 imageActuel[y] = 27;
+                                reverseImage[y] = 1;
                             }
                             else if(y%2 == 0){
-                                reverseImage[y] = 0;
                                 imageActuel[y] = 0;
+                                reverseImage[y] = 0;
                             }
 
                             sensImage[y] = 0;
                         }
                         tempsTemporaire = 0;
                         machine.setImageResource(R.drawable.machine_corde_fermer);
+                        if(extrem.equals("Semi-ouvert")){
+                            extremite.setImageResource(R.drawable.extremite_semi_fermer_1);
+                            sensImage[modeStatio]=0;
+                            imageActuel[modeStatio] = imageActuel[modeStatio-1];
+                            reverseImage[modeStatio] = reverseImage[modeStatio-1];
+                        }
                         customHandler.removeCallbacks(updateTimerThread);
 
                         start.setText(R.string.boutonCommencer);
@@ -309,6 +320,53 @@ public class OndesSimu extends AppCompatActivity {
         } else cordes[location].setImageResource(R.drawable.message_erreur);
     }
 
+    public void changerImageExtremite(int location){
+        if(reverseImage[location] == 0){
+            if(sensImage[location] == 0) {
+                if (imageActuel[location] < 25) {
+                    imageActuel[location]++;
+                    extremite.setImageResource(imagesExtremites[imageActuel[location]]);
+                } else if (imageActuel[location] == 25) {
+                    sensImage[location]++;
+                    imageActuel[location]--;
+                    extremite.setImageResource(imagesExtremites[imageActuel[location]]);
+                }
+            } else if(sensImage[location] == 1) {
+                if (imageActuel[location] > 0) {
+                    imageActuel[location]--;
+                    extremite.setImageResource(imagesExtremites[imageActuel[location]]);
+                } else if (imageActuel[location] == 0) {
+                    sensImage[location]--;
+                    reverseImage[location]++;
+                    imageActuel[location] = 26;
+                    extremite.setImageResource(imagesExtremites[imageActuel[location]]);
+                }
+            }
+
+        } else if(reverseImage[location] == 1){
+            if(sensImage[location] == 0) {
+                if (imageActuel[location] < 50) {
+                    imageActuel[location]++;
+                    extremite.setImageResource(imagesExtremites[imageActuel[location]]);
+                } else if (imageActuel[location] == 50) {
+                    sensImage[location]++;
+                    imageActuel[location]--;
+                    extremite.setImageResource(imagesExtremites[imageActuel[location]]);
+                }
+            } else if(sensImage[location] == 1) {
+                if (imageActuel[location] > 26) {
+                    imageActuel[location]--;
+                    extremite.setImageResource(imagesExtremites[imageActuel[location]]);
+                } else if (imageActuel[location] == 26) {
+                    sensImage[location]--;
+                    reverseImage[location]--;
+                    imageActuel[location] = 0;
+                    extremite.setImageResource(imagesExtremites[imageActuel[location]]);
+                }
+            }
+        } else cordes[location].setImageResource(R.drawable.message_erreur);
+    }
+
     public void changerImageNonMode() {
         cordes[0].setImageResource(imagesNon[position[1]]);
         position[1]++;
@@ -322,7 +380,7 @@ public class OndesSimu extends AppCompatActivity {
         sensImage = new int[mode];
         reverseImage = new int[mode];
         cordes = new ImageView[mode];
-        position = new int[]{0,0,0};
+        position = new int[]{0};
 
         for(int i = 0; i < mode; i++) {
             sensImage[i] = 0;
@@ -361,11 +419,11 @@ public class OndesSimu extends AppCompatActivity {
     }
 
     private void initialiserVariableSemiOuvert(int mode) {
-        imageActuel = new int[mode];
-        sensImage = new int[mode];
-        reverseImage = new int[mode];
+        imageActuel = new int[mode+1];
+        sensImage = new int[mode+1];
+        reverseImage = new int[mode+1];
         cordes = new ImageView[mode];
-        position = new int[]{0,0,0};
+        position = new int[]{0};
 
         for(int i = 0; i < mode; i++) {
             sensImage[i] = 0;
@@ -385,6 +443,10 @@ public class OndesSimu extends AppCompatActivity {
             layout.addView(cordes[i]);
         }
 
+        imageActuel[mode] = imageActuel[mode-1];
+        reverseImage[mode] = reverseImage[mode-1];
+        sensImage[mode] = 0;
+
         images = new int[]{R.drawable.corde_onde_1, R.drawable.corde_onde_2, R.drawable.corde_onde_3, R.drawable.corde_onde_4,  R.drawable.corde_onde_5,
                 R.drawable.corde_onde_6, R.drawable.corde_onde_7, R.drawable.corde_onde_8, R.drawable.corde_onde_9, R.drawable.corde_onde_10, R.drawable.corde_onde_11,
                 R.drawable.corde_onde_12, R.drawable.corde_onde_13, R.drawable.corde_onde_14, R.drawable.corde_onde_15, R.drawable.corde_onde_16,
@@ -397,7 +459,7 @@ public class OndesSimu extends AppCompatActivity {
                 R.drawable.corde_onde_r_21, R.drawable.corde_onde_r_22, R.drawable.corde_onde_r_23, R.drawable.corde_onde_r_24, R.drawable.corde_onde_r_25,
                 R.drawable.corde_onde_r_26}; // 51 cases
 
-        imagesSemiOuvert = new int[]{R.drawable.corde_demi_onde_1, R.drawable.corde_demi_onde_2, R.drawable.corde_demi_onde_3, R.drawable.corde_demi_onde_4,  R.drawable.corde_demi_onde_5,
+        imagesSemiOuvert = new int[]{R.drawable.corde_onde_1, R.drawable.corde_demi_onde_2, R.drawable.corde_demi_onde_3, R.drawable.corde_demi_onde_4,  R.drawable.corde_demi_onde_5,
                 R.drawable.corde_demi_onde_6, R.drawable.corde_demi_onde_7, R.drawable.corde_demi_onde_8, R.drawable.corde_demi_onde_9, R.drawable.corde_demi_onde_10, R.drawable.corde_demi_onde_11,
                 R.drawable.corde_demi_onde_12, R.drawable.corde_demi_onde_13, R.drawable.corde_demi_onde_14, R.drawable.corde_demi_onde_15, R.drawable.corde_demi_onde_16,
                 R.drawable.corde_demi_onde_17, R.drawable.corde_demi_onde_18, R.drawable.corde_demi_onde_19, R.drawable.corde_demi_onde_20, R.drawable.corde_demi_onde_21,
@@ -413,6 +475,20 @@ public class OndesSimu extends AppCompatActivity {
                 R.drawable.machine_corde_ouvert_4, R.drawable.machine_corde_ouvert_3, R.drawable.machine_corde_ouvert_2,
                 R.drawable.machine_corde_ouvert, R.drawable.machine_corde_ouvert_r_2, R.drawable.machine_corde_ouvert_r_3,
                 R.drawable.machine_corde_ouvert_r_4, R.drawable.machine_corde_ouvert_r_3, R.drawable.machine_corde_ouvert_r_2}; // 12 cases
+
+        imagesExtremites = new int[]{R.drawable.extremite_semi_fermer_1, R.drawable.extremite_semi_fermer_2, R.drawable.extremite_semi_fermer_3,
+                R.drawable.extremite_semi_fermer_4, R.drawable.extremite_semi_fermer_5, R.drawable.extremite_semi_fermer_6, R.drawable.extremite_semi_fermer_7,
+                R.drawable.extremite_semi_fermer_8, R.drawable.extremite_semi_fermer_9, R.drawable.extremite_semi_fermer_10, R.drawable.extremite_semi_fermer_11,
+                R.drawable.extremite_semi_fermer_12, R.drawable.extremite_semi_fermer_13, R.drawable.extremite_semi_fermer_14, R.drawable.extremite_semi_fermer_15,
+                R.drawable.extremite_semi_fermer_16, R.drawable.extremite_semi_fermer_17, R.drawable.extremite_semi_fermer_18, R.drawable.extremite_semi_fermer_19,
+                R.drawable.extremite_semi_fermer_20, R.drawable.extremite_semi_fermer_21, R.drawable.extremite_semi_fermer_22, R.drawable.extremite_semi_fermer_23,
+                R.drawable.extremite_semi_fermer_24, R.drawable.extremite_semi_fermer_25, R.drawable.extremite_semi_fermer_26, R.drawable.extremite_semi_fermer_r_2,
+                R.drawable.extremite_semi_fermer_r_3, R.drawable.extremite_semi_fermer_r_4, R.drawable.extremite_semi_fermer_r_5, R.drawable.extremite_semi_fermer_r_6,
+                R.drawable.extremite_semi_fermer_r_7, R.drawable.extremite_semi_fermer_r_8, R.drawable.extremite_semi_fermer_r_9, R.drawable.extremite_semi_fermer_r_10,
+                R.drawable.extremite_semi_fermer_r_11, R.drawable.extremite_semi_fermer_r_12, R.drawable.extremite_semi_fermer_r_13, R.drawable.extremite_semi_fermer_r_14,
+                R.drawable.extremite_semi_fermer_r_15, R.drawable.extremite_semi_fermer_r_16, R.drawable.extremite_semi_fermer_r_17, R.drawable.extremite_semi_fermer_r_18,
+                R.drawable.extremite_semi_fermer_r_19, R.drawable.extremite_semi_fermer_r_20, R.drawable.extremite_semi_fermer_r_21, R.drawable.extremite_semi_fermer_r_22,
+                R.drawable.extremite_semi_fermer_r_23, R.drawable.extremite_semi_fermer_r_24, R.drawable.extremite_semi_fermer_r_25, R.drawable.extremite_semi_fermer_r_26}; //51 cases
     }
 
     private void initialiserVariableNonMode() {
@@ -420,7 +496,7 @@ public class OndesSimu extends AppCompatActivity {
         sensImage = new int[]{0};
         reverseImage = new int[]{0};
         cordes = new ImageView[1];
-        position = new int[]{0,0,0};
+        position = new int[]{0,0};
 
 
         cordes[0] = new ImageView(this);
@@ -434,7 +510,7 @@ public class OndesSimu extends AppCompatActivity {
                 R.drawable.machine_corde_ouvert, R.drawable.machine_corde_ouvert_r_2, R.drawable.machine_corde_ouvert_r_3,
                 R.drawable.machine_corde_ouvert_r_4, R.drawable.machine_corde_ouvert_r_3, R.drawable.machine_corde_ouvert_r_2}; // 12 cases
 
-        imagesNon = new int[]{R.drawable.corde_non_onde, R.drawable.corde_non_onde_2, R.drawable.corde_non_onde_3, R.drawable.corde_non_onde_4,
+        imagesNon = new int[]{R.drawable.corde_onde_1, R.drawable.corde_non_onde_2, R.drawable.corde_non_onde_3, R.drawable.corde_non_onde_4,
                 R.drawable.corde_non_onde_5, R.drawable.corde_non_onde_6, R.drawable.corde_non_onde_7, R.drawable.corde_non_onde_8,
                 R.drawable.corde_non_onde_9, R.drawable.corde_non_onde_10, R.drawable.corde_non_onde_11, R.drawable.corde_non_onde_12,
                 R.drawable.corde_non_onde_13, R.drawable.corde_non_onde_14, R.drawable.corde_non_onde_15, R.drawable.corde_non_onde_16,

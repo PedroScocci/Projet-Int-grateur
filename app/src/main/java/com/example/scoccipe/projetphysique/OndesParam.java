@@ -29,14 +29,14 @@ public class OndesParam extends AppCompatActivity {
 
         calculEffectuer = false;
 
-        final Button calcul = (Button) findViewById(R.id.bOndesParamCalcul);
+        final Button calcul = findViewById(R.id.bOndesParamCalcul);
         calcul.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("SetTextI18n")
             @Override
             public void onClick(View view) {
                 calculEffectuer = true;
 
-                Spinner extrem = (Spinner) findViewById(R.id.ondesExtrem);
+                Spinner extrem = findViewById(R.id.ondesExtrem);
                 extremite = extrem.getSelectedItem().toString();
 
                 if(Objects.equals(extremite, "Type d'extrémité")) {
@@ -46,7 +46,7 @@ public class OndesParam extends AppCompatActivity {
                     modeStationnaire = calculModeStationnaire();
 
                     if(calculEffectuer) {
-                        txtModeStatio = (TextView) findViewById(R.id.ondesModeStatio);
+                        txtModeStatio = findViewById(R.id.ondesModeStatio);
                         double temp = (double) Math.round(modeStationnaire*1000)/1000;
                         txtModeStatio.setText(R.string.ondesParamModeStatio + " "+ String.valueOf(temp));
                     }
@@ -54,7 +54,7 @@ public class OndesParam extends AppCompatActivity {
             }
         });
 
-        Button param = (Button) findViewById(R.id.bOndesParamDemarrer);
+        Button param = findViewById(R.id.bOndesParamDemarrer);
         param.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -72,10 +72,10 @@ public class OndesParam extends AppCompatActivity {
     }
 
     double calculModeStationnaire() {
-        EditText tens = (EditText) findViewById(R.id.ondesTension);
-        EditText freq = (EditText) findViewById(R.id.ondesFrequence);
-        EditText longu = (EditText) findViewById(R.id.ondesLongueur);
-        EditText mass = (EditText) findViewById(R.id.ondesMasse);
+        EditText tens = findViewById(R.id.ondesTension);
+        EditText freq = findViewById(R.id.ondesFrequence);
+        EditText longu = findViewById(R.id.ondesLongueur);
+        EditText mass = findViewById(R.id.ondesMasse);
         double mode = -1;
 
         try {
