@@ -24,6 +24,10 @@
     <string name="ondesSimuProb2">Il ne s\'agit pas d\'un mode stationnaire. Alors, la corde n\'effectuera pas de paraboles</string>
     <string name="boutonArreter">ARRÊTER</string>
     <string name="boutonCommencer">COMMENCER</string>
+    <string name="ondesParamOublier">Vous avez oubliez de saisir des paramètres</string>
+    <string name="ondesParamCalculOublier">Le mode stationnaire n\'a pas été calculé</string>
+    <string name="ondesParamChoixExtremite">Chosir un type d\'extrémité à la corde!</string>
+    <string name="ondesParamErreurRetour">Erreur dans le retour à cette fenêtre</string>
     <string-array name="extremite_array">
         <item>Type d\'extrémité</item>
         <item>Semi-ouvert</item>

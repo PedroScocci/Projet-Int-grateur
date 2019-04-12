@@ -17,7 +17,7 @@ import android.widget.TextView;
 public class OndesSimu extends AppCompatActivity {
 
     private LinearLayout layout;
-    private TextView txtTimer, txtProb;
+    private TextView txtProb;
     private Button start;
     private ImageView machine, extremite, cordes[];
     private  Handler customHandler = new Handler();
@@ -39,8 +39,6 @@ public class OndesSimu extends AppCompatActivity {
             int mins= secs/60;
             secs%=60;
             int miliseconds=(int)(tempsMiliSecs %1000);
-
-            txtTimer.setText(""+mins+":"+String.format("%2d",secs) + ":" + String.format("%3d",miliseconds));
 
             if(!nonMode){
                 if(tempsMiliSecs >= tempsTemporaire + 1 && tempsMiliSecs <= tempsTemporaire + 60  ) { //Si le téléphone est performant
@@ -133,8 +131,6 @@ public class OndesSimu extends AppCompatActivity {
 
         extremite = new ImageView(this);
 
-
-        txtTimer = findViewById(R.id.timerValue);
         txtProb = findViewById(R.id.ondesSimuProb);
         layout = findViewById(R.id.cordeLayout);
         layout.addView(machine);

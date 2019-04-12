@@ -40,7 +40,7 @@ public class OndesParam extends AppCompatActivity {
                 extremite = extrem.getSelectedItem().toString();
 
                 if(Objects.equals(extremite, "Type d'extrémité")) {
-                    Toast.makeText(OndesParam.this, "Chosir un type d'extrémité à la corde!", Toast.LENGTH_LONG).show();
+                    Toast.makeText(OndesParam.this, R.string.ondesParamChoixExtremite, Toast.LENGTH_LONG).show();
 
                 } else {
                     modeStationnaire = calculModeStationnaire();
@@ -48,7 +48,7 @@ public class OndesParam extends AppCompatActivity {
                     if(calculEffectuer) {
                         txtModeStatio = findViewById(R.id.ondesModeStatio);
                         double temp = (double) Math.round(modeStationnaire*1000)/1000;
-                        txtModeStatio.setText(R.string.ondesParamModeStatio + " "+ String.valueOf(temp));
+                        txtModeStatio.setText(getText(R.string.ondesParamModeStatio)+ " " + String.valueOf(temp));
                     }
                 }
             }
@@ -61,7 +61,7 @@ public class OndesParam extends AppCompatActivity {
                 Intent intent = new Intent(OndesParam.this, OndesSimu.class);
 
                 if (!calculEffectuer) {
-                    Toast.makeText(OndesParam.this, "Le mode stationnaire n'a pas été calculé", Toast.LENGTH_LONG).show();
+                    Toast.makeText(OndesParam.this, R.string.ondesParamCalculOublier, Toast.LENGTH_LONG).show();
                 } else {
                     intent.putExtra(EXTREMITES, extremite);
                     intent.putExtra(MODE_STATIONNAIRE, String.valueOf(modeStationnaire));
@@ -92,7 +92,7 @@ public class OndesParam extends AppCompatActivity {
                 mode =  2 * frequence * ( Math.sqrt( masse * longueur / tension) );
             }
         } catch (NumberFormatException e) {
-            Toast.makeText(OndesParam.this,   "Vous avez oubliez de saisir des paramètres", Toast.LENGTH_LONG).show();
+            Toast.makeText(OndesParam.this,   R.string.ondesParamOublier, Toast.LENGTH_LONG).show();
             calculEffectuer = false;
         }
 
@@ -117,7 +117,7 @@ public class OndesParam extends AppCompatActivity {
             }
         }
         else {
-            Toast.makeText(OndesParam.this, "Erreur dans la saisie", Toast.LENGTH_LONG).show();
+            Toast.makeText(OndesParam.this, R.string.ondesParamErreurRetour, Toast.LENGTH_LONG).show();
         }
     }
 }
