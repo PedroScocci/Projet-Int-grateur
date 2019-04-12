@@ -80,10 +80,10 @@ public class Paradoxe2 extends AppCompatActivity {
                     startActivity(myIntent);
                 }
                 else if(vitesse_nombre <=0) {
-                    Toast.makeText(Paradoxe2.this, "La vitesse choisie est plus petite ou égale à 0. Alors, il est impossible pour le voyageur de se rendre à destination!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite0, Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(Paradoxe2.this, "La vitesse choisie est plus grande ou égale à 100. Alors, il est impossible pour le voyageur de se rendre à destination!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite100, Toast.LENGTH_SHORT).show();
                 }
                 if(vitesse_nombre > 0 && vitesse_nombre <100) {
                     calculerTemps();
@@ -103,10 +103,10 @@ public class Paradoxe2 extends AppCompatActivity {
                     //startActivity(browserIntent);
                 }
                 else if (vitesse_nombre <=0) {
-                    Toast.makeText(Paradoxe2.this, "La vitesse choisie est plus petite ou égale à 0. Alors, il est impossible pour le voyageur de se rendre à destination!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite0, Toast.LENGTH_SHORT).show();
                 }
                 else{
-                    Toast.makeText(Paradoxe2.this, "La vitesse choisie est plus grande ou égale à 100. Alors, il est impossible pour le voyageur de se rendre à destination!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite100, Toast.LENGTH_SHORT).show();
                 }
             }
         });
