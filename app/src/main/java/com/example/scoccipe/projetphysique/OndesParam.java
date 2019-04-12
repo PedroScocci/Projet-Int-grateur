@@ -2,26 +2,23 @@ package com.example.scoccipe.projetphysique;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.IOException;
 import java.util.Objects;
 
 public class OndesParam extends AppCompatActivity {
     final static int ALLER_ONDES_SIMULATIONS = 2;
     final static String MODE_STATIONNAIRE = "mode";
+    final static String EXTREMITES = "extremités";
     private String extremite = "";
-    private double modeStationnaire = 0, tension = 0, frequence = 0, longueur = 0, masse = 0;
+    private double modeStationnaire = 0;
     private boolean calculEffectuer;
     private TextView txtModeStatio;
 
@@ -51,7 +48,7 @@ public class OndesParam extends AppCompatActivity {
                     if(calculEffectuer) {
                         txtModeStatio = (TextView) findViewById(R.id.ondesModeStatio);
                         double temp = (double) Math.round(modeStationnaire*1000)/1000;
-                        txtModeStatio.setText(R.string.ondesParamModeStatio + String.valueOf(temp));
+                        txtModeStatio.setText(R.string.ondesParamModeStatio + " "+ String.valueOf(temp));
                     }
                 }
             }
@@ -66,6 +63,7 @@ public class OndesParam extends AppCompatActivity {
                 if (!calculEffectuer) {
                     Toast.makeText(OndesParam.this, "Le mode stationnaire n'a pas été calculé", Toast.LENGTH_LONG).show();
                 } else {
+                    intent.putExtra(EXTREMITES, extremite);
                     intent.putExtra(MODE_STATIONNAIRE, String.valueOf(modeStationnaire));
                     startActivityForResult(intent, ALLER_ONDES_SIMULATIONS);
                 }
@@ -82,10 +80,10 @@ public class OndesParam extends AppCompatActivity {
 
         try {
 
-            tension = Double.parseDouble(tens.getText().toString());
-            frequence = Double.parseDouble(freq.getText().toString());
-            longueur = Double.parseDouble(longu.getText().toString());
-            masse = Double.parseDouble(mass.getText().toString());
+            double tension = Double.parseDouble(tens.getText().toString());
+            double frequence = Double.parseDouble(freq.getText().toString());
+            double longueur = Double.parseDouble(longu.getText().toString());
+            double masse = Double.parseDouble(mass.getText().toString());
 
             if(Objects.equals(extremite, "Semi-ouvert")){
                 mode =  ( 4 * frequence * ( Math.sqrt( masse * longueur / tension) )  - 1 ) / 2 ;

@@ -22,6 +22,8 @@
     <string name="ondesParamModeStatio">Mode(s) Stationnaire(s) :</string>
     <string name="ondesSimuProb1">Le mode stationnaire actuelle est trop grand pour être animer par l\'application. L\'animation s\'effectura avec un mode stationnaire que l\'application est cappable d\'animer</string>
     <string name="ondesSimuProb2">Il ne s\'agit pas d\'un mode stationnaire. Alors, la corde n\'effectuera pas de paraboles</string>
+    <string name="boutonArreter">ARRÊTER</string>
+    <string name="boutonCommencer">COMMENCER</string>
     <string-array name="extremite_array">
         <item>Type d\'extrémité</item>
         <item>Semi-ouvert</item>
