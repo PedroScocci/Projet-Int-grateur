@@ -17,5 +17,6 @@
     <string name="jumeaux">Age des jumeaux au depart</string>
     <string name="ans">ans.</string>
     <string name="dest">Destination</string>
+    <string name="tex">Prenez en considération 2 jumeaux, ceux que vous voulez. L\'un partira en voyage spatial à une vitesse qui se rapproche de celle de la lumière et l\'autre restera sur terre. Au retour du voyage, le jumeau dans le vaisseau sera plus jeune car le temps dans le vaisseau aura passé plus lentement que celui sur terre. Ce phénomène s\'explique par la théorie de la relativité d\'Albert Einstein. Testez le en cliquant sur le bouton ci dessous!</string>
 
 </resources>
