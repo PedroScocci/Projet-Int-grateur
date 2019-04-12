@@ -65,7 +65,7 @@ public class Paradoxe2 extends AppCompatActivity {
                     e.printStackTrace();
                 }
 
-                if(vitesse_nombre > 0) {
+                if(vitesse_nombre > 0 && vitesse_nombre < 100) {
                     calculerTemps();
 
                     temps_dilatea = temps*(sqrt((1-((vitesse_nombre/100))/(1+((vitesse_nombre/100))))));
@@ -79,8 +79,11 @@ public class Paradoxe2 extends AppCompatActivity {
                     myIntent.putExtra("ageD", String.valueOf(temps_dilate));
                     startActivity(myIntent);
                 }
-                else {
+                else if(vitesse_nombre <=0) {
                     Toast.makeText(Paradoxe2.this, "La vitesse choisie est plus petite ou égale à 0. Alors, il est impossible pour le voyageur de se rendre à destination!", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    Toast.makeText(Paradoxe2.this, "La vitesse choisie est plus grande ou égale à 100. Alors, il est impossible pour le voyageur de se rendre à destination!", Toast.LENGTH_SHORT).show();
                 }
                 if(vitesse_nombre > 0 && vitesse_nombre <100) {
                     calculerTemps();
