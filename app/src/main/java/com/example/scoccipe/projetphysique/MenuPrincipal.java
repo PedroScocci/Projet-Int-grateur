@@ -35,13 +35,13 @@ public class MenuPrincipal extends AppCompatActivity {
     }
 
     public void ajoutListenerBoutons(){
-        /*boutonGrav = (Button) findViewById(R.id.Gravite);
+        boutonGrav = (Button) findViewById(R.id.Gravite);
         boutonGrav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MenuPrincipal.this, "GRAVITÉ", Toast.LENGTH_LONG).show();
             }
-        });*/
+        });
 
         boutonCentri = (Button) findViewById(R.id.ForceCentripete);
         boutonCentri.setOnClickListener(new View.OnClickListener() {
