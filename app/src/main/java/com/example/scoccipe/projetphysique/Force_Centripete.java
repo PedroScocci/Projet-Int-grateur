@@ -1,5 +1,6 @@
 package com.example.scoccipe.projetphysique;
 
+import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
@@ -31,10 +32,12 @@ public class Force_Centripete extends AppCompatActivity {
     private double rayon;
     private int route;
     private long temps;
-    private long tempsderap;
     private ImageView iv ;
     private ImageView iv2;
+    private ImageView iv3;
     private Button b;
+    private RelativeLayout.LayoutParams lp;
+    private int derapcompteur;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,8 +53,6 @@ public class Force_Centripete extends AppCompatActivity {
         rayon = intent.getDoubleExtra(ParametresCentripete.PARAMETRES3, 0);
         route = intent.getIntExtra(ParametresCentripete.PARAMETRES4, 0);
         temps = Math.round((2*Math.PI*rayon)/(vitesse)*1000);
-        tempsderap = Math.round(rayon/vitesse*1000);
-
 
 
         if(derapage) {
@@ -76,23 +77,13 @@ public class Force_Centripete extends AppCompatActivity {
             case 5: relativeLayout.setBackground(getDrawable(R.drawable.route4));
                 break;
         }
-
-
+        
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                b.setClickable(false);
                 if(derapage){
                     faireUnTourDerap();
-                    /*AnimationSet as = new AnimationSet(true);
-                    TranslateAnimation animator2 = new TranslateAnimation(0,0,0,-700);
-                    //RotateAnimation animation2 = new RotateAnimation(0,-360, Animation.RELATIVE_TO_SELF,0.5f,Animation.RELATIVE_TO_SELF,0.5f);
-                    //animation2.setDuration(6000);
-                    animator2.setDuration(1000);
-                    animator2.setStartOffset(temps);
-                    //animation2.setInterpolator(new LinearInterpolator());
-                    //as.addAnimation(animation2);
-                    as.addAnimation(animator2);
-                    iv.startAnimation(as);*/
                 }
                 else{
                     faireUnTour();
@@ -110,11 +101,13 @@ public class Force_Centripete extends AppCompatActivity {
         switch(item.getItemId()) {
             case R.id.menu_principal2:
                 intent2 = new Intent(Force_Centripete.this, MenuPrincipal.class);
-                startActivityForResult(intent, FORCE);
+                startActivityForResult(intent2, FORCE);
+                finish();
                 return true;
             case R.id.menu_Parametres:
                 intent2 = new Intent(Force_Centripete.this, ParametresCentripete.class);
-                startActivityForResult(intent, FORCE);
+                startActivityForResult(intent2, FORCE);
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
@@ -122,33 +115,54 @@ public class Force_Centripete extends AppCompatActivity {
     }
 
     public void faireUnTour() {
-
         Path path = new Path();
         path.addCircle(450,411, 450, Path.Direction.CCW);
 
         iv.animate().rotationBy(-360).setDuration(temps);
         ObjectAnimator animator = ObjectAnimator.ofFloat(iv,View.X,View.Y,path);
         animator.setDuration(temps).start();
+        animator.addListener(new Animator.AnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animator) {
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animator) {
+                b.setClickable(true);
+            }
+
+            @Override
+            public void onAnimationCancel(Animator animator) {
+            }
+
+            @Override
+            public void onAnimationRepeat(Animator animator) {
+            }
+        });
     }
 
     public void faireUnTourDerap(){
+        derapcompteur++;
+        if(derapcompteur > 1)
+        {
+            relativeLayout.addView(iv,lp);
+        }
+
         Path path = new Path();
         path.arcTo(0f,0f,905f,850f,0f,-60,true);
-        iv.animate().rotationBy(-60).setDuration(5000);
+        iv.animate().rotationBy(-60).setDuration(temps/6);
         ObjectAnimator animator = ObjectAnimator.ofFloat(iv,View.X,View.Y,path);
-        animator.setDuration(5000).start();
+        animator.setDuration(temps/6).start();
         AnimationSet as = new AnimationSet(true);
         TranslateAnimation animator2 = new TranslateAnimation(0,-200,0,-275);
-        animator2.setDuration(3000);
-        animator2.setStartOffset(5000);
+        animator2.setDuration(temps/8);
+        animator2.setStartOffset(temps/6);
         as.addAnimation(animator2);
         iv.startAnimation(as);
         animator2.setAnimationListener(new Animation.AnimationListener() {
 
             @Override
             public void onAnimationStart(Animation animation) {
-
-
             }
 
             @Override
@@ -158,20 +172,13 @@ public class Force_Centripete extends AppCompatActivity {
             @Override
             public void onAnimationEnd(Animation animation) {
                 iv.clearAnimation();
-                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(iv.getWidth(), iv.getHeight());
+                lp = new RelativeLayout.LayoutParams(iv.getWidth(), iv.getHeight());
                 lp.setMargins(1105, 750, 700, 0);
                 iv.setLayoutParams(lp);
                 iv.animate().rotationBy(60).setDuration(1);
-
-                // TODO set params of the view to required position
-
+                relativeLayout.removeView(iv);
+                b.setClickable(true);
             }
         });
-
-        /*path.arcTo(0f,0f,905f,850f,-60f,60,true);
-        iv.animate().rotationBy(60).setDuration(5000).setStartDelay(13000);
-        ObjectAnimator animator3 = ObjectAnimator.ofFloat(iv,View.X,View.Y,path);
-        animator3.setDuration(5000).setStartDelay(13000);
-        animator3.start();*/
     }
 }

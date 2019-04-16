@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Force_Centripete" />
-        <activity android:name=".ParametresCentripete"></activity>
+        <activity android:name=".ParametresCentripete" />
+        <activity android:name=".Informations"></activity>
     </application>
 
 </manifest>

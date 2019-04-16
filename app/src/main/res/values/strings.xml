@@ -14,4 +14,6 @@
     <string name="sim">Lancement de la simulation</string>
     <string name="param_tres_centrip_te">Paramètres centripète</string>
     <string name="menu_principal">Menu Principal</string>
+    <string name="ajuster_les_param_tres">Ajuster les paramètres</string>
+    <string name="pour_qu_un_v_hicule_puisse_effectuer_un_virage_sans_d_raper_la_force_de_frottement_f_doit_tre_sup_rieure_la_force_centrip_te_fc">Pour qu\'un véhicule puisse effectuer un virage sans déraper, la force de frottement (f) doit être supérieure à la force centripète (Fc)</string>
 </resources>

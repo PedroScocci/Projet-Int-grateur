@@ -143,6 +143,7 @@ public class ParametresCentripete extends AppCompatActivity {
             case R.id.menu_principal:
                 Intent intent2 = new Intent(ParametresCentripete.this, MenuPrincipal.class);
                 startActivityForResult(intent2, PARAM);
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
