@@ -51,7 +51,7 @@ public class ParametresGravite extends AppCompatActivity {
                     dialog.show();
                 }
                 else{
-                    if(Integer.parseInt(hauteur_text.getText().toString()) > 1000)
+                    if(Double.parseDouble(hauteur_text.getText().toString()) > 1000.0)
                     {
                         builder.setMessage("Hauteur maximale: 1000m")
                                 .setTitle("ERREUR :");

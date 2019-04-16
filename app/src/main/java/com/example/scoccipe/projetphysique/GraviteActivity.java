@@ -7,12 +7,13 @@ import android.view.View;
 import android.view.animation.AccelerateInterpolator;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class GraviteActivity extends AppCompatActivity {
     private Intent intent;
     private String planete, objet, masse, hauteur;
-    private Double temps_de_chute, acceleration_grav, energie_impact;
+    private Double temps_de_chute, acceleration_grav, energie_impact, hauteur_moy;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,7 +89,22 @@ public class GraviteActivity extends AppCompatActivity {
         temps_de_chute = Math.round(temps_de_chute * 100.0d) / 100.0d;
         temps_de_chute *= 1000; //Pour l'avoir en ms
 
+        definirEchelle();
+
         calculForceImpact();
+    }
+
+    public void definirEchelle(){
+        TextView h_max = (TextView) findViewById(R.id.hauteur_max);
+        Double temp = Double.valueOf(hauteur);
+        temp = Math.round(temp*10.0d)/10.0d;
+        h_max.setText(temp.toString() + " m");
+
+        TextView h_moy = (TextView) findViewById(R.id.hauteur_moy);
+        hauteur_moy = Double.valueOf(hauteur)/2;
+        hauteur_moy = Math.round(hauteur_moy*10.0d)/10.0d;
+        h_moy.setText(hauteur_moy.toString() + " m");
+
     }
 
     public void calculForceImpact(){

@@ -25,6 +25,46 @@
                 android:layout_centerHorizontal="true"
                 app:srcCompat="@drawable/cercle_test" />
 
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="50dp"
+                android:layout_toEndOf="@+id/image_test"
+                android:paddingBottom="10dp"
+                app:srcCompat="@drawable/echelle"
+                tools:layout_editor_absoluteX="241dp"
+                tools:layout_editor_absoluteY="23dp" />
+
+            <TextView
+                android:id="@+id/hauteur_max"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="47dp"
+                android:layout_toEndOf="@+id/imageView2"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/hauteur_moy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/image_test"
+                android:layout_marginTop="132dp"
+                android:layout_toEndOf="@+id/imageView2"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/hauteur_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp"
+                android:layout_toEndOf="@+id/imageView2"
+                android:text="@string/hauteur_min" />
+
         </RelativeLayout>
 
         <LinearLayout
