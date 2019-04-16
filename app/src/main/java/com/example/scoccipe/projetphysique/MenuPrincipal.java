@@ -19,7 +19,7 @@ public class MenuPrincipal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_principal);
+        setContentView(R.layout.activity_menu_principal3);
 
         Button but = (Button) findViewById(R.id.Paradoxe);
         but.setOnClickListener(new View.OnClickListener() {
@@ -28,7 +28,7 @@ public class MenuPrincipal extends AppCompatActivity {
                 startActivity(myIntent);
             }
         });
-        setContentView(R.layout.activity_menu_principal3);
+        //setContentView(R.layout.activity_menu_principal3);
 
         modifierPoliceTextes();
         ajoutListenerBoutons();
