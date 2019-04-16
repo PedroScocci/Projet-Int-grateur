@@ -1,9 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.scoccipe.projetphysique.OndesInfo">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textSize="26sp"
+            android:layout_margin="5dp"
+            android:textColor="@color/noir"
+            android:text="@string/ondesInfoTitre"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="21sp"
+            android:layout_marginHorizontal="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="5dp"
+            android:textColor="@color/noir"
+            android:text="@string/ondesInfoQuestion1"
+            tools:ignore="UnusedAttribute" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="5dp"
+            android:textColor="@color/noir"
+            android:text="@string/ondesInfoExplication1"
+            android:gravity="center"
+            tools:ignore="UnusedAttribute" />
+
+        <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="21sp"
+        android:layout_marginHorizontal="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/noir"
+        android:text="@string/ondesInfoQuestion2"
+        tools:ignore="UnusedAttribute" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:layout_marginHorizontal="25dp"
+            android:layout_marginVertical="5dp"
+            android:textColor="@color/noir"
+            android:text="@string/ondesInfoExplication2"
+            android:gravity="center"
+            tools:ignore="UnusedAttribute" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ondesInfoParam"
+            android:layout_margin="10dp"
+            android:padding="10dp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
 
 </android.support.constraint.ConstraintLayout>

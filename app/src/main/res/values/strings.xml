@@ -28,7 +28,17 @@
     <string name="ondesParamCalculOublier">Le mode stationnaire n\'a pas été calculé</string>
     <string name="ondesParamChoixExtremite">Chosir un type d\'extrémité à la corde!</string>
     <string name="ondesParamErreurRetour">Erreur dans le retour à cette fenêtre</string>
-    <string name="retour_au_menu_principal">Retour au menu principal</string>
+    <string name="ondesParamRetourMenu">Retour au menu principal</string>
+    <string name="ondesInfoTitre">Information sur les ondes stationnaires</string>
+    <string name="ondesInfoParam">Paramètre</string>
+    <string name="ondesInfoQuestion1">Qu\'est-ce qu\'une onde?</string>
+    <string name="ondesInfoExplication1">Une onde est une impulsion qui se propage périodiquement à traves le temps dans un certain milieu.
+        Elle va modifier les propriétés de ce milieu sans toutefois que les modifications soient permanentes pour ce milieu. Chaque onde a une amplitude, il
+        s\'agit de la hauteur de celle-ci. Elle possède aussi une fréquence qui est le nombre de fois qu'elle répete à traver un seconde. Elle a aussi un
+        sens, il s\'agit de la direction vers laquelle elle se propage</string>
+    <string name="ondesInfoQuestion2">Qu\'est-ce qu\'une onde stationnaire?</string>
+    <string name="ondesInfoExplication2">Une onde stationnaire est la supperpostion de deux ondes qui ont la même amplitude et la même fréquence mais de sens opposé.
+    Quand les ondes se superposent, elle vont créé une seule onde, mais avec un amplitude plus grande que celle des deux ondes.</string>
     <string-array name="extremite_array">
         <item>Type d\'extrémité</item>
         <item>Semi-ouvert</item>

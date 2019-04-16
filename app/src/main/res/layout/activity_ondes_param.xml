@@ -172,7 +172,7 @@
             android:id="@+id/bOndesParamQuitter"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/retour_au_menu_principal"
+            android:text="@string/ondesParamRetourMenu"
             android:padding="10dp"
             android:layout_margin="15dp"
             android:layout_gravity="center"/>
