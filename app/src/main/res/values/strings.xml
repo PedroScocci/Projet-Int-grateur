@@ -38,7 +38,8 @@
         sens, il s\'agit de la direction vers laquelle elle se propage</string>
     <string name="ondesInfoQuestion2">Qu\'est-ce qu\'une onde stationnaire?</string>
     <string name="ondesInfoExplication2">Une onde stationnaire est la supperpostion de deux ondes qui ont la même amplitude et la même fréquence mais de sens opposé.
-    Quand les ondes se superposent, elle vont créé une seule onde, mais avec un amplitude plus grande que celle des deux ondes.</string>
+    Quand les ondes se superposent, elle vont créé une vibration, mais avec un amplitude plus grande que celle des deux ondes qui l\'ont créé et elle ne va pas se déplacer,
+        elle va rester sur place. Selon la fréquence de l'onde, l'onde stationaire va adopter certaines formes. Selon le point observé, la vibration créé va additionner les ondes de ce point.  </string>
     <string-array name="extremite_array">
         <item>Type d\'extrémité</item>
         <item>Semi-ouvert</item>
