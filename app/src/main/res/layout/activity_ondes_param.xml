@@ -155,6 +155,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ondesParamButtonCalcul"
+            android:layout_margin="5dp"
+            android:padding="5dp"
             android:layout_gravity="center"/>
 
         <Button
@@ -162,7 +164,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ondesParamButton"
+            android:layout_margin="5dp"
+            android:padding="5dp"
             android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/bOndesParamQuitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/retour_au_menu_principal"
+            android:padding="10dp"
+            android:layout_margin="15dp"
+            android:layout_gravity="center"/>
+
 
     </LinearLayout>
 

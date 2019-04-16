@@ -69,6 +69,14 @@ public class OndesParam extends AppCompatActivity {
                 }
             }
         });
+
+        Button quitter = findViewById(R.id.bOndesParamQuitter);
+        quitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
     }
 
     double calculModeStationnaire() {

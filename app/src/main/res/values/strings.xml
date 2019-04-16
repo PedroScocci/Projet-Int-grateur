@@ -28,6 +28,7 @@
     <string name="ondesParamCalculOublier">Le mode stationnaire n\'a pas été calculé</string>
     <string name="ondesParamChoixExtremite">Chosir un type d\'extrémité à la corde!</string>
     <string name="ondesParamErreurRetour">Erreur dans le retour à cette fenêtre</string>
+    <string name="retour_au_menu_principal">Retour au menu principal</string>
     <string-array name="extremite_array">
         <item>Type d\'extrémité</item>
         <item>Semi-ouvert</item>
