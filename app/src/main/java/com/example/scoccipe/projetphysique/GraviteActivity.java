@@ -87,7 +87,6 @@ public class GraviteActivity extends AppCompatActivity {
     public void calculTempsDeChute(){
         temps_de_chute = Math.sqrt(2.0 * Double.parseDouble(hauteur) / acceleration_grav);
         temps_de_chute = Math.round(temps_de_chute * 100.0d) / 100.0d;
-        temps_de_chute *= 1000; //Pour l'avoir en ms
 
         definirEchelle();
 
@@ -108,24 +107,30 @@ public class GraviteActivity extends AppCompatActivity {
     }
 
     public void calculForceImpact(){
-        double vitesse_finale = acceleration_grav * temps_de_chute;
+        Double vitesse_finale = acceleration_grav * temps_de_chute;
         vitesse_finale = Math.round(vitesse_finale * 100d) / 100d;
         energie_impact = 0.5 * Double.parseDouble(masse) * Math.pow(vitesse_finale, 2);
         energie_impact = Math.round(energie_impact * 100d) / 100d;
-        //Toast.makeText(GraviteActivity.this,energie_impact.toString() + " J", Toast.LENGTH_SHORT).show();
+
+        TextView v_finale = (TextView) findViewById(R.id.vitesse_finale);
+        v_finale.setText(vitesse_finale.toString() + " m/s");
+
+        //Toast.makeText(GraviteActivity.this, tonne_tnt.toString() + " tonnes de TNT", Toast.LENGTH_SHORT).show();
+
     }
 
     public void animationTest(){
         ImageView imageCercle = (ImageView) findViewById(R.id.image_test);
 
+        Double temps_temp = temps_de_chute * 1000; //pour l'avoir en ms
 
         imageCercle.animate()
                 .y(1075)
                 .setInterpolator(new AccelerateInterpolator(1.5f))
-                .setDuration(temps_de_chute.longValue())
+                .setDuration(temps_temp.longValue())
                 .start();
 
-        Toast.makeText(GraviteActivity.this, temps_de_chute.toString(), Toast.LENGTH_SHORT).show();
+
     }
 
     public void ajoutBoutonRetour(){

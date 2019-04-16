@@ -12,6 +12,7 @@
     <string name="ok">OK</string>
     <string name="retour">Retour</string>
     <string name="hauteur_min">0.0 m</string>
+    <string name="texte_vfinale">Vitesse finale approximative:</string>
     <string-array name="liste_planetes">
         <item>Mercure</item>
         <item>Venus</item>
