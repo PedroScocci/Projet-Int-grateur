@@ -4,5 +4,21 @@
     <string name="forceCentripete">Force Centripète</string>
     <string name="paradoxeJumeaux">Paradoxe des jumeaux</string>
     <string name="ondesStationnaires">Ondes Stationnaires</string>
+    <string name="boutonTexteParadoxe">Demarrer le voyage</string>
+    <string name="detailsDuVoyage">Details du voyage</string>
+    <string name="agePremierPassD">Age du passager au depart</string>
+    <string name="ageDeuxiemePassD">Age du non passager au depart</string>
+    <string name="agePremierPassR">Age du passager 1 au retour : </string>
+    <string name="ageDeuxiemePassR">Age du passager 2 au retour : </string>
+    <string name="vitesse">Vitesse du voyage</string>
+    <string name="uniteVitesse">(en pourcentage de la vitesse de la lumiere)</string>
+    <string name="retour">Retour du voyage</string>
+    <string name="jumeaux">Age des jumeaux au depart</string>
+    <string name="ans">ans.</string>
+    <string name="dest">Destination</string>
+    <string name="tex">Prenez en considération 2 jumeaux, ceux que vous voulez. L\'un partira en voyage spatial à une vitesse qui se rapproche de celle de la lumière et l\'autre restera sur terre. Au retour du voyage, le jumeau dans le vaisseau sera plus jeune car le temps dans le vaisseau aura passé plus lentement que celui sur terre. Ce phénomène s\'explique par la théorie de la relativité d\'Albert Einstein. Testez le en cliquant sur le bouton ci dessous!</string>
+    <string name="paradoxe2Limite100">La vitesse choisie est plus grande ou égale à 100. Alors, il est impossible pour le voyageur de se rendre à destination!</string>
+    <string name="paradoxe2Limite0">La vitesse choisie est plus petite ou égale à 0. Alors, il est impossible pour le voyageur de se rendre à destination!</string>
+
     <string name="a_propos">À propos</string>
 </resources>

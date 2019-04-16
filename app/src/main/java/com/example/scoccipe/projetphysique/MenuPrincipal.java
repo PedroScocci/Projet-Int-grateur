@@ -1,8 +1,11 @@
 package com.example.scoccipe.projetphysique;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -18,11 +21,20 @@ public class MenuPrincipal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal3);
 
-        modifierPoliceTextes();
+        /*Button but = (Button) findViewById(R.id.Paradoxe);
+        but.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent myIntent = new Intent(MenuPrincipal.this, Paradoxe.class);
+                startActivity(myIntent);
+            }
+        });*/
+        //setContentView(R.layout.activity_menu_principal3);
+
+        //modifierPoliceTextes();
         ajoutListenerBoutons();
     }
 
-    public void modifierPoliceTextes(){
+   /* public void modifierPoliceTextes(){
         Typeface font = Typeface.createFromAsset(getAssets(), "CooperB.ttf");
         TextView texte = (TextView) findViewById(R.id.Titre_menuP);
         texte.setTypeface(font);
@@ -32,7 +44,7 @@ public class MenuPrincipal extends AppCompatActivity {
         texte.setTypeface(font);
         texte = (TextView) findViewById(R.id.ForceCentripete);
         texte.setTypeface(font);
-    }
+    }*/
 
     public void ajoutListenerBoutons(){
         boutonGrav = (Button) findViewById(R.id.Gravite);
@@ -56,6 +68,8 @@ public class MenuPrincipal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MenuPrincipal.this, "PARADOXE", Toast.LENGTH_LONG).show();
+                Intent myIntent = new Intent(MenuPrincipal.this, Paradoxe.class);
+                startActivity(myIntent);
             }
         });
 
