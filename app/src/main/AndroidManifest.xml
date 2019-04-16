@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".OndesParam" />
-        <activity android:name=".OndesSimu"></activity>
+        <activity android:name=".OndesSimu" />
+        <activity android:name=".OndesInfo"></activity>
     </application>
 
 </manifest>
