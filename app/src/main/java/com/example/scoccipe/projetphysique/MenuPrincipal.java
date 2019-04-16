@@ -19,22 +19,22 @@ public class MenuPrincipal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_principal);
+        setContentView(R.layout.activity_menu_principal3);
 
-        Button but = (Button) findViewById(R.id.Paradoxe);
+        /*Button but = (Button) findViewById(R.id.Paradoxe);
         but.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent myIntent = new Intent(MenuPrincipal.this, Paradoxe.class);
                 startActivity(myIntent);
             }
-        });
-        setContentView(R.layout.activity_menu_principal3);
+        });*/
+        //setContentView(R.layout.activity_menu_principal3);
 
-        modifierPoliceTextes();
+        //modifierPoliceTextes();
         ajoutListenerBoutons();
     }
 
-    public void modifierPoliceTextes(){
+   /* public void modifierPoliceTextes(){
         Typeface font = Typeface.createFromAsset(getAssets(), "CooperB.ttf");
         TextView texte = (TextView) findViewById(R.id.Titre_menuP);
         texte.setTypeface(font);
@@ -44,7 +44,7 @@ public class MenuPrincipal extends AppCompatActivity {
         texte.setTypeface(font);
         texte = (TextView) findViewById(R.id.ForceCentripete);
         texte.setTypeface(font);
-    }
+    }*/
 
     public void ajoutListenerBoutons(){
         boutonGrav = (Button) findViewById(R.id.Gravite);
@@ -68,6 +68,8 @@ public class MenuPrincipal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MenuPrincipal.this, "PARADOXE", Toast.LENGTH_LONG).show();
+                Intent myIntent = new Intent(MenuPrincipal.this, Paradoxe.class);
+                startActivity(myIntent);
             }
         });
 
