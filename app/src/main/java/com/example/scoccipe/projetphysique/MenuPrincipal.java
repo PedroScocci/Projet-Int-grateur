@@ -16,7 +16,7 @@ public class MenuPrincipal extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu_principal2);
+        setContentView(R.layout.activity_menu_principal3);
 
         modifierPoliceTextes();
         ajoutListenerBoutons();
@@ -68,7 +68,7 @@ public class MenuPrincipal extends AppCompatActivity {
         });
     }
 
-    @Override
+  /*  @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.maintoolbar, menu);
         return true;
@@ -84,6 +84,6 @@ public class MenuPrincipal extends AppCompatActivity {
             default:
                 return super.onOptionsItemSelected(item);
         }
-    }
+    }*/
 
 }
