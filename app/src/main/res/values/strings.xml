@@ -5,53 +5,5 @@
     <string name="forceCentripete">Force Centripète</string>
     <string name="paradoxeJumeaux">Paradoxe des jumeaux</string>
     <string name="ondesStationnaires">Ondes Stationnaires</string>
-    <string name="ondesParamTitre">Paramètres pour les ondes stationnaires</string>
-    <string name="ondesParamExtrem">Type d\'extrémités</string>
-    <string name="ondesParamTension">Tension dans la corde (N)</string>
-    <string name="ondesParamFrequence">Fréquence (Hz)</string>
-    <string name="ondesParamLongueur">Longueur de la corde (m)</string>
-    <string name="ondesParamMasse">Masse de la corde (kg)</string>
-    <string name="ondesParamButton">Démarrer la simulation</string>
-    <string name="ondesSimuTitre">Simulation des ondes stationnaires</string>
-    <string name="ondesSimuButton">Commencer</string>
-    <string name="ondesMenuMenPrinci">Menu principal</string>
-    <string name="ondesMenuParam">Paramètres</string>
-    <string name="ondesSimuModeStatio">Mode(s) Stationnaire(s) :</string>
-    <string name="ondesSimuOuverture">Type d\'ouverture de la corde :</string>
-    <string name="ondesParamButtonCalcul">Calculer le mode stationnaire</string>
-    <string name="ondesParamModeStatio">Mode(s) Stationnaire(s) :</string>
-    <string name="ondesSimuProb1">Le mode stationnaire actuelle est trop grand pour être animer par l\'application. L\'animation s\'effectura avec un mode stationnaire que l\'application est cappable d\'animer</string>
-    <string name="ondesSimuProb2">Il ne s\'agit pas d\'un mode stationnaire. Alors, la corde n\'effectuera pas de paraboles</string>
-    <string name="boutonArreter">ARRÊTER</string>
-    <string name="boutonCommencer">COMMENCER</string>
-    <string name="ondesParamOublier">Vous avez oubliez de saisir des paramètres</string>
-    <string name="ondesParamCalculOublier">Le mode stationnaire n\'a pas été calculé</string>
-    <string name="ondesParamChoixExtremite">Choisir un type d\'extrémité à la corde!</string>
-    <string name="ondesParamErreurRetour">Erreur dans le retour à cette fenêtre</string>
-    <string name="ondesParamRetourMenu">Retour au menu principal</string>
-    <string name="ondesInfoTitre">Information sur les ondes stationnaires</string>
-    <string name="ondesInfoBouton">Retour au menu</string>
-    <string name="ondesInfoBouton2">Paramètre</string>
-    <string name="ondesInfoQuestion1">Qu\'est-ce qu\'une onde?</string>
-    <string name="ondesInfoExplication1">Une onde est une impulsion qui se propage périodiquement à traves le temps dans un certain milieu.
-        Elle va modifier les propriétés de ce milieu sans toutefois que les modifications soient permanentes pour ce milieu. Chaque onde a une amplitude, il
-        s\'agit de la hauteur de celle-ci. Elle possède aussi une fréquence qui est le nombre de fois qu'elle répete à traver un seconde. Elle a aussi un
-        sens, il s\'agit de la direction vers laquelle elle se propage</string>
-    <string name="ondesInfoQuestion2">Qu\'est-ce qu\'une onde stationnaire?</string>
-    <string name="ondesInfoExplication2">Une onde stationnaire est la supperpostion de deux ondes qui ont la même amplitude et la même fréquence mais de sens opposé.
-    Quand les ondes se superposent, elle vont créé une vibration, mais avec un amplitude plus grande que celle des deux ondes qui l\'ont créé et elle ne va pas se déplacer,
-        elle va rester sur place. Selon la fréquence de l\'onde, l\'onde stationaire va adopter certaines formes. Selon le point observé, la vibration créé va additionner les
-        ondes de ce point. À certains endroits, les ondes vont s\'annuler et l\'amplitude de la vibration va être nul. Ces endroits s\'appelent des noeuds. Entre deux noeuds, les ondes vont
-        s\'additionner et donner l\'amplitude de la vibration va être amplifier qui est un ventre.</string>
-    <string name="ondesInfoQuestion3">Qu\'est-ce qu\'un mode stationnaire?</string>
-    <string name="ondesInfoExplication3">Un mode stationnaire est le nombre de ventre qu\'il y a dans un onde stationnaire. Lorqu\'il n\'y a qu\'un ventre a une onde stationnaire,
-        le mode stationnaire est appelé le mode fondamental. </string>
-    <string name="ondesInfoExplication4">Dans le cas de cette simulation, les ondes stationnaires seront montrés sur une corde où il sera facile de les observer. Les ventres et les
-    noeuds seront directement visible. De plus, selon les paramètres saisis, il sera possible de voir différents modes stationaires si les paramètres saisis correspondent ou.  Les formules pour calculer les modes stationnaires sont indiquer ci-dessous. </string>
-    <string name="ondesInfoQuestion4">La simulation des ondes stationnaires</string>
-    <string-array name="extremite_array">
-        <item>Type d\'extrémité</item>
-        <item>Semi-ouvert</item>
-        <item>Fermé</item>
-    </string-array>
+
 </resources>
