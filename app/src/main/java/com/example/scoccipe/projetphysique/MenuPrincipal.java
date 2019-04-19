@@ -19,7 +19,7 @@ public class MenuPrincipal extends AppCompatActivity {
         onde.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MenuPrincipal.this, OndesParam.class);
+                Intent intent = new Intent(MenuPrincipal.this, OndesInfo.class);
                 startActivity(intent);
             }
         });

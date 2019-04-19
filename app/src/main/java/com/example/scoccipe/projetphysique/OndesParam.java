@@ -74,6 +74,7 @@ public class OndesParam extends AppCompatActivity {
         quitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                setResult(MenuPrincipal.RETOUR_MENU_PRINCIPAL);
                 finish();
             }
         });
@@ -113,6 +114,7 @@ public class OndesParam extends AppCompatActivity {
 
         if (requestCode == ALLER_ONDES_SIMULATIONS ) {
             if(resultCode == MenuPrincipal.RETOUR_MENU_PRINCIPAL) {
+                setResult(MenuPrincipal.RETOUR_MENU_PRINCIPAL);
                 finish();
             }
             else if(resultCode == RESULT_OK){
