@@ -24,14 +24,6 @@ public class MenuPrincipal extends AppCompatActivity {
 
         modifierPoliceTextes();
         ajoutListenerBoutons();
-        Button onde = (Button) findViewById(R.id.Onde);
-        onde.setOnClickListener(new View.OnClickListener() {
-            @Override
-                Intent intent = new Intent(MenuPrincipal.this, OndesInfo.class);
-            public void onClick(View view) {
-                startActivity(intent);
-            }
-        });
     }
 
     public void modifierPoliceTextes(){
@@ -76,6 +68,8 @@ public class MenuPrincipal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MenuPrincipal.this, "ONDES", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MenuPrincipal.this, OndesInfo.class);
+                startActivity(intent);
             }
         });
     }
