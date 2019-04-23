@@ -53,14 +53,7 @@ public class Force_Centripete extends AppCompatActivity {
         rayon = intent.getDoubleExtra(ParametresCentripete.PARAMETRES3, 0);
         route = intent.getIntExtra(ParametresCentripete.PARAMETRES4, 0);
         temps = Math.round((2*Math.PI*rayon)/(vitesse)*1000);
-
-
-        if(derapage) {
-            Toast.makeText(Force_Centripete.this,"feef" , Toast.LENGTH_LONG).show();
-        }
-        else {
-            Toast.makeText(Force_Centripete.this,"deg" , Toast.LENGTH_LONG).show();
-        }
+        
 
         b = findViewById(R.id.buttonsim);
         switch(route){
