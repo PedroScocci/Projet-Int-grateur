@@ -1,7 +1,6 @@
 package com.example.scoccipe.projetphysique;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.TextView;
 import android.widget.Toast;
 
 
@@ -33,80 +31,84 @@ public class Paradoxe2 extends AppCompatActivity {
         setContentView(R.layout.activity_paradoxe2);
 
         /*=====================Spinner=======================*/
-        List<String> spinnerArray =  new ArrayList<String>();
+        List<String> spinnerArray = new ArrayList<>();
         spinnerArray.add("Alpha Centauri C");
         spinnerArray.add("Étoile Polaire");
         spinnerArray.add("Sirius");
         spinnerArray.add("Galaxie d'Andromède");
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.custom_spinner_item, spinnerArray);
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, R.layout.custom_spinner_item, spinnerArray);
 
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        sItems = (Spinner) findViewById(R.id.spinner);
+        sItems = findViewById(R.id.spinner);
         sItems.setAdapter(adapter);
 
         /*=======================Fin Spinner=======================*/
 
 
-        Button but = (Button) findViewById(R.id.paradoxe2);
+        Button but = findViewById(R.id.paradoxe2);
 
         addSpinerListener();
 
         but.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                EditText age = (EditText) findViewById(R.id.age);
-                EditText vitesse = (EditText) findViewById(R.id.vitesse);
+                EditText age = findViewById(R.id.age);
+                EditText vitesse = findViewById(R.id.vitesse);
 
-                try{
-                    vitesse_nombre = Double.valueOf(vitesse.getText().toString());
-                    age_nombre = Double.parseDouble(age.getText().toString());
-                }
-                catch (NumberFormatException e){
-                    e.printStackTrace();
-                }
+                if("".equals(age.getText().toString()) || "".equals(vitesse.getText().toString()) ){
+                    Toast.makeText(Paradoxe2.this, getText(R.string.paradoxeOublierRemplirChamp), Toast.LENGTH_LONG).show();
+                } else {
+                    try{
+                        vitesse_nombre = Double.valueOf(vitesse.getText().toString());
+                        age_nombre = Double.parseDouble(age.getText().toString());
+                    }
+                    catch (NumberFormatException e){
+                        e.printStackTrace();
+                    }
 
-                if(vitesse_nombre > 0 && vitesse_nombre < 100) {
-                    calculerTemps();
+                    if(vitesse_nombre > 0 && vitesse_nombre < 100) {
+                        calculerTemps();
 
-                    temps_dilatea = temps*(sqrt((1-((vitesse_nombre/100))/(1+((vitesse_nombre/100))))));
-                    temps_dilater = temps*(sqrt((1+((vitesse_nombre/100))/(1-((vitesse_nombre/100))))));
+                        temps_dilatea = temps*(sqrt((1-((vitesse_nombre/100))/(1+((vitesse_nombre/100))))));
+                        temps_dilater = temps*(sqrt((1+((vitesse_nombre/100))/(1-((vitesse_nombre/100))))));
 
-                    temps_dilate = temps_dilatea + temps_dilater + age_nombre;
-                    temps_normal = (2*temps) + age_nombre;
+                        temps_dilate = temps_dilatea + temps_dilater + age_nombre;
+                        temps_normal = (2*temps) + age_nombre;
 
-                    Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
-                    myIntent.putExtra("ageN", String.valueOf(temps_normal));
-                    myIntent.putExtra("ageD", String.valueOf(temps_dilate));
-                    startActivity(myIntent);
-                }
-                else if(vitesse_nombre <=0) {
-                    Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite0, Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite100, Toast.LENGTH_SHORT).show();
-                }
-                if(vitesse_nombre > 0 && vitesse_nombre <100) {
-                    calculerTemps();
+                        Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
+                        myIntent.putExtra("ageN", String.valueOf(temps_normal));
+                        myIntent.putExtra("ageD", String.valueOf(temps_dilate));
+                        startActivity(myIntent);
+                    }
+                    else if(vitesse_nombre <=0) {
+                        Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite0, Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite100, Toast.LENGTH_SHORT).show();
+                    }
+                    if(vitesse_nombre > 0 && vitesse_nombre <100) {
+                        calculerTemps();
 
-                    temps_dilatea = temps*(sqrt((1-((vitesse_nombre/100))/(1+((vitesse_nombre/100))))));
-                    temps_dilater = temps*(sqrt((1+((vitesse_nombre/100))/(1-((vitesse_nombre/100))))));
+                        temps_dilatea = temps*(sqrt((1-((vitesse_nombre/100))/(1+((vitesse_nombre/100))))));
+                        temps_dilater = temps*(sqrt((1+((vitesse_nombre/100))/(1-((vitesse_nombre/100))))));
 
-                    temps_dilate = temps_dilatea + temps_dilater + age_nombre;
-                    temps_normal = (2*temps) + age_nombre;
+                        temps_dilate = temps_dilatea + temps_dilater + age_nombre;
+                        temps_normal = (2*temps) + age_nombre;
 
-                    Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
+                        Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
 
-                    myIntent.putExtra("ageN", String.valueOf(Math.round(temps_normal)));
-                    myIntent.putExtra("ageD", String.valueOf(Math.round(temps_dilate)));
-                    startActivity(myIntent);
-                    //Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("file:///C:/Users/Utilisateur/Desktop/Cegep/Session%204/Programmation/Intgration/Logs/WebGl/index.html"));
-                    //startActivity(browserIntent);
-                }
-                else if (vitesse_nombre <=0) {
-                    Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite0, Toast.LENGTH_SHORT).show();
-                }
-                else{
-                    Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite100, Toast.LENGTH_SHORT).show();
+                        myIntent.putExtra("ageN", String.valueOf(Math.round(temps_normal)));
+                        myIntent.putExtra("ageD", String.valueOf(Math.round(temps_dilate)));
+                        startActivity(myIntent);
+                        //Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("file:///C:/Users/Utilisateur/Desktop/Cegep/Session%204/Programmation/Intgration/Logs/WebGl/index.html"));
+                        //startActivity(browserIntent);
+                    }
+                    else if (vitesse_nombre <=0) {
+                        Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite0, Toast.LENGTH_SHORT).show();
+                    }
+                    else{
+                        Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite100, Toast.LENGTH_SHORT).show();
+                    }
                 }
             }
         });

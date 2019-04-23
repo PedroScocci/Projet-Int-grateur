@@ -33,4 +33,5 @@
     <string name="paradoxe2Limite0">La vitesse choisie est plus petite ou égale à 0. Alors, il est impossible pour le voyageur de se rendre à destination!</string>
 
     <string name="a_propos">À propos</string>
+    <string name="paradoxeOublierRemplirChamp">Veuillez remplir tous les champs!</string>
 </resources>
