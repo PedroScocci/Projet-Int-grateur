@@ -4,50 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bckgrnd"
+    android:minHeight="1980dp"
+    android:minWidth="1080dp"
     tools:context="com.example.scoccipe.projetphysique.MenuPrincipal">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <Button
+            android:id="@+id/Onde"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/ForceCentripete"
+            android:layout_gravity="center"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="@string/ondesStationnaires"
+            tools:layout_editor_absoluteX="83dp"
+            tools:layout_editor_absoluteY="235dp" />
+
+        <Button
+            android:id="@+id/Paradoxe"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:layout_alignTop="@+id/Onde"
+            android:layout_gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_toEndOf="@+id/Onde"
+            android:layout_weight="1"
+            android:text="@string/paradoxeJumeaux" />
+
+        <Button
+            android:id="@+id/ForceCentripete"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:layout_alignStart="@+id/Paradoxe"
+            android:layout_gravity="center"
+            android:layout_marginTop="180dp"
+            android:layout_weight="1"
+            android:text="@string/forceCentripete" />
+
+        <Button
+            android:id="@+id/Gravite"
+            android:layout_width="160dp"
+            android:layout_height="120dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/Onde"
+            android:layout_gravity="center"
+            android:layout_marginTop="180dp"
+            android:layout_weight="1"
+            android:text="@string/gravite" />
 
         <TextView
-            android:layout_width="match_parent"
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nameProject"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/borders"
+            android:text="@string/app_name"
             android:textColor="@color/noir"
-            android:textSize="32sp"
-            android:gravity="center"/>
-
-        <Button android:id="@+id/Gravite"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:gravity="center"
-            android:layout_weight="1"
-            android:text="@string/gravite"/>
-
-        <Button android:id="@+id/ForceCentripete"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/forceCentripete"/>
-
-        <Button android:id="@+id/Paradoxe"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/paradoxeJumeaux"/>
-
-        <Button android:id="@+id/Onde"
-            android:layout_height="wrap_content"
-            android:layout_width="wrap_content"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/ondesStationnaires"/>
-
-
-    </LinearLayout>
+            android:textSize="35dp" />
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

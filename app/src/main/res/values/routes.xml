@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="routes_array">
+        <item>Asphalte</item>
+        <item>Asphalte mouillé</item>
+        <item>Béton</item>
+        <item>Béton mouillé</item>
+        <item>Carton</item>
+        <item>Herbe</item>
+    </string-array>
+</resources>
