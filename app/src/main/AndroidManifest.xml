@@ -5,10 +5,9 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label=""
-        android:roundIcon="@drawable/icone"
+        android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/Ciel">
         <activity android:name=".MenuPrincipal">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -16,6 +15,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".Paradoxe"
+            android:theme="@style/Ciel" />
+        <activity android:name=".Paradoxe2" />
+        <activity android:name=".Paradoxe3" />
+        <activity android:name=".Paradoxe4"></activity>
         <activity android:name=".OndesParam" />
         <activity android:name=".OndesSimu" />
         <activity android:name=".OndesInfo"></activity>
