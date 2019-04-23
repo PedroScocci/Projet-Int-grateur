@@ -5,6 +5,17 @@
     <string name="forceCentripete">Force Centripète</string>
     <string name="paradoxeJumeaux">Paradoxe des jumeaux</string>
     <string name="ondesStationnaires">Ondes Stationnaires</string>
+    <string name="param_tres_de_la_force_centrip_te">Paramètres de la force centripète</string>
+    <string name="masse_de_la_voiture">Masse de la voiture (kg)</string>
+    <string name="vitesse_de_la_voiture">Vitesse de la voiture (km/h)</string>
+    <string name="rayon_de_la_route">Rayon de la route (m)</string>
+    <string name="type_de_route">Type de route</string>
+    <string name="transmettre_les_param_tres">Transmettre les paramètres</string>
+    <string name="sim">Lancement de la simulation</string>
+    <string name="param_tres_centrip_te">Paramètres centripète</string>
+    <string name="menu_principal">Menu Principal</string>
+    <string name="ajuster_les_param_tres">Ajuster les paramètres</string>
+    <string name="pour_qu_un_v_hicule_puisse_effectuer_un_virage_sans_d_raper_la_force_de_frottement_f_doit_tre_sup_rieure_la_force_centrip_te_fc">Pour qu\'un véhicule puisse effectuer un virage sans déraper, la force de frottement (f) doit être supérieure à la force centripète (Fc)</string>
     <string name="boutonTexteParadoxe">Demarrer le voyage</string>
     <string name="detailsDuVoyage">Details du voyage</string>
     <string name="agePremierPassD">Age du passager au depart</string>
