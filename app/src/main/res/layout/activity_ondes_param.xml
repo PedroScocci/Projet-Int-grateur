@@ -28,7 +28,7 @@
             android:layout_height="0dp"
             android:layout_weight="2"
             android:orientation="horizontal"
-            android:padding="15dp"
+            android:layout_marginHorizontal="15dp"
             android:baselineAligned="false">
 
             <LinearLayout
@@ -145,7 +145,7 @@
             android:id="@+id/ondesModeStatio"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="15dp"
+            android:padding="8dp"
             android:textColor="@color/noir"
             android:text="@string/ondesParamModeStatio"
             android:gravity="center"/>
@@ -155,7 +155,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ondesParamButtonCalcul"
-            android:layout_margin="5dp"
+            android:layout_margin="3dp"
             android:padding="5dp"
             android:layout_gravity="center"/>
 
@@ -164,7 +164,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/ondesParamButton"
-            android:layout_margin="5dp"
+            android:layout_margin="3dp"
             android:padding="5dp"
             android:layout_gravity="center"/>
 
@@ -174,7 +174,7 @@
             android:layout_height="wrap_content"
             android:text="@string/ondesParamRetourMenu"
             android:padding="10dp"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:layout_gravity="center"/>
 
 
