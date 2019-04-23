@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Simulateur physique</string>
+    <string name="nameProject">Simulateur physique</string>
     <string name="gravite">Gravité</string>
     <string name="forceCentripete">Force Centripète</string>
     <string name="paradoxeJumeaux">Paradoxe des jumeaux</string>
