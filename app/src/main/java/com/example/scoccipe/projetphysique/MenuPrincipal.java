@@ -25,25 +25,8 @@ public class MenuPrincipal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal3);
 
-        /*Button but = (Button) findViewById(R.id.Paradoxe);
-        but.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                Intent myIntent = new Intent(MenuPrincipal.this, Paradoxe.class);
-                startActivity(myIntent);
-            }
-        });*/
-        //setContentView(R.layout.activity_menu_principal3);
-
         //modifierPoliceTextes();
         ajoutListenerBoutons();
-        /*Button button = (Button) findViewById(R.id.ForceCentripete);
-            @Override
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                Intent intent = new Intent(MenuPrincipal.this, Informations.class);
-                startActivity(intent);
-            }
-        });*/
     }
 
    /* public void modifierPoliceTextes(){
@@ -63,7 +46,7 @@ public class MenuPrincipal extends AppCompatActivity {
         boutonGrav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MenuPrincipal.this, "GRAVITÉ", Toast.LENGTH_LONG).show();
+
             }
         });
 
@@ -71,7 +54,6 @@ public class MenuPrincipal extends AppCompatActivity {
         boutonCentri.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MenuPrincipal.this, "CENTRIPÈTE", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MenuPrincipal.this, Informations.class);
                 startActivity(intent);
             }
@@ -81,7 +63,6 @@ public class MenuPrincipal extends AppCompatActivity {
         boutonParadoxe.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MenuPrincipal.this, "PARADOXE", Toast.LENGTH_LONG).show();
                 Intent myIntent = new Intent(MenuPrincipal.this, Paradoxe.class);
                 startActivity(myIntent);
             }
@@ -91,7 +72,6 @@ public class MenuPrincipal extends AppCompatActivity {
         boutonOndes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MenuPrincipal.this, "ONDES", Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MenuPrincipal.this, OndesInfo.class);
                 startActivity(intent);
             }
