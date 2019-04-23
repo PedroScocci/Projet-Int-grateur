@@ -96,7 +96,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="87dp"
-            android:background="@drawable/mars_2"
+            android:background="@drawable/saturne_2"
             android:gravity="right|center_vertical"
             android:orientation="horizontal">
 
