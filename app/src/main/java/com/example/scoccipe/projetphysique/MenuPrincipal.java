@@ -32,6 +32,14 @@ public class MenuPrincipal extends AppCompatActivity {
 
         //modifierPoliceTextes();
         ajoutListenerBoutons();
+        /*Button button = (Button) findViewById(R.id.ForceCentripete);
+            @Override
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                Intent intent = new Intent(MenuPrincipal.this, Informations.class);
+                startActivity(intent);
+            }
+        });*/
     }
 
    /* public void modifierPoliceTextes(){
@@ -60,6 +68,8 @@ public class MenuPrincipal extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Toast.makeText(MenuPrincipal.this, "CENTRIPÈTE", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MenuPrincipal.this, Informations.class);
+                startActivity(intent);
             }
         });
 
