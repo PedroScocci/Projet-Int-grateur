@@ -35,10 +35,6 @@ public class OndesSimu extends AppCompatActivity {
         public void run() {
 
             long tempsMiliSecs = SystemClock.uptimeMillis() - tempsDepart;
-            int secs=(int)(tempsMiliSecs /1000);
-            int mins= secs/60;
-            secs%=60;
-            int miliseconds=(int)(tempsMiliSecs %1000);
 
             if(!nonMode){
                 if(tempsMiliSecs >= tempsTemporaire + 1 && tempsMiliSecs <= tempsTemporaire + 60  ) { //Si le téléphone est performant
@@ -116,6 +112,7 @@ public class OndesSimu extends AppCompatActivity {
         }
     };
 
+    @SuppressLint("SetTextI18n")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -124,6 +121,17 @@ public class OndesSimu extends AppCompatActivity {
         Intent intent = getIntent();
         double mode = Double.parseDouble(intent.getStringExtra(OndesParam.MODE_STATIONNAIRE));
         extrem = intent.getStringExtra(OndesParam.EXTREMITES);
+
+        TextView textModeStatio = findViewById(R.id.ondesSimuModeStatio);
+        textModeStatio.setText(getText(R.string.ondesSimuModeStatio) + " " + intent.getStringExtra(OndesParam.MODE_STATIONNAIRE));
+        TextView textVentres = findViewById(R.id.ondesSimuVentres);
+        if(mode == Math.round(mode)) {
+            textVentres.setText(getText(R.string.ondesSimuNbVentres) + " " + intent.getStringExtra(OndesParam.MODE_STATIONNAIRE));
+        } else {
+            textVentres.setText(getText(R.string.ondesSimuNbVentres) + " 0");
+        }
+        TextView textouverture = findViewById(R.id.ondesSimuOuverture);
+        textouverture.setText(getText(R.string.ondesSimuOuverture) + " " + intent.getStringExtra(OndesParam.EXTREMITES));
 
         machine = new ImageView(this);
         machine.setImageResource(R.drawable.machine_corde_fermer);
