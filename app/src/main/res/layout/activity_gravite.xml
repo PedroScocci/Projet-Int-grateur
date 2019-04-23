@@ -9,11 +9,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@drawable/bckgrnd_espace"
         android:orientation="vertical">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="450dp"
+            android:layout_height="425dp"
             tools:layout_editor_absoluteX="8dp"
             tools:layout_editor_absoluteY="8dp">
 
@@ -23,15 +24,14 @@
                 android:layout_height="100dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                app:srcCompat="@drawable/cercle_test" />
+                app:srcCompat="@drawable/enclume" />
 
             <ImageView
                 android:id="@+id/imageView2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentTop="true"
-                android:layout_marginStart="10dp"
-                android:layout_marginTop="50dp"
+                android:layout_alignTop="@+id/hauteur_max"
+                android:layout_marginStart="16dp"
                 android:layout_toEndOf="@+id/image_test"
                 android:paddingBottom="10dp"
                 app:srcCompat="@drawable/echelle"
@@ -43,7 +43,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentTop="true"
-                android:layout_marginTop="47dp"
+                android:layout_marginTop="45dp"
+                android:textColor="@color/noir"
+                android:background="@color/blanc3"
                 android:layout_toEndOf="@+id/imageView2" />
 
             <TextView
@@ -51,7 +53,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/image_test"
-                android:layout_marginTop="132dp"
+                android:layout_marginTop="120dp"
+                android:textColor="@color/noir"
+                android:background="@color/blanc3"
                 android:layout_toEndOf="@+id/imageView2" />
 
             <TextView
@@ -60,6 +64,8 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:layout_marginBottom="15dp"
+                android:textColor="@color/noir"
+                android:background="@color/blanc3"
                 android:layout_toEndOf="@+id/imageView2"
                 android:text="@string/hauteur_min" />
 
@@ -70,6 +76,8 @@
                 android:layout_alignBottom="@+id/hauteur_max"
                 android:layout_alignParentStart="true"
                 android:layout_marginLeft="5dp"
+                android:textColor="@color/noir"
+                android:background="@color/blanc3"
                 android:text="@string/texte_vfinale" />
 
             <TextView
@@ -79,14 +87,16 @@
                 android:layout_alignStart="@+id/texte_vfinale"
                 android:layout_below="@+id/hauteur_max"
                 android:layout_marginTop="7dp"
+                android:textColor="@color/noir"
+                android:background="@color/blanc3"
                 android:text="Texte" />
 
         </RelativeLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
-            android:background="@drawable/border_t"
+            android:layout_height="87dp"
+            android:background="@drawable/mars_2"
             android:gravity="right|center_vertical"
             android:orientation="horizontal">
 
@@ -94,8 +104,18 @@
                 android:id="@+id/bouton_retourSG_PG"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
-                android:layout_marginRight="5dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="130dp"
+                android:layout_marginTop="10dp"
                 android:text="Retour" />
+
+            <Button
+                android:id="@+id/button_debut_anim"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Commencer" />
 
         </LinearLayout>
 

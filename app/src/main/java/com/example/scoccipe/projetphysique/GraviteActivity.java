@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,18 +15,17 @@ public class GraviteActivity extends AppCompatActivity {
     private Intent intent;
     private String planete, objet, masse, hauteur;
     private Double temps_de_chute, acceleration_grav, energie_impact, hauteur_moy;
+    private ImageView imageCercle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gravite);
+        imageCercle = (ImageView) findViewById(R.id.image_test);
 
-        ajoutBoutonRetour();
+        gestionBoutons();
 
         recevoirParametres();
-
-        animationTest();
-
 
 
         //creerButtonsTest();
@@ -120,20 +120,24 @@ public class GraviteActivity extends AppCompatActivity {
     }
 
     public void animationTest(){
-        ImageView imageCercle = (ImageView) findViewById(R.id.image_test);
-
         Double temps_temp = temps_de_chute * 1000; //pour l'avoir en ms
 
         imageCercle.animate()
-                .y(1075)
+                .y(1050)
                 .setInterpolator(new AccelerateInterpolator(1.5f))
                 .setDuration(temps_temp.longValue())
                 .start();
-
-
     }
 
-    public void ajoutBoutonRetour(){
+    public void gestionBoutons(){
+        Button bouton_debut = (Button) findViewById(R.id.button_debut_anim);
+        bouton_debut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                animationTest();
+            }
+        });
+
         Button bouton_retour = (Button) findViewById(R.id.bouton_retourSG_PG);
         bouton_retour.setOnClickListener(new View.OnClickListener() {
             @Override
