@@ -38,8 +38,8 @@
     <string name="planete">Planète:</string>
     <string name="masse_1">Masse objet 1 (kg):</string>
     <string name="hauteur_m">Hauteur (m):</string>
-    <string name="ok">OK</string>
-    <string name="retour">Retour</string>
+    <string name="txtbout_ok">OK</string>
+    <string name="txtbout_retour">Retour</string>
     <string name="hauteur_min">0.0 m</string>
     <string name="texte_vfinale">Vitesse finale approximative:</string>
     <string-array name="liste_planetes">

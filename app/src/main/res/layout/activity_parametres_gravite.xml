@@ -127,7 +127,7 @@
                 android:layout_height="75dp"
                 android:layout_gravity="center"
                 android:layout_marginLeft="25dp"
-                android:text="@string/retour"
+                android:text="@string/txtbout_retour"
                 android:textSize="20dp" />
 
             <Button
@@ -137,7 +137,7 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="130dp"
                 android:layout_marginRight="25dp"
-                android:text="@string/ok"
+                android:text="@string/txtbout_ok"
                 android:textSize="20dp" />
         </LinearLayout>
     </LinearLayout>
