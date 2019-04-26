@@ -19,7 +19,7 @@
             tools:layout_editor_absoluteY="8dp">
 
             <ImageView
-                android:id="@+id/image_test"
+                android:id="@+id/objet_chute"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_alignParentTop="true"
@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_alignTop="@+id/hauteur_max"
                 android:layout_marginStart="16dp"
-                android:layout_toEndOf="@+id/image_test"
+                android:layout_toEndOf="@+id/objet_chute"
                 android:paddingBottom="10dp"
                 app:srcCompat="@drawable/echelle"
                 tools:layout_editor_absoluteX="241dp"
@@ -52,7 +52,7 @@
                 android:id="@+id/hauteur_moy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/image_test"
+                android:layout_below="@+id/objet_chute"
                 android:layout_marginTop="120dp"
                 android:textColor="@color/noir"
                 android:background="@color/blanc3"
@@ -94,9 +94,10 @@
         </RelativeLayout>
 
         <LinearLayout
+            android:id="@+id/layout_planete"
             android:layout_width="match_parent"
             android:layout_height="87dp"
-            android:background="@drawable/saturne_2"
+            android:background="@drawable/mercure"
             android:gravity="right|center_vertical"
             android:orientation="horizontal">
 

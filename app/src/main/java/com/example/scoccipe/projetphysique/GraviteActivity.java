@@ -1,6 +1,7 @@
 package com.example.scoccipe.projetphysique;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -15,18 +17,19 @@ public class GraviteActivity extends AppCompatActivity {
     private Intent intent;
     private String planete, objet, masse, hauteur;
     private Double temps_de_chute, acceleration_grav, energie_impact, hauteur_moy;
-    private ImageView imageCercle;
+    private ImageView imageObjet;
+    private Drawable imagePlanete;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gravite);
-        imageCercle = (ImageView) findViewById(R.id.image_test);
+
+        imageObjet = (ImageView) findViewById(R.id.objet_chute);
 
         gestionBoutons();
 
         recevoirParametres();
-
 
         //creerButtonsTest();
     }
@@ -50,36 +53,47 @@ public class GraviteActivity extends AppCompatActivity {
 
             case "Mercure":
                 acceleration_grav = 3.701;
+                imagePlanete = getDrawable(R.drawable.mercure);
                 break;
 
             case "Venus":
                 acceleration_grav = 8.87;
+                imagePlanete = getDrawable(R.drawable.venus);
                 break;
 
             case "Terre":
                 acceleration_grav = 9.80665;
+                imagePlanete = getDrawable(R.drawable.terre);
                 break;
 
             case "Mars":
                 acceleration_grav = 3.711;
+                imagePlanete = getDrawable(R.drawable.mars);
                 break;
 
             case "Jupiter":
                 acceleration_grav = 24.79642;
+                imagePlanete = getDrawable(R.drawable.jupiter);
                 break;
 
             case "Saturne":
                 acceleration_grav = 10.44;
+                imagePlanete = getDrawable(R.drawable.saturne);
                 break;
 
             case "Uranus":
                 acceleration_grav = 8.87;
+                imagePlanete = getDrawable(R.drawable.uranus);
                 break;
 
             case "Neptune":
                 acceleration_grav = 11.15;
+                imagePlanete = getDrawable(R.drawable.neptune);
                 break;
         }
+
+        LinearLayout layout_planete = (LinearLayout) findViewById(R.id.layout_planete);
+        layout_planete.setBackground(imagePlanete);
 
         calculTempsDeChute();
     }
@@ -122,7 +136,7 @@ public class GraviteActivity extends AppCompatActivity {
     public void animationTest(){
         Double temps_temp = temps_de_chute * 1000; //pour l'avoir en ms
 
-        imageCercle.animate()
+        imageObjet.animate()
                 .y(1050)
                 .setInterpolator(new AccelerateInterpolator(1.5f))
                 .setDuration(temps_temp.longValue())
