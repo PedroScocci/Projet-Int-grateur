@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.scoccipe.projetphysique.OndesParam">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/ondesParamTitre"
+            android:textSize="26sp"
+            android:layout_margin="5dp"
+            android:textColor="@color/noir"/>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2"
+            android:orientation="horizontal"
+            android:layout_marginHorizontal="15dp"
+            android:baselineAligned="false">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                tools:ignore="NestedWeights">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ondesParamExtrem"
+                    android:textSize="20sp"
+                    android:textColor="@color/noir"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ondesParamTension"
+                    android:textSize="20sp"
+                    android:textColor="@color/noir"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ondesParamFrequence"
+                    android:textSize="20sp"
+                    android:textColor="@color/noir"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ondesParamLongueur"
+                    android:textSize="20sp"
+                    android:textColor="@color/noir"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/ondesParamMasse"
+                    android:textSize="20sp"
+                    android:textColor="@color/noir"
+                    android:layout_weight="1"
+                    android:gravity="center"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <Spinner
+                    android:id="@+id/ondesExtrem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:entries="@array/extremite_array">
+
+                </Spinner>
+
+                <EditText
+                    android:id="@+id/ondesTension"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:layout_weight="1"
+                    tools:ignore="LabelFor"
+                    android:layout_gravity="center" />
+
+                <EditText
+                    android:id="@+id/ondesFrequence"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    tools:ignore="LabelFor"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"/>
+
+                <EditText
+                    android:id="@+id/ondesLongueur"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    tools:ignore="LabelFor"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"/>
+
+                <EditText
+                    android:id="@+id/ondesMasse"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    tools:ignore="LabelFor"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/ondesModeStatio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:textColor="@color/noir"
+            android:text="@string/ondesParamModeStatio"
+            android:gravity="center"/>
+
+        <Button
+            android:id="@+id/bOndesParamCalcul"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ondesParamButtonCalcul"
+            android:layout_margin="3dp"
+            android:padding="5dp"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/bOndesParamDemarrer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ondesParamButton"
+            android:layout_margin="3dp"
+            android:padding="5dp"
+            android:layout_gravity="center"/>
+
+        <Button
+            android:id="@+id/bOndesParamQuitter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ondesParamRetourMenu"
+            android:padding="10dp"
+            android:layout_margin="10dp"
+            android:layout_gravity="center"/>
+
+
+    </LinearLayout>
+
+
+</android.support.constraint.ConstraintLayout>

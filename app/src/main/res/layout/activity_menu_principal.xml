@@ -5,13 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/bckgrnd"
+    android:minHeight="1980dp"
+    android:minWidth="1080dp"
     tools:context="com.example.scoccipe.projetphysique.MenuPrincipal">
 
     <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="48dp"
-        tools:layout_editor_absoluteY="0dp">
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <Button
             android:id="@+id/bouton_Onde"
@@ -20,10 +24,12 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/bouton_ForceCentripete"
             android:layout_gravity="center"
-            android:layout_marginStart="10dp"
+            android:layout_marginLeft="12dp"
             android:layout_marginTop="20dp"
             android:layout_weight="1"
-            android:text="@string/ondesStationnaires" />
+            android:text="@string/ondesStationnaires"
+            tools:layout_editor_absoluteX="83dp"
+            tools:layout_editor_absoluteY="235dp" />
 
         <Button
             android:id="@+id/bouton_Paradoxe"
@@ -61,12 +67,12 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="50dp"
-            android:textSize="35dp"
-            android:background="#3d84a7"
-            android:text="@string/app_name" />
+            android:background="@drawable/borders"
+            android:text="@string/app_name"
+            android:textColor="@color/noir"
+            android:textSize="35dp" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

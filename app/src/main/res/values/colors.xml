@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#ef8b34</color>
-    <color name="colorPrimaryDark">#bc6700</color>
+    <color name="colorPrimary">#344def</color>
+    <color name="colorPrimaryDark">#0022bc</color>
     <color name="colorAccent">#FF4081</color>
 
-
+    <color name="blanc_trans">#CCFFFFFF</color>
+    <color name="blanc_trans2">#e6ffffff</color>
+    <color name="transparent">#00ffffff</color>
+    <color name="couleur_boutons">#344DEF</color>
+    <color name="bckgrnd_obscur">#23325a</color>
+    <color name="couleur_textes">#dc8c23</color>
     <color name="rouge2">#ccd61818</color>
     <color name="blanc2">#ccffffff</color>
     <color name="blanc3">#99ffffff</color>
@@ -15,7 +20,8 @@
     <color name="orange">#ff6a00</color>
     <color name="jaune">#fbff00</color>
     <color name="vert">#37ff00</color>
-    <color name="bleuPale">#00fffb</color>
     <color name="bleu">#0040ff</color>
     <color name="violet">#9900ff</color>
+    <color name="cielle">#152452</color>
+    <color name="grisMate">#696969</color>
 </resources>
