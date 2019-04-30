@@ -124,7 +124,31 @@ public class GraviteActivity extends AppCompatActivity {
         Double vitesse_finale = acceleration_grav * temps_de_chute;
         vitesse_finale = Math.round(vitesse_finale * 100d) / 100d;
         energie_impact = 0.5 * Double.parseDouble(masse) * Math.pow(vitesse_finale, 2);
-        energie_impact = Math.round(energie_impact * 100d) / 100d;
+
+        String texte_energie;
+        if(energie_impact > (4.184*(Math.pow(10,9)))){
+            energie_impact = Math.round(energie_impact * 100d) / 100d;
+            texte_energie = energie_impact.toString() + " tonnes de TNT";
+            Toast.makeText(GraviteActivity.this, texte_energie, Toast.LENGTH_SHORT).show();
+        }
+        else if(energie_impact > (4.184*(Math.pow(10,6)))){
+            energie_impact = Math.round(energie_impact * 100d) / 100d;
+            texte_energie = energie_impact.toString() + " kilogrammes de TNT";
+            Toast.makeText(GraviteActivity.this, texte_energie, Toast.LENGTH_SHORT).show();
+        }
+        else{
+            energie_impact = Math.round(energie_impact * 100d) / 100d;
+            texte_energie = energie_impact.toString() + " grammes de TNT";
+            Toast.makeText(GraviteActivity.this, texte_energie, Toast.LENGTH_SHORT).show();
+        }
+        //energie_impact = Math.round(energie_impact * 100d) / 100d;
+
+        //Toast.makeText(GraviteActivity.this, energie_impact + " J", Toast.LENGTH_SHORT).show();
+
+
+
+
+
 
         TextView v_finale = (TextView) findViewById(R.id.vitesse_finale);
         v_finale.setText(vitesse_finale.toString() + " m/s");
@@ -133,22 +157,24 @@ public class GraviteActivity extends AppCompatActivity {
 
     }
 
-    public void animationTest(){
+    public void animationTest(Button bouton){
         Double temps_temp = temps_de_chute * 1000; //pour l'avoir en ms
 
+        bouton.setClickable(false);
         imageObjet.animate()
                 .y(1050)
                 .setInterpolator(new AccelerateInterpolator(1.5f))
                 .setDuration(temps_temp.longValue())
                 .start();
+
     }
 
     public void gestionBoutons(){
-        Button bouton_debut = (Button) findViewById(R.id.button_debut_anim);
+        final Button bouton_debut = (Button) findViewById(R.id.button_debut_anim);
         bouton_debut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                animationTest();
+                animationTest(bouton_debut);
             }
         });
 

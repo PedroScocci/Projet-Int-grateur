@@ -61,6 +61,12 @@ public class ParametresGravite extends AppCompatActivity {
                         AlertDialog dialog = builder.create();
                         dialog.show();
                     }
+                    if(Double.parseDouble(masse_text.getText().toString()) > 10000.0){
+                        builder.setMessage("Masse maximale: 10 000kg")
+                                .setTitle("ERREUR :");
+                        AlertDialog dialog = builder.create();
+                        dialog.show();
+                    }
                     else{
                         masse = masse_text.getText().toString();
                         hauteur = hauteur_text.getText().toString();
