@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.scoccipe.projetphysique.Options">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/options_et_choix_menu"/>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="6"
+            android:text="@string/apr_s_avoir_choisi_votre_simulation_vous_serez_amener_une_fen_tre_d_informations_d_o_vous_pourrez_vous_rendre_la_fen_tre_des_param_tres_l_aide_d_un_bouton_ensuite_vous_pourrez_choisir_les_param_tres_d_sir_s_et_les_transmettre_l_aide_d_un_bouton_et_vous_pourrez_d_buter_la_simulation_l_aide_d_un_autre_bouton_il_est_possible_de_naviguer_entre_les_fen_tres_l_aide_du_menu_situ_dans_le_coin_en_haut_droite_de_l_cran" />
+
+        <Button
+            android:id="@+id/button_options"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="@string/retour_au_menu_principal" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

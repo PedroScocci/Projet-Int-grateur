@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:android="http://schemas.android.com/apk/res/android"    >
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/action_apropos"
-        android:title="@string/a_propos"
-        app:showAsAction="never"
-        />
-
+        android:id="@+id/menu_avantpropos"
+        android:title="@string/avant_propos"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_developpement"
+        android:title="@string/d_veloppement"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_notions"
+        android:title="@string/notions_l_mentaires"
+        app:showAsAction="never"/>
+    <item
+        android:id="@+id/menu_options"
+        android:title="@string/options_et_choix"
+        app:showAsAction="never"/>
 </menu>

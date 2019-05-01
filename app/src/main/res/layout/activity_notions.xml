@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.scoccipe.projetphysique.Notions">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:text="@string/notions_l_mentaires_de_l_application"/>
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:layout_weight="6"
+            android:text="@string/cette_application_est_s_par_e_en_4_simulateurs_le_premier_celui_de_la_gravit_montre_des_objets_qui_tombent_sur_diff_rentes_plan_tes_avec_des_gravit_s_diff_rentes_le_deuxi_me_celui_de_la_force_centrip_te_montre_une_voiture_qui_d_rape_ou_qui_ne_d_rape_pas_le_troisi_me_celui_du_paradoxe_des_jumeaux_montre_un_des_jumeaux_qui_reste_sherbrooke_et_l_autre_qui_quitte_la_terre_le_quatri_me_celui_des_ondes_montre_le_mouvement_d_une_corde_certaines_fr_quences_les_4_simulateurs_ont_une_section_d_informations_pour_expliquer_les_ph_nom_nes_plus_en_d_tails_plusieurs_param_tres_sont_modifiables_et_ces_modifications_sont_illustr_es_l_aide_d_animation"
+            />
+        <Button
+            android:id="@+id/button_notions"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="@string/retour_au_menu_principal" />
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

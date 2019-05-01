@@ -78,6 +78,39 @@ public class MenuPrincipal extends AppCompatActivity {
         });
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.maintoolbar, menu);
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch(item.getItemId()) {
+            case R.id.menu_avantpropos:
+                Intent intent1 = new Intent(MenuPrincipal.this, Avant_propos.class);
+                startActivityForResult(intent1, RETOUR_MENU_PRINCIPAL);
+                finish();
+                return true;
+            case R.id.menu_developpement:
+                Intent intent2 = new Intent(MenuPrincipal.this, Developpement.class);
+                startActivityForResult(intent2, RETOUR_MENU_PRINCIPAL);
+                finish();
+                return true;
+            case R.id.menu_notions:
+                Intent intent3 = new Intent(MenuPrincipal.this, Notions.class);
+                startActivityForResult(intent3, RETOUR_MENU_PRINCIPAL);
+                finish();
+                return true;
+            case R.id.menu_options:
+                Intent intent4 = new Intent(MenuPrincipal.this, Options.class);
+                startActivityForResult(intent4, RETOUR_MENU_PRINCIPAL);
+                finish();
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
+
   /*  @Override
     public boolean onCreateOptionsMenu(Menu menu){
         getMenuInflater().inflate(R.menu.maintoolbar, menu);

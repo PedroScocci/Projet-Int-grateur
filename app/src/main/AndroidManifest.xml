@@ -15,17 +15,22 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Paradoxe"
+        <activity
+            android:name=".Paradoxe"
             android:theme="@style/Ciel" />
         <activity android:name=".Paradoxe2" />
         <activity android:name=".Paradoxe3" />
-        <activity android:name=".Paradoxe4"></activity>
+        <activity android:name=".Paradoxe4" />
         <activity android:name=".Force_Centripete" />
         <activity android:name=".ParametresCentripete" />
-        <activity android:name=".Informations"></activity>
+        <activity android:name=".Informations" />
         <activity android:name=".OndesParam" />
         <activity android:name=".OndesSimu" />
-        <activity android:name=".OndesInfo"></activity>
+        <activity android:name=".OndesInfo" />
+        <activity android:name=".Avant_propos" />
+        <activity android:name=".Developpement" />
+        <activity android:name=".Notions" />
+        <activity android:name=".Options"></activity>
     </application>
 
 </manifest>

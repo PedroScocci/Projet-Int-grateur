@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.scoccipe.projetphysique.Avant_propos">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/avant_propos"/>
+
+  <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:text="@string/avec_cette_application_nous_voulons_permettre_au_grand_public_de_se_renseigner_sur_diff_rents_ph_nom_nes_physiques_de_la_vie_courante_et_d_apprendre_de_nouveaux_concepts_l_aide_de_simulations_notre_principal_souhait_est_de_faire_prendre_conscience_au_grand_public_qu_il_vit_avec_la_physique_chaque_jour_sans_vraiment_s_en_rendre_compte_non_seulement_nous_allons_faire_prendre_conscience_au_grand_public_qu_il_vit_avec_la_physique_au_quotidien_mais_nous_le_porterons_aussi_r_fl_chir_en_l_exposant_des_ph_nom_nes_qui_sont_m_connus_pour_la_plupart" />
+
+        <Button
+            android:id="@+id/button_ap"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:text="@string/retour_au_menu_principal" />
+
+</LinearLayout>
+
+</android.support.constraint.ConstraintLayout>
