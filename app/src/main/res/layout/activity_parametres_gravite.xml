@@ -45,17 +45,15 @@
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
-                android:background="@drawable/border_b"
+                android:background="@color/blanc2"
                 android:orientation="horizontal">
 
                 <Spinner
                     android:id="@+id/spinner_planete"
                     android:layout_width="150dp"
                     android:layout_height="23dp"
-                    android:layout_weight="1"
-                    android:alwaysDrawnWithCache="false"
                     android:popupBackground="@color/blanc2"
-                    android:entries="@array/liste_planetes" />
+                    />
             </LinearLayout>
 
         </LinearLayout>

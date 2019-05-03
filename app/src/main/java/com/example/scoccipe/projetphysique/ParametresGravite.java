@@ -7,12 +7,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
-import android.widget.Toast;
+import java.util.ArrayList;
+import java.util.List;
 
-import javax.security.auth.Subject;
 
 public class ParametresGravite extends AppCompatActivity {
 
@@ -26,8 +27,8 @@ public class ParametresGravite extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parametres_gravite);
 
-        Toast.makeText(ParametresGravite.this, "À FAIRE: ajouter une fenêtre sur la théorie qui s'ouvre" +
-                                                            " automatiquemet.",Toast.LENGTH_LONG).show();
+        /*Toast.makeText(ParametresGravite.this, "À FAIRE: ajouter une fenêtre sur la théorie qui s'ouvre" +
+                                                            " automatiquemet.",Toast.LENGTH_LONG).show();*/
 
         intent = new Intent(ParametresGravite.this, GraviteActivity.class);
 
@@ -90,8 +91,20 @@ public class ParametresGravite extends AppCompatActivity {
 
     public void ajoutListenerPlanete(){
         spinner_planete = (Spinner) findViewById(R.id.spinner_planete);
-        /*ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<String>(this, R.layout.layout_spinner_planete);
-        spinner_planete.setAdapter(spinnerAdapter);*/
+        List<String> spinnerArray = new ArrayList<>();
+        spinnerArray.add("Mercure");
+        spinnerArray.add("Venus");
+        spinnerArray.add("Terre");
+        spinnerArray.add("Mars");
+        spinnerArray.add("Jupiter");
+        spinnerArray.add("Saturne");
+        spinnerArray.add("Uranus");
+        spinnerArray.add("Neptune");
+
+        ArrayAdapter<String> spinnerAdapter = new ArrayAdapter<>(this, R.layout.layout_spinner_planete, spinnerArray);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner_planete.setAdapter(spinnerAdapter);
+
         spinner_planete.setOnItemSelectedListener(new OnItemSelectedListener(){
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
