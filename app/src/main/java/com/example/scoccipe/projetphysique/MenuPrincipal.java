@@ -46,7 +46,8 @@ public class MenuPrincipal extends AppCompatActivity {
         boutonGrav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent intent = new Intent(MenuPrincipal.this, ParametresGravite.class);
+                startActivity(intent);
             }
         });
 

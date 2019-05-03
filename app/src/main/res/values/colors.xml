@@ -10,7 +10,9 @@
     <color name="couleur_boutons">#344DEF</color>
     <color name="bckgrnd_obscur">#23325a</color>
     <color name="couleur_textes">#dc8c23</color>
-
+    <color name="rouge2">#ccd61818</color>
+    <color name="blanc2">#ccffffff</color>
+    <color name="blanc3">#99ffffff</color>
 
     <color name="noir">#000000</color>
     <color name="blanc">#FFFFFF</color>

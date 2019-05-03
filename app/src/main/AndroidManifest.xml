@@ -32,6 +32,8 @@
         <activity android:name=".Developpement" />
         <activity android:name=".Notions" />
         <activity android:name=".Options"></activity>
+        <activity android:name=".GraviteActivity" />
+        <activity android:name=".ParametresGravite"></activity>
     </application>
 
 </manifest>

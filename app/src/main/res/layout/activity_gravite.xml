@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.scoccipe.projetphysique.GraviteActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/bckgrnd_espace"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="425dp"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp">
+
+            <ImageView
+                android:id="@+id/objet_chute"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                app:srcCompat="@drawable/enclume" />
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignTop="@+id/hauteur_max"
+                android:layout_marginStart="16dp"
+                android:layout_toEndOf="@+id/objet_chute"
+                android:paddingBottom="10dp"
+                app:srcCompat="@drawable/echelle"
+                tools:layout_editor_absoluteX="241dp"
+                tools:layout_editor_absoluteY="23dp" />
+
+            <TextView
+                android:id="@+id/hauteur_max"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="45dp"
+                android:textColor="@color/noir"
+                android:background="@color/blanc3"
+                android:layout_toEndOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/hauteur_moy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/objet_chute"
+                android:layout_marginTop="120dp"
+                android:textColor="@color/noir"
+                android:background="@color/blanc3"
+                android:layout_toEndOf="@+id/imageView2" />
+
+            <TextView
+                android:id="@+id/hauteur_min"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/noir"
+                android:background="@color/blanc3"
+                android:layout_toEndOf="@+id/imageView2"
+                android:text="@string/hauteur_min" />
+
+            <TextView
+                android:id="@+id/texte_vfinale"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/hauteur_max"
+                android:layout_alignParentStart="true"
+                android:layout_marginLeft="5dp"
+                android:textColor="@color/noir"
+                android:background="@color/blanc3"
+                android:text="@string/texte_vfinale" />
+
+            <TextView
+                android:id="@+id/vitesse_finale"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/texte_vfinale"
+                android:layout_below="@+id/hauteur_max"
+                android:layout_marginTop="7dp"
+                android:textColor="@color/noir"
+                android:background="@color/blanc3"
+                android:text="Texte" />
+
+            <TextView
+                android:id="@+id/texte_energie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/objet_chute"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/blanc3"
+                android:text="@string/texte_energie"
+                android:textColor="@color/noir" />
+
+            <TextView
+                android:id="@+id/energie_tnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/texte_energie"
+                android:layout_below="@+id/texte_energie"
+                android:layout_marginTop="7dp"
+                android:background="@color/blanc3"
+                android:text="Texte"
+                android:textColor="@color/noir" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/layout_planete"
+            android:layout_width="match_parent"
+            android:layout_height="87dp"
+            android:background="@drawable/mercure"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/bouton_retourSG_PG"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="130dp"
+                android:layout_marginTop="10dp"
+                android:text="Retour" />
+
+            <Button
+                android:id="@+id/button_debut_anim"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:layout_marginRight="15dp"
+                android:layout_marginTop="10dp"
+                android:text="Commencer" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</android.support.constraint.ConstraintLayout>

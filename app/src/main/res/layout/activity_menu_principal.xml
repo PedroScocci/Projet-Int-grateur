@@ -18,11 +18,11 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <Button
-            android:id="@+id/Onde"
+            android:id="@+id/bouton_Onde"
             android:layout_width="160dp"
             android:layout_height="120dp"
             android:layout_alignParentStart="true"
-            android:layout_below="@+id/ForceCentripete"
+            android:layout_below="@+id/bouton_ForceCentripete"
             android:layout_gravity="center"
             android:layout_marginLeft="12dp"
             android:layout_marginTop="20dp"
@@ -32,32 +32,32 @@
             tools:layout_editor_absoluteY="235dp" />
 
         <Button
-            android:id="@+id/Paradoxe"
+            android:id="@+id/bouton_Paradoxe"
             android:layout_width="160dp"
             android:layout_height="120dp"
-            android:layout_alignTop="@+id/Onde"
+            android:layout_alignTop="@+id/bouton_Onde"
             android:layout_gravity="center"
             android:layout_marginLeft="20dp"
-            android:layout_toEndOf="@+id/Onde"
+            android:layout_toEndOf="@+id/bouton_Onde"
             android:layout_weight="1"
             android:text="@string/paradoxeJumeaux" />
 
         <Button
-            android:id="@+id/ForceCentripete"
+            android:id="@+id/bouton_ForceCentripete"
             android:layout_width="160dp"
             android:layout_height="120dp"
-            android:layout_alignStart="@+id/Paradoxe"
+            android:layout_alignStart="@+id/bouton_Paradoxe"
             android:layout_gravity="center"
             android:layout_marginTop="180dp"
             android:layout_weight="1"
             android:text="@string/forceCentripete" />
 
         <Button
-            android:id="@+id/Gravite"
+            android:id="@+id/bouton_Gravite"
             android:layout_width="160dp"
             android:layout_height="120dp"
             android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/Onde"
+            android:layout_alignStart="@+id/bouton_Onde"
             android:layout_gravity="center"
             android:layout_marginTop="180dp"
             android:layout_weight="1"

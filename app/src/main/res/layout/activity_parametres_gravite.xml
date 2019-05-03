@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/parambck"
+    tools:context="com.example.scoccipe.projetphysique.ParametresGravite">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="8dp"
+        tools:layout_editor_absoluteY="8dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="85dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="25dp"
+            android:layout_marginRight="25dp"
+            android:gravity="center_horizontal|center_vertical"
+            android:text="@string/param_gravite"
+            android:textAllCaps="true"
+            android:textColor="@color/noir"
+            android:background="@color/blanc2"
+            android:textSize="35dp" />
+
+        <LinearLayout
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="23dp"
+                android:layout_weight="0"
+                android:paddingLeft="10dp"
+                android:text="@string/planete"
+                android:background="@color/blanc2"
+                android:textColor="@color/noir" />
+
+            <LinearLayout
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:background="@color/blanc2"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/spinner_planete"
+                    android:layout_width="150dp"
+                    android:layout_height="23dp"
+                    android:popupBackground="@color/blanc2"
+                    />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="23dp"
+                android:layout_marginTop="-5dp"
+                android:layout_weight="0"
+                android:background="@color/blanc2"
+                android:paddingLeft="10dp"
+                android:text="@string/masse_1"
+                android:textColor="@color/noir" />
+
+            <EditText
+                android:id="@+id/masse_obj1"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_weight="0"
+                android:ems="10"
+                android:background="@color/blanc2"
+                android:inputType="numberDecimal" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="130dp"
+                android:layout_height="23dp"
+                android:layout_marginTop="-5dp"
+                android:layout_weight="0"
+                android:background="@color/blanc2"
+                android:paddingLeft="10dp"
+                android:text="@string/hauteur_m"
+                android:textColor="@color/noir" />
+
+            <EditText
+                android:id="@+id/hauteur"
+                android:layout_width="wrap_content"
+                android:layout_height="23dp"
+                android:layout_weight="0"
+                android:ems="10"
+                android:background="@color/blanc2"
+                android:inputType="numberDecimal" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="60dp"
+
+            android:background="@drawable/border"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/bouton_retourPG-M"
+                android:layout_width="100dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="25dp"
+                android:text="@string/txtbout_retour"
+                android:textSize="20dp" />
+
+            <Button
+                android:id="@+id/bouton_okPG-SG"
+                android:layout_width="100dp"
+                android:layout_height="75dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="130dp"
+                android:layout_marginRight="25dp"
+                android:text="@string/txtbout_ok"
+                android:textSize="20dp" />
+        </LinearLayout>
+    </LinearLayout>
+</android.support.constraint.ConstraintLayout>

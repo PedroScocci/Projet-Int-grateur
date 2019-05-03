@@ -46,4 +46,30 @@
     <string name="cette_application_est_s_par_e_en_4_simulateurs_le_premier_celui_de_la_gravit_montre_des_objets_qui_tombent_sur_diff_rentes_plan_tes_avec_des_gravit_s_diff_rentes_le_deuxi_me_celui_de_la_force_centrip_te_montre_une_voiture_qui_d_rape_ou_qui_ne_d_rape_pas_le_troisi_me_celui_du_paradoxe_des_jumeaux_montre_un_des_jumeaux_qui_reste_sherbrooke_et_l_autre_qui_quitte_la_terre_le_quatri_me_celui_des_ondes_montre_le_mouvement_d_une_corde_certaines_fr_quences_les_4_simulateurs_ont_une_section_d_informations_pour_expliquer_les_ph_nom_nes_plus_en_d_tails_plusieurs_param_tres_sont_modifiables_et_ces_modifications_sont_illustr_es_l_aide_d_animation">Cette application est séparée en 4 simulateurs. Le premier, celui de la gravité, montre des objets qui tombent sur différentes planètes avec des gravités différentes. Le deuxième, celui de la force centripète, montre une voiture qui dérape ou qui ne dérape pas. Le troisième, celui du paradoxe des jumeaux, montre un des jumeaux qui reste à Sherbrooke et l\’autre qui quitte la Terre. Le quatrième, celui des ondes, montre le mouvement d\’une corde à certaines fréquences. Les 4 simulateurs ont une section d\’informations pour expliquer les phénomènes plus en détails, plusieurs paramètres sont modifiables et ces modifications sont illustrées à l\’aide d\’animation.</string>
     <string name="options_et_choix_menu">Options et choix de menu</string>
     <string name="apr_s_avoir_choisi_votre_simulation_vous_serez_amener_une_fen_tre_d_informations_d_o_vous_pourrez_vous_rendre_la_fen_tre_des_param_tres_l_aide_d_un_bouton_ensuite_vous_pourrez_choisir_les_param_tres_d_sir_s_et_les_transmettre_l_aide_d_un_bouton_et_vous_pourrez_d_buter_la_simulation_l_aide_d_un_autre_bouton_il_est_possible_de_naviguer_entre_les_fen_tres_l_aide_du_menu_situ_dans_le_coin_en_haut_droite_de_l_cran">Au menu principal, l’utilisateur aura l’option entre 4 boutons qui dirigent à la simulation indiquée et il aura accès au guide d’utilisateur via une barre de menu située dans le coin en haut à droite de l’écran. Après avoir choisi votre simulation, vous serez amenés à une fenêtre d\’informations d\’où vous pourrez vous rendre à la fenêtre des paramètres à l\’aide d\’un bouton. Ensuite vous pourrez choisir les paramètres désirés sur des champs de saisie et des listes déroulantes et les transmettre à l\’aide d\’un bouton et vous pourrez débuter la simulation à l\’aide d\’un autre bouton.</string>
+    <string name="param_gravite">Paramètres</string>
+    <string name="planete">Planète:</string>
+    <string name="masse_1">Masse objet 1 (kg):</string>
+    <string name="hauteur_m">Hauteur (m):</string>
+    <string name="txtbout_ok">OK</string>
+    <string name="txtbout_retour">Retour</string>
+    <string name="hauteur_min">0.0 m</string>
+    <string name="texte_vfinale">Vitesse finale approximative:</string>
+    <string name="texte_energie">Énergie d\'impact: </string>
+    <string-array name="liste_planetes">
+        <item>Mercure</item>
+        <item>Venus</item>
+        <item>Terre</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturne</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
+    <string-array name="liste_objets">
+        <item>Melon d\'eau</item>
+        <item>Voiture</item>
+        <item>Bloc de ciment</item>
+        <item>Bloc de glace</item>
+        <item>Oeuf</item>
+    </string-array>
 </resources>
