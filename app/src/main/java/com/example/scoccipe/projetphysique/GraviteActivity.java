@@ -6,16 +6,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
-import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class GraviteActivity extends AppCompatActivity {
     private Intent intent;
-    private String planete, objet, masse, hauteur;
+    private String planete, masse, hauteur;
     private Double temps_de_chute, acceleration_grav, energie_impact, hauteur_moy;
     private ImageView imageObjet;
     private Drawable imagePlanete;
@@ -30,15 +28,12 @@ public class GraviteActivity extends AppCompatActivity {
         gestionBoutons();
 
         recevoirParametres();
-
-        //creerButtonsTest();
     }
 
     public void recevoirParametres(){
         intent = getIntent();
 
         planete = intent.getStringExtra("planete");
-        objet = intent.getStringExtra("objet");
         masse = intent.getStringExtra("masse");
         hauteur = intent.getStringExtra("hauteur");
 
@@ -117,25 +112,42 @@ public class GraviteActivity extends AppCompatActivity {
         hauteur_moy = Double.valueOf(hauteur)/2;
         hauteur_moy = Math.round(hauteur_moy*10.0d)/10.0d;
         h_moy.setText(hauteur_moy.toString() + " m");
-
     }
 
     public void calculForceImpact(){
         Double vitesse_finale = acceleration_grav * temps_de_chute;
         vitesse_finale = Math.round(vitesse_finale * 100d) / 100d;
         energie_impact = 0.5 * Double.parseDouble(masse) * Math.pow(vitesse_finale, 2);
-        energie_impact = Math.round(energie_impact * 100d) / 100d;
+        TextView texte_tnt = (TextView) findViewById(R.id.energie_tnt);
+
+        String texte_energie;
+        if(energie_impact >= (4.184*(Math.pow(10,9)))){
+            energie_impact /= 4.184*(Math.pow(10,9));
+            energie_impact = Math.round(energie_impact * 100d) / 100d;
+            texte_energie = energie_impact.toString() + " tonnes de TNT";
+            texte_tnt.setText(texte_energie);
+        }
+        else if(energie_impact >= (4.184*(Math.pow(10,6)))){
+            energie_impact /= 4.184*(Math.pow(10,6));
+            energie_impact = Math.round(energie_impact * 100d) / 100d;
+            texte_energie = energie_impact.toString() + " kilogrammes de TNT";
+            texte_tnt.setText(texte_energie);
+        }
+        else{
+            energie_impact /= 4.184*(Math.pow(10,3));
+            energie_impact = Math.round(energie_impact * 100d) / 100d;
+            texte_energie = energie_impact.toString() + " grammes de TNT";
+            texte_tnt.setText(texte_energie);
+        }
 
         TextView v_finale = (TextView) findViewById(R.id.vitesse_finale);
         v_finale.setText(vitesse_finale.toString() + " m/s");
-
-        //Toast.makeText(GraviteActivity.this, tonne_tnt.toString() + " tonnes de TNT", Toast.LENGTH_SHORT).show();
-
     }
 
-    public void animationTest(){
+    public void animationTest(Button bouton){
         Double temps_temp = temps_de_chute * 1000; //pour l'avoir en ms
 
+        bouton.setClickable(false);
         imageObjet.animate()
                 .y(1050)
                 .setInterpolator(new AccelerateInterpolator(1.5f))
@@ -144,11 +156,11 @@ public class GraviteActivity extends AppCompatActivity {
     }
 
     public void gestionBoutons(){
-        Button bouton_debut = (Button) findViewById(R.id.button_debut_anim);
+        final Button bouton_debut = (Button) findViewById(R.id.button_debut_anim);
         bouton_debut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                animationTest();
+                animationTest(bouton_debut);
             }
         });
 
@@ -160,23 +172,4 @@ public class GraviteActivity extends AppCompatActivity {
             }
         });
     }
-
-    /*public void creerButtonsTest(){
-
-        Button bouton_planete = (Button) findViewById(R.id.bouton_planete);
-        bouton_planete.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(GraviteActivity.this, planete, Toast.LENGTH_SHORT).show();
-            }
-        });
-
-        Button bouton_masse = (Button) findViewById(R.id.bouton_masse);
-        bouton_masse.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Toast.makeText(GraviteActivity.this, masse, Toast.LENGTH_SHORT).show();
-            }
-        });
-    }*/
 }
