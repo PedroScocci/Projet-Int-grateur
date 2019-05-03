@@ -14,8 +14,11 @@
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/noir"
+            android:textStyle="bold"
+            android:gravity="center"
             android:text="@string/d_veloppement_de_l_application"/>
 
         <TextView
@@ -23,8 +26,11 @@
             android:layout_width="wrap_content"
             android:layout_height="0dp"
             android:layout_weight="6"
-            android:text="@string/pour_continuer_le_d_veloppement_de_l_application_vous_devez_installer_android_studio_et_cloner_le_repot_pedroscocci_projet_int_grateur"
-        />
+            android:gravity="center_horizontal"
+            android:textColor="@color/noir"
+            android:textSize="20sp"
+            android:layout_marginTop="25sp"
+            android:text="@string/pour_continuer_le_d_veloppement_de_l_application_vous_devez_installer_android_studio_et_cloner_le_repot_pedroscocci_projet_int_grateur" />
         <Button
             android:id="@+id/button_dev"
             android:layout_width="match_parent"

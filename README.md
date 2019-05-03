@@ -1,8 +1,8 @@
 # Projet-Int-grateur
 
-Comme il s’agit d’une application Android, celle-ci nécessite un téléphone Android.
+Comme il sï¿½agit dï¿½une application Android, celle-ci nï¿½cessite un tï¿½lï¿½phone Android.
 
-1. Télécharger le fichier simulateur.apk
-2.  Pour les téléphones de versions antérieures à Oreo 8.0, autoriser l'installation d’applis inconnues sinon passer tout de suite à l'étape 3.
-3. Se rendre au dossier de téléchargement et sélectionner le fichier simulateur.apk
-4. L'application devrait s'installer sans problème.
+1. Tï¿½lï¿½charger le fichier simulateur.apk
+2.  Pour les tï¿½lï¿½phones de versions antï¿½rieures ï¿½ Oreo 8.0, autoriser l'installation dï¿½applis inconnues sinon passer tout de suite ï¿½ l'ï¿½tape 3.
+3. Se rendre au dossier de tï¿½lï¿½chargement et sï¿½lectionner le fichier simulateur.apk
+4. L'application devrait s'installer sans problï¿½me.
