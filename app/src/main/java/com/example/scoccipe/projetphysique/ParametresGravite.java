@@ -27,9 +27,6 @@ public class ParametresGravite extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parametres_gravite);
 
-        /*Toast.makeText(ParametresGravite.this, "À FAIRE: ajouter une fenêtre sur la théorie qui s'ouvre" +
-                                                            " automatiquemet.",Toast.LENGTH_LONG).show();*/
-
         intent = new Intent(ParametresGravite.this, GraviteActivity.class);
 
         ajoutListenerButton();
