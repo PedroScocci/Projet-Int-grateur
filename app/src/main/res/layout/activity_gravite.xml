@@ -91,6 +91,29 @@
                 android:background="@color/blanc3"
                 android:text="Texte" />
 
+            <TextView
+                android:id="@+id/texte_energie"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_below="@+id/objet_chute"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/blanc3"
+                android:text="@string/texte_energie"
+                android:textColor="@color/noir" />
+
+            <TextView
+                android:id="@+id/energie_tnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignStart="@+id/texte_energie"
+                android:layout_below="@+id/texte_energie"
+                android:layout_marginTop="7dp"
+                android:background="@color/blanc3"
+                android:text="Texte"
+                android:textColor="@color/noir" />
+
         </RelativeLayout>
 
         <LinearLayout
