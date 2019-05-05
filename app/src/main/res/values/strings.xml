@@ -55,6 +55,11 @@
     <string name="hauteur_min">0.0 m</string>
     <string name="texte_vfinale">Vitesse finale approximative:</string>
     <string name="texte_energie">Énergie d\'impact: </string>
+    <string name="paradoxe4BRetourMenu">Retour au menu principal</string>
+    <string name="texte">Texte</string>
+    <string name="retour2">Retour</string>
+    <string name="commencer">Commencer</string>
+    <string name="titreMenuPrincipal">Simulateur de physique</string>
     <string-array name="liste_planetes">
         <item>Mercure</item>
         <item>Venus</item>

@@ -78,32 +78,9 @@ public class Paradoxe2 extends AppCompatActivity {
                         Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
                         myIntent.putExtra("ageN", String.valueOf(temps_normal));
                         myIntent.putExtra("ageD", String.valueOf(temps_dilate));
-                        startActivity(myIntent);
+                        startActivityForResult(myIntent, 2);
                     }
                     else if(vitesse_nombre <=0) {
-                        Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite0, Toast.LENGTH_SHORT).show();
-                    }
-                    else{
-                        Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite100, Toast.LENGTH_SHORT).show();
-                    }
-                    if(vitesse_nombre > 0 && vitesse_nombre <100) {
-                        calculerTemps();
-
-                        temps_dilatea = temps*(sqrt((1-((vitesse_nombre/100))/(1+((vitesse_nombre/100))))));
-                        temps_dilater = temps*(sqrt((1+((vitesse_nombre/100))/(1-((vitesse_nombre/100))))));
-
-                        temps_dilate = temps_dilatea + temps_dilater + age_nombre;
-                        temps_normal = (2*temps) + age_nombre;
-
-                        Intent myIntent = new Intent(Paradoxe2.this, Paradoxe3.class);
-
-                        myIntent.putExtra("ageN", String.valueOf(Math.round(temps_normal)));
-                        myIntent.putExtra("ageD", String.valueOf(Math.round(temps_dilate)));
-                        startActivity(myIntent);
-                        //Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("file:///C:/Users/Utilisateur/Desktop/Cegep/Session%204/Programmation/Intgration/Logs/WebGl/index.html"));
-                        //startActivity(browserIntent);
-                    }
-                    else if (vitesse_nombre <=0) {
                         Toast.makeText(Paradoxe2.this, R.string.paradoxe2Limite0, Toast.LENGTH_SHORT).show();
                     }
                     else{
@@ -145,6 +122,18 @@ public class Paradoxe2 extends AppCompatActivity {
                 temps = (2.537 * pow(10,6) * 9.461 * pow(10,15)) / (((vitesse_nombre*(3*pow(10,8)))/100) * 31536000);
                 //temps = ((2.401*pow(10,22))/((vitesse_nombre*(3*pow(10,8)))/100))/31536000;
                 break;
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 2){
+            if(resultCode == MenuPrincipal.RETOUR_MENU_PRINCIPAL) {
+                setResult(MenuPrincipal.RETOUR_MENU_PRINCIPAL);
+                finish();
+            }
         }
     }
 }

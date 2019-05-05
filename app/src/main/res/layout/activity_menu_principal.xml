@@ -29,7 +29,8 @@
             android:layout_weight="1"
             android:text="@string/ondesStationnaires"
             tools:layout_editor_absoluteX="83dp"
-            tools:layout_editor_absoluteY="235dp" />
+            tools:layout_editor_absoluteY="235dp"
+            tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
 
         <Button
             android:id="@+id/bouton_Paradoxe"
@@ -40,7 +41,8 @@
             android:layout_marginLeft="20dp"
             android:layout_toEndOf="@+id/bouton_Onde"
             android:layout_weight="1"
-            android:text="@string/paradoxeJumeaux" />
+            android:text="@string/paradoxeJumeaux"
+            tools:ignore="ObsoleteLayoutParam,RtlHardcoded" />
 
         <Button
             android:id="@+id/bouton_ForceCentripete"
@@ -50,7 +52,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="180dp"
             android:layout_weight="1"
-            android:text="@string/forceCentripete" />
+            android:text="@string/forceCentripete"
+            tools:ignore="ObsoleteLayoutParam" />
 
         <Button
             android:id="@+id/bouton_Gravite"
@@ -61,7 +64,8 @@
             android:layout_gravity="center"
             android:layout_marginTop="180dp"
             android:layout_weight="1"
-            android:text="@string/gravite" />
+            android:text="@string/gravite"
+            tools:ignore="ObsoleteLayoutParam" />
 
         <TextView
             android:id="@+id/textView"
@@ -72,7 +76,7 @@
             android:background="@drawable/borders"
             android:text="@string/app_name"
             android:textColor="@color/noir"
-            android:textSize="35dp" />
+            android:textSize="35sp" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,12 +9,13 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/fenetre2"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        tools:ignore="MissingConstraints">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/detailsDuVoyage"
-            android:textSize="40dp"
+            android:textSize="40sp"
             android:gravity="center"
             android:textColor="@color/grisMate"
             android:paddingBottom="40dp"/>
@@ -30,12 +30,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:gravity="center"
-                android:paddingBottom="30dp">
+                android:paddingBottom="30dp"
+                tools:ignore="UselessParent">
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/jumeaux"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:textColor="@color/grisMate"/>
                 <EditText
                     android:id="@+id/age"
@@ -44,7 +45,8 @@
                     android:inputType="number"
                     android:textAlignment="center"
                     android:textColor="@color/grisMate"
-                    android:backgroundTint="@color/grisMate"/>
+                    android:backgroundTint="@color/grisMate"
+                    tools:ignore="Autofill,LabelFor" />
             </LinearLayout>
 
         </LinearLayout>
@@ -55,7 +57,7 @@
             android:layout_height="wrap_content"
             android:textAlignment="center"
             android:text="@string/vitesse"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textColor="@color/grisMate"/>
         <EditText
             android:id="@+id/vitesse"
@@ -65,7 +67,8 @@
             android:inputType="numberDecimal"
             android:textColor="@color/grisMate"
             android:backgroundTint="@color/grisMate"
-            android:layout_gravity="center"/>
+            android:layout_gravity="center"
+            tools:ignore="Autofill,LabelFor" />
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,7 +82,7 @@
             android:textColor="@color/grisMate"
             android:text="@string/dest"
             android:gravity="center"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:paddingBottom="10dp"/>
         <Spinner
             android:layout_width="match_parent"

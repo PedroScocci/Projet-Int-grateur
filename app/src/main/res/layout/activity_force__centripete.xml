@@ -28,7 +28,8 @@
                 android:layout_alignParentTop="true"
                 android:layout_marginStart="299dp"
                 android:layout_marginTop="135dp"
-                app:srcCompat="@drawable/auto" />
+                app:srcCompat="@drawable/auto"
+                tools:ignore="ContentDescription" />
         </RelativeLayout>
 
         <Button

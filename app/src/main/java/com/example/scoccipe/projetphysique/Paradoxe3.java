@@ -15,17 +15,33 @@ import android.view.animation.Animation;
 
 
 public class Paradoxe3 extends AppCompatActivity {
-
+    private boolean animationCast = true;
     private Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_paradoxe3);
         intent = getIntent();
 
+        if(animationCast){
+            animationRealise();
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 3){
+            if(resultCode == MenuPrincipal.RETOUR_MENU_PRINCIPAL) {
+                setResult(MenuPrincipal.RETOUR_MENU_PRINCIPAL);
+                finish();
+            }
+        }
+    }
+
+    protected void animationRealise() {
         final ImageView fusee = findViewById(R.id.fus);
         final ImageView perso = findViewById(R.id.pers);
 
@@ -81,14 +97,16 @@ public class Paradoxe3 extends AppCompatActivity {
                         animRetour.addListener(new AnimatorListenerAdapter() {
                             @Override
                             public void onAnimationEnd(Animator animation) {
+                                animationCast = false;
                                 Intent myIntent = new Intent(Paradoxe3.this, Paradoxe4.class);
                                 myIntent.putExtra("ageN", intent.getStringExtra("ageN"));
                                 myIntent.putExtra("ageD", intent.getStringExtra("ageD"));
-                                startActivity(myIntent);
+                                startActivityForResult(myIntent, 3);
                             }
                         });
                     }
                 });
-                }
-            });
-        }}
+            }
+        });
+    }
+}

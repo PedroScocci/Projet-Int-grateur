@@ -24,7 +24,7 @@
             android:textAllCaps="true"
             android:textColor="@color/noir"
             android:background="@color/blanc2"
-            android:textSize="35dp" />
+            android:textSize="35sp" />
 
         <LinearLayout
             android:layout_marginTop="20dp"
@@ -39,7 +39,8 @@
                 android:paddingLeft="10dp"
                 android:text="@string/planete"
                 android:background="@color/blanc2"
-                android:textColor="@color/noir" />
+                android:textColor="@color/noir"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
 
             <LinearLayout
                 android:layout_width="150dp"
@@ -71,7 +72,8 @@
                 android:background="@color/blanc2"
                 android:paddingLeft="10dp"
                 android:text="@string/masse_1"
-                android:textColor="@color/noir" />
+                android:textColor="@color/noir"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
 
             <EditText
                 android:id="@+id/masse_obj1"
@@ -80,7 +82,8 @@
                 android:layout_weight="0"
                 android:ems="10"
                 android:background="@color/blanc2"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                tools:ignore="Autofill,LabelFor" />
         </LinearLayout>
 
         <LinearLayout
@@ -96,7 +99,8 @@
                 android:background="@color/blanc2"
                 android:paddingLeft="10dp"
                 android:text="@string/hauteur_m"
-                android:textColor="@color/noir" />
+                android:textColor="@color/noir"
+                tools:ignore="RtlHardcoded,RtlSymmetry" />
 
             <EditText
                 android:id="@+id/hauteur"
@@ -105,7 +109,8 @@
                 android:layout_weight="0"
                 android:ems="10"
                 android:background="@color/blanc2"
-                android:inputType="numberDecimal" />
+                android:inputType="numberDecimal"
+                tools:ignore="Autofill,LabelFor" />
 
         </LinearLayout>
 
@@ -125,7 +130,8 @@
                 android:layout_gravity="center"
                 android:layout_marginLeft="25dp"
                 android:text="@string/txtbout_retour"
-                android:textSize="20dp" />
+                android:textSize="20sp"
+                tools:ignore="ButtonStyle,RtlHardcoded" />
 
             <Button
                 android:id="@+id/bouton_okPG-SG"
@@ -135,7 +141,8 @@
                 android:layout_marginLeft="130dp"
                 android:layout_marginRight="25dp"
                 android:text="@string/txtbout_ok"
-                android:textSize="20dp" />
+                android:textSize="20sp"
+                tools:ignore="ButtonStyle,RtlHardcoded" />
         </LinearLayout>
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

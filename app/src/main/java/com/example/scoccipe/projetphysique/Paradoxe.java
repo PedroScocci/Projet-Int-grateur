@@ -17,8 +17,19 @@ public class Paradoxe extends AppCompatActivity {
         but.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent myIntent = new Intent(Paradoxe.this, Paradoxe2.class);
-                startActivity(myIntent);
+                startActivityForResult(myIntent, 4);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == 4){
+            if(resultCode == MenuPrincipal.RETOUR_MENU_PRINCIPAL) {
+                finish();
+            }
+        }
     }
 }

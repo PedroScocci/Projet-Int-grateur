@@ -24,7 +24,8 @@
                 android:layout_height="100dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
-                app:srcCompat="@drawable/enclume" />
+                app:srcCompat="@drawable/enclume"
+                tools:ignore="ContentDescription" />
 
             <ImageView
                 android:id="@+id/imageView2"
@@ -36,7 +37,8 @@
                 android:paddingBottom="10dp"
                 app:srcCompat="@drawable/echelle"
                 tools:layout_editor_absoluteX="241dp"
-                tools:layout_editor_absoluteY="23dp" />
+                tools:layout_editor_absoluteY="23dp"
+                tools:ignore="ContentDescription" />
 
             <TextView
                 android:id="@+id/hauteur_max"
@@ -78,7 +80,8 @@
                 android:layout_marginLeft="5dp"
                 android:textColor="@color/noir"
                 android:background="@color/blanc3"
-                android:text="@string/texte_vfinale" />
+                android:text="@string/texte_vfinale"
+                tools:ignore="RtlHardcoded" />
 
             <TextView
                 android:id="@+id/vitesse_finale"
@@ -89,7 +92,7 @@
                 android:layout_marginTop="7dp"
                 android:textColor="@color/noir"
                 android:background="@color/blanc3"
-                android:text="Texte" />
+                android:text="@string/texte" />
 
             <TextView
                 android:id="@+id/texte_energie"
@@ -101,7 +104,8 @@
                 android:layout_marginTop="20dp"
                 android:background="@color/blanc3"
                 android:text="@string/texte_energie"
-                android:textColor="@color/noir" />
+                android:textColor="@color/noir"
+                tools:ignore="RtlHardcoded" />
 
             <TextView
                 android:id="@+id/energie_tnt"
@@ -111,7 +115,7 @@
                 android:layout_below="@+id/texte_energie"
                 android:layout_marginTop="7dp"
                 android:background="@color/blanc3"
-                android:text="Texte"
+                android:text="@string/texte"
                 android:textColor="@color/noir" />
 
         </RelativeLayout>
@@ -132,7 +136,8 @@
                 android:layout_marginLeft="15dp"
                 android:layout_marginRight="130dp"
                 android:layout_marginTop="10dp"
-                android:text="Retour" />
+                android:text="@string/retour2"
+                tools:ignore="ButtonStyle" />
 
             <Button
                 android:id="@+id/button_debut_anim"
@@ -140,7 +145,8 @@
                 android:layout_height="60dp"
                 android:layout_marginRight="15dp"
                 android:layout_marginTop="10dp"
-                android:text="Commencer" />
+                android:text="@string/commencer"
+                tools:ignore="ButtonStyle" />
 
         </LinearLayout>
 
