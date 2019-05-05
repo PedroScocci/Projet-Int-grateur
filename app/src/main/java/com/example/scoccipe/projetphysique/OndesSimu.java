@@ -41,7 +41,7 @@ public class OndesSimu extends AppCompatActivity {
                     tempsTemporaire = tempsMiliSecs;
                     changerMachine();
                     for(int i = 0; i < modeStatio; i++) {
-                        if(modeStatio - 1 == i && extrem.equals("Semi-ouvert")){
+                        if(modeStatio - 1 == i && extrem.equals("Semi-ouverts")){
                             changerImage(i , imagesSemiOuvert);
                             changerImageExtremite(i+1);
                         } else{
@@ -53,7 +53,7 @@ public class OndesSimu extends AppCompatActivity {
                     tempsTemporaire = tempsMiliSecs;
                     changerMachine();
                     for(int i = 0; i < modeStatio; i++) {
-                        if(modeStatio - 1 == i && extrem.equals("Semi-ouvert")){
+                        if(modeStatio - 1 == i && extrem.equals("Semi-ouverts")){
                             changerImage(i , imagesSemiOuvert);
                             changerImageExtremite(i+1);
                         } else{
@@ -65,7 +65,7 @@ public class OndesSimu extends AppCompatActivity {
                     tempsTemporaire = tempsMiliSecs;
                     changerMachine();
                     for(int i = 0; i < modeStatio; i++) {
-                        if(modeStatio - 1 == i && extrem.equals("Semi-ouvert")){
+                        if(modeStatio - 1 == i && extrem.equals("Semi-ouverts")){
                             changerImage(i , imagesSemiOuvert);
                             changerImageExtremite(i+1);
                         } else{
@@ -77,7 +77,7 @@ public class OndesSimu extends AppCompatActivity {
                     tempsTemporaire = tempsMiliSecs;
                     changerMachine();
                     for(int i = 0; i < modeStatio; i++) {
-                        if(modeStatio - 1 == i && extrem.equals("Semi-ouvert")){
+                        if(modeStatio - 1 == i && extrem.equals("Semi-ouverts")){
                             changerImage(i , imagesSemiOuvert);
                             changerImageExtremite(i+1);
                         } else{
@@ -143,7 +143,7 @@ public class OndesSimu extends AppCompatActivity {
         layout = findViewById(R.id.cordeLayout);
         layout.addView(machine);
 
-        if(extrem.equals("Semi-ouvert")) {
+        if(extrem.equals("Semi-ouverts")) {
             if(mode == Math.round(mode) && mode > 14) {
                 modeStatio = (int)(mode)%2 + 14;
                 txtProb.setText(R.string.ondesSimuProb1);
@@ -159,7 +159,7 @@ public class OndesSimu extends AppCompatActivity {
 
             extremite.setImageResource(R.drawable.extremite_semi_fermer_1);
             extremite.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 1));
-        } else if(extrem.equals("Fermé")) {
+        } else if(extrem.equals("Fermés")) {
             if(mode == Math.round(mode) && mode > 14) {
                 modeStatio = (int)(mode)%2 + 14;
                 txtProb.setText(R.string.ondesSimuProb1);
@@ -211,7 +211,7 @@ public class OndesSimu extends AppCompatActivity {
                         }
                         tempsTemporaire = 0;
                         machine.setImageResource(R.drawable.machine_corde_fermer);
-                        if(extrem.equals("Semi-ouvert")){
+                        if(extrem.equals("Semi-ouverts")){
                             extremite.setImageResource(R.drawable.extremite_semi_fermer_1);
                             sensImage[modeStatio]=0;
                             imageActuel[modeStatio] = imageActuel[modeStatio-1];

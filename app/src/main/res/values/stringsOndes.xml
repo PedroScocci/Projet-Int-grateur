@@ -47,7 +47,7 @@
     <string name="ondesInfoQuestion4">La simulation des ondes stationnaires</string>
     <string-array name="extremite_array">
         <item>Type d\'extrémité</item>
-        <item>Semi-ouvert</item>
-        <item>Fermé</item>
+        <item>Semi-ouverts</item>
+        <item>Fermés</item>
     </string-array>
 </resources>

@@ -94,10 +94,10 @@ public class OndesParam extends AppCompatActivity {
             double longueur = Double.parseDouble(longu.getText().toString());
             double masse = Double.parseDouble(mass.getText().toString());
 
-            if(Objects.equals(extremite, "Semi-ouvert")){
+            if(Objects.equals(extremite, "Semi-ouverts")){
                 mode =  ( 4 * frequence * ( Math.sqrt( masse * longueur / tension) )  - 1 ) / 2 ;
             }
-            else if (Objects.equals(extremite, "Fermé")) {
+            else if (Objects.equals(extremite, "Fermés")) {
                 mode =  2 * frequence * ( Math.sqrt( masse * longueur / tension) );
             }
         } catch (NumberFormatException e) {
