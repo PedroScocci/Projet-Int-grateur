@@ -17,8 +17,6 @@ import java.util.List;
 
 public class ParametresGravite extends AppCompatActivity {
 
-    private Button bouton_ok, bouton_retour;
-    private Spinner spinner_planete;
     private String planete, masse, hauteur;
     private Intent intent;
 
@@ -34,16 +32,16 @@ public class ParametresGravite extends AppCompatActivity {
     }
 
     public void ajoutListenerButton(){
-        bouton_ok = (Button) findViewById(R.id.bouton_okPG_SG);
+        Button bouton_ok = findViewById(R.id.bouton_okPG_SG);
         bouton_ok.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                EditText masse_text = (EditText)  findViewById(R.id.masse_obj1);
-                EditText hauteur_text = (EditText) findViewById(R.id.hauteur);
+                EditText masse_text = findViewById(R.id.masse_obj1);
+                EditText hauteur_text = findViewById(R.id.hauteur);
                 AlertDialog.Builder builder = new AlertDialog.Builder(ParametresGravite.this);
 
-                if(masse_text.getText().toString().isEmpty() == true || hauteur_text.getText().toString().isEmpty() == true){
+                if(masse_text.getText().toString().isEmpty() || hauteur_text.getText().toString().isEmpty()){
                     builder.setMessage("Veuillez remplir toutes les cases.")
                             .setTitle("ERREUR :");
 
@@ -77,7 +75,7 @@ public class ParametresGravite extends AppCompatActivity {
             }
         });
 
-        bouton_retour = (Button) findViewById(R.id.bouton_retourPG_M);
+        Button bouton_retour = findViewById(R.id.bouton_retourPG_M);
         bouton_retour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -87,7 +85,7 @@ public class ParametresGravite extends AppCompatActivity {
     }
 
     public void ajoutListenerPlanete(){
-        spinner_planete = (Spinner) findViewById(R.id.spinner_planete);
+        Spinner spinner_planete = findViewById(R.id.spinner_planete);
         List<String> spinnerArray = new ArrayList<>();
         spinnerArray.add("Mercure");
         spinnerArray.add("Venus");

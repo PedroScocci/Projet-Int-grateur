@@ -24,7 +24,6 @@ public class Informations extends AppCompatActivity {
             public void onClick(View view) {
                 intent = new Intent(Informations.this, ParametresCentripete.class);
                 startActivityForResult(intent, INFO);
-                finish();
             }
         });
     }
@@ -38,11 +37,21 @@ public class Informations extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.menu_principal3:
-                intent = new Intent(Informations.this, MenuPrincipal.class);
-                startActivityForResult(intent, INFO);
+                finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == INFO){
+            if(resultCode == MenuPrincipal.RETOUR_MENU_PRINCIPAL) {
+                finish();
+            }
         }
     }
 }

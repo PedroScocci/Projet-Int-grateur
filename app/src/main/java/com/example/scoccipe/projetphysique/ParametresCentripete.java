@@ -1,6 +1,7 @@
 package com.example.scoccipe.projetphysique;
 
 import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -34,19 +35,18 @@ public class ParametresCentripete extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_parametres_centripete);
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        Spinner spinner = findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.routes_array, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
 
-        final TextView tv1 = (TextView) findViewById(R.id.textView2);
-        final TextView tv2 = (TextView) findViewById(R.id.textView3);
-        final TextView tv3 = (TextView) findViewById(R.id.textView4);
-        final TextView tv4 = (TextView) findViewById(R.id.textView5);
-        final EditText et1 = (EditText) findViewById(R.id.edittext1);
-        final EditText et2 = (EditText) findViewById(R.id.edittext2);
-        final EditText et3 = (EditText) findViewById(R.id.edittext3);
+        final TextView tv1 = findViewById(R.id.textView2);
+        final TextView tv2 = findViewById(R.id.textView3);
+        final TextView tv3 = findViewById(R.id.textView4);
+        final EditText et1 = findViewById(R.id.edittext1);
+        final EditText et2 = findViewById(R.id.edittext2);
+        final EditText et3 = findViewById(R.id.edittext3);
 
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener()
         {
@@ -81,7 +81,7 @@ public class ParametresCentripete extends AppCompatActivity {
             }
         });
 
-        Button button = (Button) findViewById(R.id.button5);
+        Button button = findViewById(R.id.button5);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -93,9 +93,9 @@ public class ParametresCentripete extends AppCompatActivity {
                     friction = masse*9.81*coef;
                     centripete = (masse*Math.pow(vitesse,2))/rayon;
                     derap = friction < centripete;
-                    tv1.setTextColor(getResources().getColor(R.color.noir));
-                    tv2.setTextColor(getResources().getColor(R.color.noir));
-                    tv3.setTextColor(getResources().getColor(R.color.noir));
+                    tv1.setTextColor(ContextCompat.getColor(ParametresCentripete.this, R.color.noir));
+                    tv2.setTextColor(ContextCompat.getColor(ParametresCentripete.this, R.color.noir));
+                    tv3.setTextColor(ContextCompat.getColor(ParametresCentripete.this, R.color.noir));
 
                     Intent intent = new Intent(ParametresCentripete.this, Force_Centripete.class);
                     intent.putExtra(PARAMETRES, derap);
@@ -109,24 +109,24 @@ public class ParametresCentripete extends AppCompatActivity {
                     Toast.makeText(ParametresCentripete.this, "Des paramètres sont manquants", Toast.LENGTH_LONG).show();
                     if(et1.getText().toString().equals(""))
                     {
-                        tv1.setTextColor(getResources().getColor(R.color.rouge));
+                        tv1.setTextColor(ContextCompat.getColor(ParametresCentripete.this, R.color.rouge));
                     }
                     else {
-                        tv1.setTextColor(getResources().getColor(R.color.noir));
+                        tv1.setTextColor(ContextCompat.getColor(ParametresCentripete.this, R.color.noir));
                     }
                     if(et2.getText().toString().equals(""))
                     {
-                        tv2.setTextColor(getResources().getColor(R.color.rouge));
+                        tv2.setTextColor(ContextCompat.getColor(ParametresCentripete.this, R.color.rouge));
                     }
                     else {
-                        tv2.setTextColor(getResources().getColor(R.color.noir));
+                        tv2.setTextColor(ContextCompat.getColor(ParametresCentripete.this, R.color.noir));
                     }
                     if(et3.getText().toString().equals(""))
                     {
-                        tv3.setTextColor(getResources().getColor(R.color.rouge));
+                        tv3.setTextColor(ContextCompat.getColor(ParametresCentripete.this, R.color.rouge));
                     }
                     else {
-                        tv3.setTextColor(getResources().getColor(R.color.noir));
+                        tv3.setTextColor(ContextCompat.getColor(ParametresCentripete.this, R.color.noir));
                     }
                 }
             }
@@ -141,12 +141,23 @@ public class ParametresCentripete extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.menu_principal:
-                Intent intent2 = new Intent(ParametresCentripete.this, MenuPrincipal.class);
-                startActivityForResult(intent2, PARAM);
+                setResult(MenuPrincipal.RETOUR_MENU_PRINCIPAL);
                 finish();
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+
+        if(requestCode == PARAM){
+            if(resultCode == MenuPrincipal.RETOUR_MENU_PRINCIPAL){
+                setResult(MenuPrincipal.RETOUR_MENU_PRINCIPAL);
+                finish();
+            }
         }
     }
 }

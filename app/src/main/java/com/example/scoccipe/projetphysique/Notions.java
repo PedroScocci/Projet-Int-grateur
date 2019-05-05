@@ -1,6 +1,5 @@
 package com.example.scoccipe.projetphysique;
 
-import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -13,13 +12,11 @@ public class Notions extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_notions);
 
-        Button b = (Button) findViewById(R.id.button_notions);
+        Button b = findViewById(R.id.button_notions);
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent = new Intent(Notions.this, MenuPrincipal.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

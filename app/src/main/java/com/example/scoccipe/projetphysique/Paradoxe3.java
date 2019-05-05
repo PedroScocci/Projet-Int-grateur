@@ -4,19 +4,13 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.animation.AccelerateInterpolator;
-import android.view.animation.AnimationSet;
 import android.view.animation.BounceInterpolator;
 import android.view.animation.DecelerateInterpolator;
-import android.webkit.WebView;
 import android.widget.ImageView;
 import android.animation.ObjectAnimator;
 import android.animation.AnimatorListenerAdapter;
 import android.animation.Animator;
-import android.widget.LinearLayout;
-import android.widget.Toast;
 import android.animation.AnimatorSet;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.AlphaAnimation;
 import android.view.animation.Animation;
 
 
@@ -32,9 +26,8 @@ public class Paradoxe3 extends AppCompatActivity {
         setContentView(R.layout.activity_paradoxe3);
         intent = getIntent();
 
-        final ImageView fusee = (ImageView) findViewById(R.id.fus);
-        final ImageView perso = (ImageView) findViewById(R.id.pers);
-        //fusee.setImageResource(R.drawable.fusee);
+        final ImageView fusee = findViewById(R.id.fus);
+        final ImageView perso = findViewById(R.id.pers);
 
         ObjectAnimator Yperso = ObjectAnimator.ofFloat(perso, "translationY", perso.getY(), -250 * Animation.RELATIVE_TO_PARENT);
         Yperso.setDuration(2250);
@@ -44,7 +37,7 @@ public class Paradoxe3 extends AppCompatActivity {
         Yperso.addListener(new AnimatorListenerAdapter() {
             @Override
             public void onAnimationEnd(Animator animation) {
-                ObjectAnimator Yrebond = ObjectAnimator.ofFloat(perso, "translationY",1 * Animation.RELATIVE_TO_PARENT);
+                ObjectAnimator Yrebond = ObjectAnimator.ofFloat(perso, "translationY", Animation.RELATIVE_TO_PARENT);
                 Yrebond.setDuration(1750);
                 Yrebond.setInterpolator(new BounceInterpolator());
                 Yrebond.start();
@@ -70,13 +63,13 @@ public class Paradoxe3 extends AppCompatActivity {
         animSetXY.addListener(new AnimatorListenerAdapter() {
             public void onAnimationEnd(Animator animation) {
 
-                ObjectAnimator xRetour = ObjectAnimator.ofFloat(fusee, "translationX", fusee.getX(), 1* Animation.RELATIVE_TO_PARENT);
+                ObjectAnimator xRetour = ObjectAnimator.ofFloat(fusee, "translationX", fusee.getX(), Animation.RELATIVE_TO_PARENT);
                 xRetour.setDuration(1000);
                 xRetour.start();
 
                 xRetour.addListener(new AnimatorListenerAdapter(){
                     public void onAnimationEnd(Animator animation){
-                        ObjectAnimator yRetour = ObjectAnimator.ofFloat(fusee, "translationY",1* Animation.RELATIVE_TO_PARENT);
+                        ObjectAnimator yRetour = ObjectAnimator.ofFloat(fusee, "translationY", Animation.RELATIVE_TO_PARENT);
                         ObjectAnimator scaleXRetour = ObjectAnimator.ofFloat(fusee, "scaleX", 0f,1f);
                         ObjectAnimator scaleYRetour = ObjectAnimator.ofFloat(fusee, "scaleY", 0f,1f);
                         AnimatorSet animRetour = new AnimatorSet();

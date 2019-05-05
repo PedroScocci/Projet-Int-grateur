@@ -1,40 +1,26 @@
 package com.example.scoccipe.projetphysique;
 
 import android.animation.Animator;
-import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.graphics.Path;
-import android.graphics.RectF;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.animation.AccelerateInterpolator;
 import android.view.animation.Animation;
 import android.view.animation.AnimationSet;
-import android.view.animation.LinearInterpolator;
-import android.view.animation.RotateAnimation;
 import android.view.animation.TranslateAnimation;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.Toast;
 
 public class Force_Centripete extends AppCompatActivity {
-    public static final int FORCE = 2;
-    private Intent intent;
-    private Intent intent2;
     private RelativeLayout relativeLayout;
     private boolean derapage;
-    private double vitesse;
-    private double rayon;
-    private int route;
     private long temps;
     private ImageView iv ;
-    private ImageView iv2;
-    private ImageView iv3;
     private Button b;
     private RelativeLayout.LayoutParams lp;
     private int derapcompteur;
@@ -47,12 +33,12 @@ public class Force_Centripete extends AppCompatActivity {
         relativeLayout = findViewById(R.id.back);
         iv = findViewById(R.id.voit);
 
-        intent = getIntent();
+        Intent intent = getIntent();
         derapage = intent.getBooleanExtra(ParametresCentripete.PARAMETRES, false);
-        vitesse = intent.getDoubleExtra(ParametresCentripete.PARAMETRES2, 0);
-        rayon = intent.getDoubleExtra(ParametresCentripete.PARAMETRES3, 0);
-        route = intent.getIntExtra(ParametresCentripete.PARAMETRES4, 0);
-        temps = Math.round((2*Math.PI*rayon)/(vitesse)*1000);
+        double vitesse = intent.getDoubleExtra(ParametresCentripete.PARAMETRES2, 0);
+        double rayon = intent.getDoubleExtra(ParametresCentripete.PARAMETRES3, 0);
+        int route = intent.getIntExtra(ParametresCentripete.PARAMETRES4, 0);
+        temps = Math.round((2*Math.PI* rayon)/(vitesse)*1000);
         
 
         b = findViewById(R.id.buttonsim);
@@ -93,13 +79,11 @@ public class Force_Centripete extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch(item.getItemId()) {
             case R.id.menu_principal2:
-                intent2 = new Intent(Force_Centripete.this, MenuPrincipal.class);
-                startActivityForResult(intent2, FORCE);
+                setResult(MenuPrincipal.RETOUR_MENU_PRINCIPAL);
                 finish();
                 return true;
             case R.id.menu_Parametres:
-                intent2 = new Intent(Force_Centripete.this, ParametresCentripete.class);
-                startActivityForResult(intent2, FORCE);
+                setResult(RESULT_OK);
                 finish();
                 return true;
             default:

@@ -122,7 +122,8 @@
             android:layout_height="87dp"
             android:background="@drawable/mercure"
             android:gravity="right|center_vertical"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            tools:ignore="RtlHardcoded">
 
             <Button
                 android:id="@+id/bouton_retourSG_PG"

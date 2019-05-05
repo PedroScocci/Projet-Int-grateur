@@ -1,5 +1,6 @@
 package com.example.scoccipe.projetphysique;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.support.v7.app.AppCompatActivity;
@@ -12,9 +13,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class GraviteActivity extends AppCompatActivity {
-    private Intent intent;
     private String planete, masse, hauteur;
-    private Double temps_de_chute, acceleration_grav, energie_impact, hauteur_moy;
+    private Double temps_de_chute;
+    private Double acceleration_grav;
     private ImageView imageObjet;
     private Drawable imagePlanete;
 
@@ -23,7 +24,7 @@ public class GraviteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_gravite);
 
-        imageObjet = (ImageView) findViewById(R.id.objet_chute);
+        imageObjet = findViewById(R.id.objet_chute);
 
         gestionBoutons();
 
@@ -31,7 +32,7 @@ public class GraviteActivity extends AppCompatActivity {
     }
 
     public void recevoirParametres(){
-        intent = getIntent();
+        Intent intent = getIntent();
 
         planete = intent.getStringExtra("planete");
         masse = intent.getStringExtra("masse");
@@ -87,7 +88,7 @@ public class GraviteActivity extends AppCompatActivity {
                 break;
         }
 
-        LinearLayout layout_planete = (LinearLayout) findViewById(R.id.layout_planete);
+        LinearLayout layout_planete = findViewById(R.id.layout_planete);
         layout_planete.setBackground(imagePlanete);
 
         calculTempsDeChute();
@@ -102,46 +103,48 @@ public class GraviteActivity extends AppCompatActivity {
         calculForceImpact();
     }
 
+    @SuppressLint("SetTextI18n")
     public void definirEchelle(){
-        TextView h_max = (TextView) findViewById(R.id.hauteur_max);
-        Double temp = Double.valueOf(hauteur);
+        TextView h_max = findViewById(R.id.hauteur_max);
+        double temp = Double.parseDouble(hauteur);
         temp = Math.round(temp*10.0d)/10.0d;
-        h_max.setText(temp.toString() + " m");
+        h_max.setText(Double.toString(temp) + " m");
 
-        TextView h_moy = (TextView) findViewById(R.id.hauteur_moy);
-        hauteur_moy = Double.valueOf(hauteur)/2;
-        hauteur_moy = Math.round(hauteur_moy*10.0d)/10.0d;
-        h_moy.setText(hauteur_moy.toString() + " m");
+        TextView h_moy = findViewById(R.id.hauteur_moy);
+        double hauteur_moy = Double.valueOf(hauteur) / 2;
+        hauteur_moy = Math.round(hauteur_moy *10.0d)/10.0d;
+        h_moy.setText(Double.toString(hauteur_moy) + " m");
     }
 
+    @SuppressLint("SetTextI18n")
     public void calculForceImpact(){
-        Double vitesse_finale = acceleration_grav * temps_de_chute;
+        double vitesse_finale = acceleration_grav * temps_de_chute;
         vitesse_finale = Math.round(vitesse_finale * 100d) / 100d;
-        energie_impact = 0.5 * Double.parseDouble(masse) * Math.pow(vitesse_finale, 2);
-        TextView texte_tnt = (TextView) findViewById(R.id.energie_tnt);
+        double energie_impact = 0.5 * Double.parseDouble(masse) * Math.pow(vitesse_finale, 2);
+        TextView texte_tnt = findViewById(R.id.energie_tnt);
 
         String texte_energie;
         if(energie_impact >= (4.184*(Math.pow(10,9)))){
             energie_impact /= 4.184*(Math.pow(10,9));
             energie_impact = Math.round(energie_impact * 100d) / 100d;
-            texte_energie = energie_impact.toString() + " tonnes de TNT";
+            texte_energie = Double.toString(energie_impact) + " tonnes de TNT";
             texte_tnt.setText(texte_energie);
         }
         else if(energie_impact >= (4.184*(Math.pow(10,6)))){
             energie_impact /= 4.184*(Math.pow(10,6));
             energie_impact = Math.round(energie_impact * 100d) / 100d;
-            texte_energie = energie_impact.toString() + " kilogrammes de TNT";
+            texte_energie = Double.toString(energie_impact) + " kilogrammes de TNT";
             texte_tnt.setText(texte_energie);
         }
         else{
             energie_impact /= 4.184*(Math.pow(10,3));
             energie_impact = Math.round(energie_impact * 100d) / 100d;
-            texte_energie = energie_impact.toString() + " grammes de TNT";
+            texte_energie = Double.toString(energie_impact) + " grammes de TNT";
             texte_tnt.setText(texte_energie);
         }
 
-        TextView v_finale = (TextView) findViewById(R.id.vitesse_finale);
-        v_finale.setText(vitesse_finale.toString() + " m/s");
+        TextView v_finale = findViewById(R.id.vitesse_finale);
+        v_finale.setText(Double.toString(vitesse_finale) + " m/s");
     }
 
     public void animationTest(Button bouton){
@@ -156,7 +159,7 @@ public class GraviteActivity extends AppCompatActivity {
     }
 
     public void gestionBoutons(){
-        final Button bouton_debut = (Button) findViewById(R.id.button_debut_anim);
+        final Button bouton_debut = findViewById(R.id.button_debut_anim);
         bouton_debut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -164,7 +167,7 @@ public class GraviteActivity extends AppCompatActivity {
             }
         });
 
-        Button bouton_retour = (Button) findViewById(R.id.bouton_retourSG_PG);
+        Button bouton_retour = findViewById(R.id.bouton_retourSG_PG);
         bouton_retour.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
